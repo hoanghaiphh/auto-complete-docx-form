@@ -1,0 +1,989 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="InputForm">
+  <grid id="27dc6" binding="mainPanel" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+    <margin top="10" left="10" bottom="10" right="10"/>
+    <constraints>
+      <xy x="20" y="20" width="1230" height="819"/>
+    </constraints>
+    <properties/>
+    <border type="none"/>
+    <children>
+      <tabbedpane id="1860e" binding="mainTabbedPane">
+        <constraints>
+          <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false">
+            <preferred-size width="1200" height="550"/>
+          </grid>
+        </constraints>
+        <properties/>
+        <border type="none"/>
+        <children>
+          <grid id="8a6ff" layout-manager="GridLayoutManager" row-count="2" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+            <margin top="10" left="10" bottom="10" right="10"/>
+            <constraints>
+              <tabbedpane title="Cho thuê máy"/>
+            </constraints>
+            <properties/>
+            <border type="none"/>
+            <children>
+              <tabbedpane id="ddf59" binding="lease">
+                <constraints>
+                  <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false">
+                    <preferred-size width="200" height="200"/>
+                  </grid>
+                </constraints>
+                <properties/>
+                <border type="none"/>
+                <children>
+                  <grid id="ff9c7" layout-manager="GridLayoutManager" row-count="6" column-count="8" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+                    <margin top="10" left="10" bottom="10" right="10"/>
+                    <constraints>
+                      <tabbedpane title="Người được ủy quyền"/>
+                    </constraints>
+                    <properties/>
+                    <border type="none"/>
+                    <children>
+                      <component id="bcd7" class="javax.swing.JLabel">
+                        <constraints>
+                          <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                        </constraints>
+                        <properties>
+                          <font name="Segoe UI Variable" size="16" style="1"/>
+                          <text value="Họ và tên:"/>
+                        </properties>
+                      </component>
+                      <component id="da9f5" class="javax.swing.JTextField" binding="authorizedName">
+                        <constraints>
+                          <grid row="0" column="1" row-span="1" col-span="7" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                            <preferred-size width="150" height="40"/>
+                          </grid>
+                        </constraints>
+                        <properties>
+                          <font name="Segoe UI Variable" size="16"/>
+                        </properties>
+                      </component>
+                      <component id="4724f" class="javax.swing.JLabel">
+                        <constraints>
+                          <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                        </constraints>
+                        <properties>
+                          <font name="Segoe UI Variable" size="16" style="1"/>
+                          <text value="Số căn cước:"/>
+                        </properties>
+                      </component>
+                      <component id="a9e65" class="javax.swing.JLabel">
+                        <constraints>
+                          <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                        </constraints>
+                        <properties>
+                          <font name="Segoe UI Variable" size="16" style="1"/>
+                          <text value="Số điện thoại:"/>
+                        </properties>
+                      </component>
+                      <component id="d8b64" class="javax.swing.JLabel">
+                        <constraints>
+                          <grid row="4" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                        </constraints>
+                        <properties>
+                          <font name="Segoe UI Variable" size="16" style="1"/>
+                          <text value="Số tài khoản:"/>
+                        </properties>
+                      </component>
+                      <component id="95fc7" class="javax.swing.JTextField" binding="authorizedId">
+                        <constraints>
+                          <grid row="2" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                            <preferred-size width="200" height="40"/>
+                          </grid>
+                        </constraints>
+                        <properties>
+                          <font name="Segoe UI Variable" size="16"/>
+                        </properties>
+                      </component>
+                      <component id="2753" class="javax.swing.JTextField" binding="authorizedTel">
+                        <constraints>
+                          <grid row="3" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                            <preferred-size width="200" height="40"/>
+                          </grid>
+                        </constraints>
+                        <properties>
+                          <font name="Segoe UI Variable" size="16"/>
+                        </properties>
+                      </component>
+                      <component id="dba45" class="javax.swing.JTextField" binding="authorizedAcc">
+                        <constraints>
+                          <grid row="4" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                            <preferred-size width="200" height="40"/>
+                          </grid>
+                        </constraints>
+                        <properties>
+                          <font name="Segoe UI Variable" size="16"/>
+                        </properties>
+                      </component>
+                      <component id="86245" class="javax.swing.JLabel">
+                        <constraints>
+                          <grid row="2" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                        </constraints>
+                        <properties>
+                          <font name="Segoe UI Variable" size="16" style="1"/>
+                          <text value="Ngày cấp:"/>
+                        </properties>
+                      </component>
+                      <component id="5dfd3" class="javax.swing.JTextField" binding="authorizedIdDate">
+                        <constraints>
+                          <grid row="2" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                            <preferred-size width="200" height="40"/>
+                          </grid>
+                        </constraints>
+                        <properties>
+                          <font name="Segoe UI Variable" size="16"/>
+                        </properties>
+                      </component>
+                      <component id="5e7f3" class="javax.swing.JLabel">
+                        <constraints>
+                          <grid row="2" column="6" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                        </constraints>
+                        <properties>
+                          <font name="Segoe UI Variable" size="16" style="1"/>
+                          <text value="Nơi cấp:"/>
+                        </properties>
+                      </component>
+                      <component id="c5eef" class="javax.swing.JTextField" binding="authorizedIdPlace">
+                        <constraints>
+                          <grid row="2" column="7" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                            <preferred-size width="150" height="40"/>
+                          </grid>
+                        </constraints>
+                        <properties>
+                          <font name="Segoe UI Variable" size="16"/>
+                          <text value="Cục cảnh sát QLHC về TTXH"/>
+                        </properties>
+                      </component>
+                      <component id="a0c16" class="javax.swing.JLabel">
+                        <constraints>
+                          <grid row="3" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                        </constraints>
+                        <properties>
+                          <font name="Segoe UI Variable" size="16" style="1"/>
+                          <text value="Email:"/>
+                        </properties>
+                      </component>
+                      <component id="81122" class="javax.swing.JTextField" binding="authorizedEmail">
+                        <constraints>
+                          <grid row="3" column="4" row-span="1" col-span="4" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                            <preferred-size width="150" height="40"/>
+                          </grid>
+                        </constraints>
+                        <properties>
+                          <font name="Segoe UI Variable" size="16"/>
+                          <text value="@gmail.com"/>
+                        </properties>
+                      </component>
+                      <component id="9010f" class="javax.swing.JLabel">
+                        <constraints>
+                          <grid row="4" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                        </constraints>
+                        <properties>
+                          <font name="Segoe UI Variable" size="16" style="1"/>
+                          <text value="Ngân hàng:"/>
+                        </properties>
+                      </component>
+                      <component id="45887" class="javax.swing.JTextField" binding="authorizedBank">
+                        <constraints>
+                          <grid row="4" column="4" row-span="1" col-span="4" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                            <preferred-size width="150" height="40"/>
+                          </grid>
+                        </constraints>
+                        <properties>
+                          <font name="Segoe UI Variable" size="16"/>
+                        </properties>
+                      </component>
+                      <vspacer id="d3eda">
+                        <constraints>
+                          <grid row="5" column="2" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
+                        </constraints>
+                      </vspacer>
+                      <component id="ecdf2" class="javax.swing.JLabel">
+                        <constraints>
+                          <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                        </constraints>
+                        <properties>
+                          <font name="Segoe UI Variable" size="16" style="1"/>
+                          <text value="Địa chỉ:"/>
+                        </properties>
+                      </component>
+                      <component id="6bb5c" class="javax.swing.JTextField" binding="authorizedAddress">
+                        <constraints>
+                          <grid row="1" column="1" row-span="1" col-span="7" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                            <preferred-size width="150" height="40"/>
+                          </grid>
+                        </constraints>
+                        <properties>
+                          <font name="Segoe UI Variable" size="16"/>
+                        </properties>
+                      </component>
+                    </children>
+                  </grid>
+                  <grid id="14784" layout-manager="GridLayoutManager" row-count="11" column-count="8" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+                    <margin top="10" left="10" bottom="10" right="10"/>
+                    <constraints>
+                      <tabbedpane title="Đơn vị ủy quyền"/>
+                    </constraints>
+                    <properties/>
+                    <border type="none"/>
+                    <children>
+                      <component id="c2ce0" class="javax.swing.JLabel">
+                        <constraints>
+                          <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                        </constraints>
+                        <properties>
+                          <font name="Segoe UI Variable" size="16" style="1"/>
+                          <text value="Tên đơn vị:"/>
+                        </properties>
+                      </component>
+                      <component id="a7255" class="javax.swing.JTextField" binding="authorizerComName">
+                        <constraints>
+                          <grid row="1" column="1" row-span="1" col-span="7" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                            <preferred-size width="150" height="40"/>
+                          </grid>
+                        </constraints>
+                        <properties>
+                          <font name="Segoe UI Variable" size="16"/>
+                        </properties>
+                      </component>
+                      <component id="eaa70" class="javax.swing.JLabel">
+                        <constraints>
+                          <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                        </constraints>
+                        <properties>
+                          <font name="Segoe UI Variable" size="16" style="1"/>
+                          <text value="Địa chỉ:"/>
+                        </properties>
+                      </component>
+                      <component id="aadaf" class="javax.swing.JTextField" binding="authorizerComAddress">
+                        <constraints>
+                          <grid row="2" column="1" row-span="1" col-span="7" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                            <preferred-size width="150" height="40"/>
+                          </grid>
+                        </constraints>
+                        <properties>
+                          <font name="Segoe UI Variable" size="16"/>
+                        </properties>
+                      </component>
+                      <component id="a02ab" class="javax.swing.JLabel">
+                        <constraints>
+                          <grid row="4" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                        </constraints>
+                        <properties>
+                          <font name="Segoe UI Variable" size="16" style="1"/>
+                          <text value="Người đại diện:"/>
+                        </properties>
+                      </component>
+                      <component id="af6a8" class="javax.swing.JTextField" binding="authorizerName">
+                        <constraints>
+                          <grid row="4" column="1" row-span="1" col-span="7" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                            <preferred-size width="150" height="40"/>
+                          </grid>
+                        </constraints>
+                        <properties>
+                          <font name="Segoe UI Variable" size="16"/>
+                        </properties>
+                      </component>
+                      <component id="2ab45" class="javax.swing.JLabel">
+                        <constraints>
+                          <grid row="7" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                        </constraints>
+                        <properties>
+                          <font name="Segoe UI Variable" size="16" style="1"/>
+                          <text value="Số căn cước:"/>
+                        </properties>
+                      </component>
+                      <component id="fa643" class="javax.swing.JTextField" binding="authorizerId">
+                        <constraints>
+                          <grid row="7" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                            <preferred-size width="200" height="40"/>
+                          </grid>
+                        </constraints>
+                        <properties>
+                          <font name="Segoe UI Variable" size="16"/>
+                        </properties>
+                      </component>
+                      <component id="b09d0" class="javax.swing.JLabel">
+                        <constraints>
+                          <grid row="7" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                        </constraints>
+                        <properties>
+                          <font name="Segoe UI Variable" size="16" style="1"/>
+                          <text value="Ngày cấp:"/>
+                        </properties>
+                      </component>
+                      <component id="4f5c7" class="javax.swing.JLabel">
+                        <constraints>
+                          <grid row="7" column="6" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                        </constraints>
+                        <properties>
+                          <font name="Segoe UI Variable" size="16" style="1"/>
+                          <text value="Nơi cấp:"/>
+                        </properties>
+                      </component>
+                      <component id="26a1a" class="javax.swing.JTextField" binding="authorizerIdDate">
+                        <constraints>
+                          <grid row="7" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                            <preferred-size width="200" height="40"/>
+                          </grid>
+                        </constraints>
+                        <properties>
+                          <font name="Segoe UI Variable" size="16"/>
+                        </properties>
+                      </component>
+                      <component id="fc49e" class="javax.swing.JTextField" binding="authorizerIdPlace">
+                        <constraints>
+                          <grid row="7" column="7" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                            <preferred-size width="150" height="40"/>
+                          </grid>
+                        </constraints>
+                        <properties>
+                          <font name="Segoe UI Variable" size="16"/>
+                          <text value=""/>
+                        </properties>
+                      </component>
+                      <component id="a64ef" class="javax.swing.JLabel">
+                        <constraints>
+                          <grid row="9" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                        </constraints>
+                        <properties>
+                          <font name="Segoe UI Variable" size="16" style="1"/>
+                          <text value="Số hợp đồng:"/>
+                        </properties>
+                      </component>
+                      <component id="222bc" class="javax.swing.JTextField" binding="contractNo">
+                        <constraints>
+                          <grid row="9" column="1" row-span="1" col-span="7" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                            <preferred-size width="150" height="40"/>
+                          </grid>
+                        </constraints>
+                        <properties>
+                          <editable value="true"/>
+                          <font name="Segoe UI Variable" size="16"/>
+                        </properties>
+                      </component>
+                      <vspacer id="419">
+                        <constraints>
+                          <grid row="10" column="2" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
+                        </constraints>
+                      </vspacer>
+                      <vspacer id="ae7ab">
+                        <constraints>
+                          <grid row="3" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false">
+                            <preferred-size width="-1" height="20"/>
+                          </grid>
+                        </constraints>
+                      </vspacer>
+                      <vspacer id="a95b9">
+                        <constraints>
+                          <grid row="8" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false">
+                            <preferred-size width="-1" height="20"/>
+                          </grid>
+                        </constraints>
+                      </vspacer>
+                      <component id="8ebd9" class="javax.swing.JLabel">
+                        <constraints>
+                          <grid row="5" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                        </constraints>
+                        <properties>
+                          <font name="Segoe UI Variable" size="16" style="1"/>
+                          <text value="Thường trú:"/>
+                        </properties>
+                      </component>
+                      <component id="153dc" class="javax.swing.JLabel">
+                        <constraints>
+                          <grid row="6" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                        </constraints>
+                        <properties>
+                          <font name="Segoe UI Variable" size="16" style="1"/>
+                          <text value="Địa chỉ:"/>
+                        </properties>
+                      </component>
+                      <component id="aee13" class="javax.swing.JTextField" binding="authorizerAddress">
+                        <constraints>
+                          <grid row="6" column="1" row-span="1" col-span="7" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                            <preferred-size width="150" height="40"/>
+                          </grid>
+                        </constraints>
+                        <properties>
+                          <font name="Segoe UI Variable" size="16"/>
+                        </properties>
+                      </component>
+                      <component id="fce2a" class="javax.swing.JTextField" binding="authorizerIdAddress">
+                        <constraints>
+                          <grid row="5" column="1" row-span="1" col-span="7" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                            <preferred-size width="150" height="40"/>
+                          </grid>
+                        </constraints>
+                        <properties>
+                          <font name="Segoe UI Variable" size="16"/>
+                        </properties>
+                      </component>
+                      <component id="239b4" class="javax.swing.JLabel">
+                        <constraints>
+                          <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                        </constraints>
+                        <properties>
+                          <font name="Segoe UI Variable" size="16" style="1"/>
+                          <text value="MSDN:"/>
+                        </properties>
+                      </component>
+                      <component id="142fb" class="javax.swing.JLabel">
+                        <constraints>
+                          <grid row="0" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                        </constraints>
+                        <properties>
+                          <font name="Segoe UI Variable" size="16" style="1"/>
+                          <text value="Ngày cấp:"/>
+                        </properties>
+                      </component>
+                      <component id="36d6d" class="javax.swing.JTextField" binding="authorizerComIdDate">
+                        <constraints>
+                          <grid row="0" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                            <preferred-size width="200" height="40"/>
+                          </grid>
+                        </constraints>
+                        <properties>
+                          <font name="Segoe UI Variable" size="16"/>
+                        </properties>
+                      </component>
+                      <component id="77a75" class="javax.swing.JLabel">
+                        <constraints>
+                          <grid row="0" column="6" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                        </constraints>
+                        <properties>
+                          <font name="Segoe UI Variable" size="16" style="1"/>
+                          <text value="Nơi cấp:"/>
+                        </properties>
+                      </component>
+                      <component id="ad22f" class="javax.swing.JTextField" binding="authorizerComIdPlace">
+                        <constraints>
+                          <grid row="0" column="7" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                            <preferred-size width="150" height="40"/>
+                          </grid>
+                        </constraints>
+                        <properties>
+                          <font name="Segoe UI Variable" size="16"/>
+                        </properties>
+                      </component>
+                      <component id="be8be" class="javax.swing.JComboBox" binding="authorizerComId">
+                        <constraints>
+                          <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                            <preferred-size width="200" height="40"/>
+                          </grid>
+                        </constraints>
+                        <properties>
+                          <background color="-9787699"/>
+                          <editable value="true"/>
+                          <font name="Segoe UI Variable" size="16"/>
+                          <foreground color="-16777216"/>
+                          <model>
+                            <item value=""/>
+                            <item value="test"/>
+                          </model>
+                        </properties>
+                      </component>
+                    </children>
+                  </grid>
+                  <grid id="4e7f1" layout-manager="GridLayoutManager" row-count="9" column-count="11" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+                    <margin top="10" left="10" bottom="10" right="10"/>
+                    <constraints>
+                      <tabbedpane title="Thông tin bàn giao"/>
+                    </constraints>
+                    <properties/>
+                    <border type="none"/>
+                    <children>
+                      <component id="792df" class="javax.swing.JLabel">
+                        <constraints>
+                          <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                        </constraints>
+                        <properties>
+                          <font name="Segoe UI Variable" size="16" style="1"/>
+                          <text value="Người bàn giao:"/>
+                        </properties>
+                      </component>
+                      <component id="f0ba6" class="javax.swing.JTextField" binding="handoverName">
+                        <constraints>
+                          <grid row="0" column="1" row-span="1" col-span="10" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                            <preferred-size width="150" height="40"/>
+                          </grid>
+                        </constraints>
+                        <properties>
+                          <font name="Segoe UI Variable" size="18"/>
+                          <horizontalAlignment value="0"/>
+                          <text value="NGUYỄN THỊ HOÀNG YẾN"/>
+                        </properties>
+                      </component>
+                      <component id="30b4b" class="javax.swing.JLabel">
+                        <constraints>
+                          <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                        </constraints>
+                        <properties>
+                          <font name="Segoe UI Variable" size="16" style="1"/>
+                          <text value="Số căn cước:"/>
+                        </properties>
+                      </component>
+                      <component id="2fff" class="javax.swing.JLabel">
+                        <constraints>
+                          <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                        </constraints>
+                        <properties>
+                          <font name="Segoe UI Variable" size="16" style="1"/>
+                          <text value="Tên máy 1:"/>
+                        </properties>
+                      </component>
+                      <component id="99987" class="javax.swing.JLabel">
+                        <constraints>
+                          <grid row="6" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                        </constraints>
+                        <properties>
+                          <font name="Segoe UI Variable" size="16" style="1"/>
+                          <text value="Tổng cộng:"/>
+                        </properties>
+                      </component>
+                      <component id="84da1" class="javax.swing.JTextField" binding="handoverId">
+                        <constraints>
+                          <grid row="1" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                            <preferred-size width="150" height="40"/>
+                          </grid>
+                        </constraints>
+                        <properties>
+                          <font name="Segoe UI Variable" size="18"/>
+                          <horizontalAlignment value="0"/>
+                          <text value="042193017175"/>
+                        </properties>
+                      </component>
+                      <component id="39114" class="javax.swing.JTextField" binding="totalFee">
+                        <constraints>
+                          <grid row="6" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                            <preferred-size width="150" height="40"/>
+                          </grid>
+                        </constraints>
+                        <properties>
+                          <editable value="false"/>
+                          <font name="Segoe UI Variable" size="18" style="1"/>
+                          <foreground color="-16750453"/>
+                          <horizontalAlignment value="4"/>
+                        </properties>
+                      </component>
+                      <component id="72c36" class="javax.swing.JLabel">
+                        <constraints>
+                          <grid row="1" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                        </constraints>
+                        <properties>
+                          <font name="Segoe UI Variable" size="16" style="1"/>
+                          <text value="Ngày cấp:"/>
+                        </properties>
+                      </component>
+                      <component id="429b" class="javax.swing.JTextField" binding="handoverIdDate">
+                        <constraints>
+                          <grid row="1" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                            <preferred-size width="150" height="40"/>
+                          </grid>
+                        </constraints>
+                        <properties>
+                          <font name="Segoe UI Variable" size="18"/>
+                          <horizontalAlignment value="0"/>
+                          <text value="09/05/2021"/>
+                        </properties>
+                      </component>
+                      <component id="1b243" class="javax.swing.JLabel">
+                        <constraints>
+                          <grid row="1" column="6" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                        </constraints>
+                        <properties>
+                          <font name="Segoe UI Variable" size="16" style="1"/>
+                          <text value="Nơi cấp:"/>
+                        </properties>
+                      </component>
+                      <component id="417ba" class="javax.swing.JTextField" binding="handoverIdPlace">
+                        <constraints>
+                          <grid row="1" column="7" row-span="1" col-span="4" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                            <preferred-size width="150" height="40"/>
+                          </grid>
+                        </constraints>
+                        <properties>
+                          <font name="Segoe UI Variable" size="18"/>
+                          <horizontalAlignment value="0"/>
+                          <text value="Cục cảnh sát QLHC về TTXH"/>
+                        </properties>
+                      </component>
+                      <component id="ba21b" class="javax.swing.JLabel">
+                        <constraints>
+                          <grid row="3" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                        </constraints>
+                        <properties>
+                          <font name="Segoe UI Variable" size="16" style="1"/>
+                          <text value="Số lượng:"/>
+                        </properties>
+                      </component>
+                      <component id="4b3b3" class="javax.swing.JLabel">
+                        <constraints>
+                          <grid row="6" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                        </constraints>
+                        <properties>
+                          <font name="Segoe UI Variable" size="16" style="1"/>
+                          <text value="Bằng chữ:"/>
+                        </properties>
+                      </component>
+                      <component id="bf84c" class="javax.swing.JTextField" binding="totalFeeAsText">
+                        <constraints>
+                          <grid row="6" column="4" row-span="1" col-span="7" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                            <preferred-size width="150" height="40"/>
+                          </grid>
+                        </constraints>
+                        <properties>
+                          <editable value="false"/>
+                          <font name="Segoe UI Variable" size="18" style="1"/>
+                          <foreground color="-16750453"/>
+                          <horizontalAlignment value="0"/>
+                        </properties>
+                      </component>
+                      <component id="73713" class="javax.swing.JLabel">
+                        <constraints>
+                          <grid row="3" column="6" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                        </constraints>
+                        <properties>
+                          <font name="Segoe UI Variable" size="16" style="1"/>
+                          <text value="Đơn giá:"/>
+                        </properties>
+                      </component>
+                      <component id="f3acd" class="javax.swing.JTextField" binding="quantity1">
+                        <constraints>
+                          <grid row="3" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                            <preferred-size width="150" height="40"/>
+                          </grid>
+                        </constraints>
+                        <properties>
+                          <font name="Segoe UI Variable" size="18" style="1"/>
+                          <horizontalAlignment value="0"/>
+                          <text value=""/>
+                        </properties>
+                      </component>
+                      <vspacer id="54a1b">
+                        <constraints>
+                          <grid row="8" column="2" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
+                        </constraints>
+                      </vspacer>
+                      <vspacer id="b688d">
+                        <constraints>
+                          <grid row="2" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false">
+                            <preferred-size width="-1" height="20"/>
+                          </grid>
+                        </constraints>
+                      </vspacer>
+                      <component id="c2e9e" class="javax.swing.JLabel">
+                        <constraints>
+                          <grid row="3" column="9" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                        </constraints>
+                        <properties>
+                          <font name="Segoe UI Variable" size="16" style="1"/>
+                          <text value="Thành tiền:"/>
+                        </properties>
+                      </component>
+                      <component id="4e2cb" class="javax.swing.JTextField" binding="fee1">
+                        <constraints>
+                          <grid row="3" column="10" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                            <preferred-size width="150" height="40"/>
+                          </grid>
+                        </constraints>
+                        <properties>
+                          <editable value="false"/>
+                          <font name="Segoe UI Variable" size="18" style="1"/>
+                          <horizontalAlignment value="4"/>
+                          <text value=""/>
+                        </properties>
+                      </component>
+                      <component id="7f1e0" class="javax.swing.JLabel">
+                        <constraints>
+                          <grid row="4" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                        </constraints>
+                        <properties>
+                          <font name="Segoe UI Variable" size="16" style="1"/>
+                          <text value="Tên máy 2:"/>
+                        </properties>
+                      </component>
+                      <component id="d0377" class="javax.swing.JLabel">
+                        <constraints>
+                          <grid row="4" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                        </constraints>
+                        <properties>
+                          <font name="Segoe UI Variable" size="16" style="1"/>
+                          <text value="Số lượng:"/>
+                        </properties>
+                      </component>
+                      <component id="7c50b" class="javax.swing.JTextField" binding="quantity2">
+                        <constraints>
+                          <grid row="4" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                            <preferred-size width="150" height="40"/>
+                          </grid>
+                        </constraints>
+                        <properties>
+                          <font name="Segoe UI Variable" size="18" style="1"/>
+                          <horizontalAlignment value="0"/>
+                          <text value=""/>
+                        </properties>
+                      </component>
+                      <component id="7b5" class="javax.swing.JLabel">
+                        <constraints>
+                          <grid row="4" column="6" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                        </constraints>
+                        <properties>
+                          <font name="Segoe UI Variable" size="16" style="1"/>
+                          <text value="Đơn giá:"/>
+                        </properties>
+                      </component>
+                      <component id="6fbc3" class="javax.swing.JLabel">
+                        <constraints>
+                          <grid row="4" column="9" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                        </constraints>
+                        <properties>
+                          <font name="Segoe UI Variable" size="16" style="1"/>
+                          <text value="Thành tiền:"/>
+                        </properties>
+                      </component>
+                      <component id="b90ae" class="javax.swing.JTextField" binding="fee2">
+                        <constraints>
+                          <grid row="4" column="10" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                            <preferred-size width="150" height="40"/>
+                          </grid>
+                        </constraints>
+                        <properties>
+                          <editable value="false"/>
+                          <font name="Segoe UI Variable" size="18" style="1"/>
+                          <horizontalAlignment value="4"/>
+                        </properties>
+                      </component>
+                      <component id="fe850" class="javax.swing.JLabel">
+                        <constraints>
+                          <grid row="5" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                        </constraints>
+                        <properties>
+                          <font name="Segoe UI Variable" size="16" style="1"/>
+                          <text value="Tên máy 3:"/>
+                        </properties>
+                      </component>
+                      <component id="c068e" class="javax.swing.JLabel">
+                        <constraints>
+                          <grid row="5" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                        </constraints>
+                        <properties>
+                          <font name="Segoe UI Variable" size="16" style="1"/>
+                          <text value="Số lượng:"/>
+                        </properties>
+                      </component>
+                      <component id="b7e5e" class="javax.swing.JTextField" binding="quantity3">
+                        <constraints>
+                          <grid row="5" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                            <preferred-size width="150" height="40"/>
+                          </grid>
+                        </constraints>
+                        <properties>
+                          <font name="Segoe UI Variable" size="18" style="1"/>
+                          <horizontalAlignment value="0"/>
+                          <text value=""/>
+                        </properties>
+                      </component>
+                      <component id="f45d1" class="javax.swing.JLabel">
+                        <constraints>
+                          <grid row="5" column="6" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                        </constraints>
+                        <properties>
+                          <font name="Segoe UI Variable" size="16" style="1"/>
+                          <text value="Đơn giá:"/>
+                        </properties>
+                      </component>
+                      <component id="f54c2" class="javax.swing.JLabel">
+                        <constraints>
+                          <grid row="5" column="9" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                        </constraints>
+                        <properties>
+                          <font name="Segoe UI Variable" size="16" style="1"/>
+                          <text value="Thành tiền:"/>
+                        </properties>
+                      </component>
+                      <component id="ba1ae" class="javax.swing.JTextField" binding="fee3">
+                        <constraints>
+                          <grid row="5" column="10" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                            <preferred-size width="150" height="40"/>
+                          </grid>
+                        </constraints>
+                        <properties>
+                          <editable value="false"/>
+                          <font name="Segoe UI Variable" size="18" style="1"/>
+                          <horizontalAlignment value="4"/>
+                        </properties>
+                      </component>
+                      <component id="6f9e2" class="javax.swing.JLabel">
+                        <constraints>
+                          <grid row="7" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                        </constraints>
+                        <properties>
+                          <font name="Segoe UI Variable" size="16" style="1"/>
+                          <text value="Giá thuê thiết bị:"/>
+                        </properties>
+                      </component>
+                      <component id="7e02b" class="javax.swing.JTextField" binding="monthFee">
+                        <constraints>
+                          <grid row="7" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                            <preferred-size width="150" height="40"/>
+                          </grid>
+                        </constraints>
+                        <properties>
+                          <font name="Segoe UI Variable" size="18" style="1"/>
+                          <horizontalAlignment value="4"/>
+                        </properties>
+                      </component>
+                      <component id="74696" class="javax.swing.JLabel">
+                        <constraints>
+                          <grid row="7" column="3" row-span="1" col-span="2" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                        </constraints>
+                        <properties>
+                          <font name="Segoe UI Variable" size="16" style="1"/>
+                          <text value="/ tháng / 01 thiết bị"/>
+                        </properties>
+                      </component>
+                      <component id="36cdc" class="javax.swing.JComboBox" binding="deviceName1">
+                        <constraints>
+                          <grid row="3" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                            <preferred-size width="-1" height="40"/>
+                          </grid>
+                        </constraints>
+                        <properties>
+                          <background color="-9787699"/>
+                          <editable value="true"/>
+                          <font name="Segoe UI Variable" size="18"/>
+                          <foreground color="-16777216"/>
+                          <model>
+                            <item value=""/>
+                            <item value="VP P30"/>
+                            <item value="Exim D210"/>
+                          </model>
+                        </properties>
+                      </component>
+                      <component id="38a50" class="javax.swing.JComboBox" binding="deviceName2">
+                        <constraints>
+                          <grid row="4" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                            <preferred-size width="-1" height="40"/>
+                          </grid>
+                        </constraints>
+                        <properties>
+                          <background color="-9787699"/>
+                          <editable value="true"/>
+                          <font name="Segoe UI Variable" size="18"/>
+                          <foreground color="-16777216"/>
+                          <model>
+                            <item value=""/>
+                            <item value="VP P30"/>
+                            <item value="Exim D210"/>
+                          </model>
+                        </properties>
+                      </component>
+                      <component id="4bd54" class="javax.swing.JComboBox" binding="deviceName3">
+                        <constraints>
+                          <grid row="5" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                            <preferred-size width="-1" height="40"/>
+                          </grid>
+                        </constraints>
+                        <properties>
+                          <background color="-9787699"/>
+                          <editable value="true"/>
+                          <font name="Segoe UI Variable" size="18"/>
+                          <foreground color="-16777216"/>
+                          <model>
+                            <item value=""/>
+                            <item value="VP P30"/>
+                            <item value="Exim D210"/>
+                          </model>
+                        </properties>
+                      </component>
+                      <component id="9b77a" class="javax.swing.JComboBox" binding="unitPrice1">
+                        <constraints>
+                          <grid row="3" column="7" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                            <preferred-size width="-1" height="40"/>
+                          </grid>
+                        </constraints>
+                        <properties>
+                          <background color="-9787699"/>
+                          <editable value="true"/>
+                          <font name="Segoe UI Variable" size="18"/>
+                          <foreground color="-16777216"/>
+                          <model>
+                            <item value=""/>
+                            <item value="10.000.000"/>
+                            <item value="5.000.000"/>
+                          </model>
+                        </properties>
+                      </component>
+                      <component id="6fd42" class="javax.swing.JComboBox" binding="unitPrice2">
+                        <constraints>
+                          <grid row="4" column="7" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                            <preferred-size width="-1" height="40"/>
+                          </grid>
+                        </constraints>
+                        <properties>
+                          <background color="-9787699"/>
+                          <editable value="true"/>
+                          <font name="Segoe UI Variable" size="18"/>
+                          <foreground color="-16777216"/>
+                          <model>
+                            <item value=""/>
+                            <item value="10.000.000"/>
+                            <item value="5.000.000"/>
+                          </model>
+                        </properties>
+                      </component>
+                      <component id="9d22e" class="javax.swing.JComboBox" binding="unitPrice3">
+                        <constraints>
+                          <grid row="5" column="7" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                            <preferred-size width="-1" height="40"/>
+                          </grid>
+                        </constraints>
+                        <properties>
+                          <background color="-9787699"/>
+                          <editable value="true"/>
+                          <font name="Segoe UI Variable" size="18"/>
+                          <foreground color="-16777216"/>
+                          <model>
+                            <item value=""/>
+                            <item value="10.000.000"/>
+                            <item value="5.000.000"/>
+                          </model>
+                        </properties>
+                      </component>
+                    </children>
+                  </grid>
+                </children>
+              </tabbedpane>
+              <component id="b7a45" class="javax.swing.JButton" binding="exportButton">
+                <constraints>
+                  <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false">
+                    <preferred-size width="-1" height="40"/>
+                  </grid>
+                </constraints>
+                <properties>
+                  <background color="-16750453"/>
+                  <font name="Segoe UI Variable" size="20" style="1"/>
+                  <foreground color="-1"/>
+                  <text value="⤷ Xuất hồ sơ"/>
+                </properties>
+              </component>
+            </children>
+          </grid>
+          <grid id="de073" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+            <margin top="0" left="0" bottom="0" right="0"/>
+            <constraints>
+              <tabbedpane title="Bán máy"/>
+            </constraints>
+            <properties/>
+            <border type="none"/>
+            <children/>
+          </grid>
+        </children>
+      </tabbedpane>
+    </children>
+  </grid>
+</form>
