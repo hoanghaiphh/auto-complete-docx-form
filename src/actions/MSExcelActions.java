@@ -48,6 +48,35 @@ public class MSExcelActions {
         }
     }
 
+    public static Row getRecord(String sheetName, int columnIndex, String value) {
+        Row result = null;
+        FileInputStream fis = null;
+        try {
+            fis = new FileInputStream(FILE_NAME);
+            Workbook workbook = new XSSFWorkbook(fis);
+            Sheet sheet = workbook.getSheet(sheetName);
+            for (int rowIndex = 1; rowIndex <= sheet.getLastRowNum(); rowIndex++) {
+                Row row = sheet.getRow(rowIndex);
+                if (row.getCell(columnIndex).getStringCellValue().equalsIgnoreCase(value)) {
+                    result = row;
+                    break;
+                }
+            }
+            workbook.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                if (fis != null) {
+                    fis.close();
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        return result;
+    }
+
     public static List<String> getAllAuthorizerComIds() {
         List<String> comIds = new ArrayList<>();
         FileInputStream fis = null;
@@ -73,34 +102,5 @@ public class MSExcelActions {
             }
         }
         return comIds;
-    }
-
-    public static Row getRowByAuthorizerComId(String authorizerComId) {
-        Row result = null;
-        FileInputStream fis = null;
-        try {
-            fis = new FileInputStream(FILE_NAME);
-            Workbook workbook = new XSSFWorkbook(fis);
-            Sheet sheet = workbook.getSheet("UY_QUYEN");
-            for (int rowIndex = 1; rowIndex <= sheet.getLastRowNum(); rowIndex++) {
-                Row row = sheet.getRow(rowIndex);
-                if (row.getCell(3).getStringCellValue().equals(authorizerComId)) {
-                    result = row;
-                    break;
-                }
-            }
-            workbook.close();
-        } catch (Exception e) {
-            e.printStackTrace();
-        } finally {
-            try {
-                if (fis != null) {
-                    fis.close();
-                }
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        }
-        return result;
     }
 }

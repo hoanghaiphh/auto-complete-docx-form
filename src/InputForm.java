@@ -25,14 +25,17 @@ public class InputForm {
             authorizedAddress, authorizedTel, authorizedAcc, authorizedEmail, authorizedBank,
             authorizerComName, authorizerComAddress, authorizerComIdDate, authorizerComIdPlace,
             authorizerName, authorizerAddress, authorizerId, authorizerIdAddress, authorizerIdDate, authorizerIdPlace,
-            quantity1, quantity2, quantity3, fee1, fee2, fee3, totalFee, totalFeeAsText, monthFee,
+            quantity1, quantity2, quantity3, unitPrice1, unitPrice2, unitPrice3,
+            fee1, fee2, fee3, totalFee, totalFeeAsText, monthFee, monthFee2, monthFee3,
             handoverName, handoverId, handoverIdDate, handoverIdPlace;
-    private JComboBox<String> authorizerComId, deviceName1, deviceName2, deviceName3, unitPrice1, unitPrice2, unitPrice3;
+    private JComboBox<String> authorizerComId, deviceName1, deviceName2, deviceName3;
+    private JRadioButton leaseRadio, sellRadio, sellWithTIDRadio;
+    private JCheckBox addDevice2, addDevice3,
+            to_trinh_thue, hop_dong_ban, bao_mat, bbbg, hop_dong_thue, uy_quyen, giao_khoan, to_trinh_ban;
     private JButton exportButton;
 
-    private boolean isInitialized = false;
     public InputForm() {
-        Font newFont = new Font("Sogoe UI", Font.BOLD, 16);
+        Font newFont = new Font("Sogoe UI Variable", Font.BOLD, 16);
         UIManager.put("TabbedPane.font", newFont);
         for (int i = 0; i < mainTabbedPane.getTabCount(); i++) {
             JLabel label = new JLabel(mainTabbedPane.getTitleAt(i));
@@ -40,66 +43,78 @@ public class InputForm {
             mainTabbedPane.setTabComponentAt(i, label);
         }
 
-        addListenerForInputField(deviceName1, unitPrice1, quantity1, fee1);
-        addListenerForInputField(deviceName2, unitPrice2, quantity2, fee2);
-        addListenerForInputField(deviceName3, unitPrice3, quantity3, fee3);
+        authorizerComId.addItem("");
+        for (String comId : getAllAuthorizerComIds()) {
+            authorizerComId.addItem(comId);
+        }
 
-        DocumentListener documentListener = new DocumentListener() {
-            public void insertUpdate(DocumentEvent e) {
-                updateTotalFee();
-            }
-            public void removeUpdate(DocumentEvent e) {
-                updateTotalFee();
-            }
-            public void changedUpdate(DocumentEvent e) {
-                updateTotalFee();
-            }
-            private void updateTotalFee() {
-                int totalFeeValue = 0;
-                String fee1Value = fee1.getText().replaceAll("\\.", "");
-                if (!fee1Value.isEmpty()) {
-                    totalFeeValue += Integer.parseInt(fee1Value);
-                }
-                String fee2Value = fee2.getText().replaceAll("\\.", "");
-                if (!fee2Value.isEmpty()) {
-                    totalFeeValue += Integer.parseInt(fee2Value);
-                }
-                String fee3Value = fee3.getText().replaceAll("\\.", "");
-                if (!fee3Value.isEmpty()) {
-                    totalFeeValue += Integer.parseInt(fee3Value);
-                }
-                NumberFormat numberFormat = NumberFormat.getInstance(new Locale("vi", "VN"));
-                totalFee.setText(numberFormat.format(totalFeeValue));
-                totalFeeAsText.setText(convertToWords(totalFeeValue) + " đồng");
-            }
-        };
-        fee1.getDocument().addDocumentListener(documentListener);
-        fee2.getDocument().addDocumentListener(documentListener);
-        fee3.getDocument().addDocumentListener(documentListener);
+        addCalculationListener(deviceName1, unitPrice1, quantity1, fee1, monthFee);
 
-        authorizerComId.addPopupMenuListener(new PopupMenuListener() {
-            @Override
-            public void popupMenuWillBecomeVisible(PopupMenuEvent e) {
-                if (!isInitialized) {
-                    authorizerComId.addItem("");
-                    for (String comId : getAllAuthorizerComIds()) {
-                        authorizerComId.addItem(comId);
-                    }
-                    isInitialized = true;
+        addCalculationListener(deviceName2, unitPrice2, quantity2, fee2, monthFee2);
+
+        addCalculationListener(deviceName3, unitPrice3, quantity3, fee3, monthFee3);
+
+        addDevice2.addActionListener(e -> {
+            if (addDevice2.isSelected()) {
+                deviceName2.setEnabled(true);
+                quantity2.setEnabled(true);
+                unitPrice2.setEnabled(true);
+            } else {
+                deviceName2.setEnabled(false);
+                quantity2.setEnabled(false);
+                unitPrice2.setEnabled(false);
+                deviceName2.setSelectedIndex(0);
+                quantity2.setText("");
+                unitPrice2.setText("");
+            }
+        });
+
+        addDevice3.addActionListener(e -> {
+            if (addDevice3.isSelected()) {
+                deviceName3.setEnabled(true);
+                quantity3.setEnabled(true);
+                unitPrice3.setEnabled(true);
+            } else {
+                deviceName3.setEnabled(false);
+                quantity3.setEnabled(false);
+                unitPrice3.setEnabled(false);
+                deviceName3.setSelectedIndex(0);
+                quantity3.setText("");
+                unitPrice3.setText("");
+            }
+        });
+
+        authorizedName.addActionListener(e -> {
+            String authorizedNameValue = authorizedName.getText().trim();
+            if (!authorizedNameValue.isEmpty()) {
+                Row row = getRecord("KHACH_HANG", 1, authorizedNameValue);
+                if (row != null) {
+                    authorizedTel.setText(new DataFormatter().formatCellValue(row.getCell(2)));
+                    authorizedEmail.setText(row.getCell(3).getStringCellValue());
+                    authorizedId.setText(new DataFormatter().formatCellValue(row.getCell(4)));
+                    authorizedIdDate.setText(row.getCell(5).getStringCellValue());
+                    authorizedIdPlace.setText(row.getCell(6).getStringCellValue());
+                    authorizedAddress.setText(row.getCell(7).getStringCellValue());
+                    authorizedAcc.setText(new DataFormatter().formatCellValue(row.getCell(8)));
+                    authorizedBank.setText(row.getCell(9).getStringCellValue());
+                } else {
+                    authorizedTel.setText("");
+                    authorizedEmail.setText("");
+                    authorizedId.setText("");
+                    authorizedIdDate.setText("");
+                    authorizedIdPlace.setText("");
+                    authorizedAddress.setText("");
+                    authorizedAcc.setText("");
+                    authorizedBank.setText("");
                 }
-            }
-            @Override
-            public void popupMenuWillBecomeInvisible(PopupMenuEvent e) {
-            }
-            @Override
-            public void popupMenuCanceled(PopupMenuEvent e) {
             }
         });
 
         authorizerComId.addActionListener(e -> {
             if (authorizerComId.getSelectedIndex() != 0) {
                 String authorizerComIdValue = authorizerComId.getSelectedItem().toString().trim();
-                Row row = getRowByAuthorizerComId(authorizerComIdValue);
+                Row row = getRecord("UY_QUYEN", 3, authorizerComIdValue);
+
                 if (row != null) {
                     authorizerComName.setText(row.getCell(1).getStringCellValue());
                     authorizerComAddress.setText(row.getCell(2).getStringCellValue());
@@ -112,33 +127,115 @@ public class InputForm {
                     authorizerIdDate.setText(row.getCell(10).getStringCellValue());
                     authorizerIdPlace.setText(row.getCell(11).getStringCellValue());
                 } else {
-                    clearAuthorizerInfo();
+                    authorizerComName.setText("");
+                    authorizerComAddress.setText("");
+                    authorizerComIdDate.setText("");
+                    authorizerComIdPlace.setText("");
+                    authorizerName.setText("");
+                    authorizerIdAddress.setText("");
+                    authorizerAddress.setText("");
+                    authorizerId.setText("");
+                    authorizerIdDate.setText("");
+                    authorizerIdPlace.setText("");
                 }
             } else {
-                clearAuthorizerInfo();
+                authorizerComName.setText("");
+                authorizerComAddress.setText("");
+                authorizerComIdDate.setText("");
+                authorizerComIdPlace.setText("");
+                authorizerName.setText("");
+                authorizerIdAddress.setText("");
+                authorizerAddress.setText("");
+                authorizerId.setText("");
+                authorizerIdDate.setText("");
+                authorizerIdPlace.setText("");
+            }
+        });
+
+        leaseRadio.addActionListener(e -> {
+            if (leaseRadio.isSelected()) {
+                to_trinh_thue.setSelected(true);
+                hop_dong_ban.setSelected(false);
+                bao_mat.setSelected(false);
+                bbbg.setSelected(true);
+                hop_dong_thue.setSelected(true);
+                uy_quyen.setSelected(true);
+                giao_khoan.setSelected(true);
+                to_trinh_ban.setSelected(false);
+            }
+        });
+
+        sellRadio.addActionListener(e -> {
+            if (sellRadio.isSelected()) {
+                to_trinh_thue.setSelected(false);
+                hop_dong_ban.setSelected(true);
+                bao_mat.setSelected(true);
+                bbbg.setSelected(true);
+                hop_dong_thue.setSelected(false);
+                uy_quyen.setSelected(false);
+                giao_khoan.setSelected(false);
+                to_trinh_ban.setSelected(true);
+            }
+        });
+
+        sellWithTIDRadio.addActionListener(e -> {
+            if (sellWithTIDRadio.isSelected()) {
+                to_trinh_thue.setSelected(false);
+                hop_dong_ban.setSelected(true);
+                bao_mat.setSelected(false);
+                bbbg.setSelected(true);
+                hop_dong_thue.setSelected(false);
+                uy_quyen.setSelected(true);
+                giao_khoan.setSelected(true);
+                to_trinh_ban.setSelected(true);
             }
         });
 
         exportButton.addActionListener(e -> {
-            HashMap<String, String> replaces = getInputData();
-            replaceTextInDocxFile("TO-TRINH-CHO-THUE", replaces);
-            replaceTextInDocxFile("HOP-DONG-THUE", replaces);
+            HashMap<String, String> replaces = getDataInput();
+            if (to_trinh_thue.isSelected()) {
+                replaceTextInDocxFile("TO-TRINH-CHO-THUE", replaces);
+            }
+            if (hop_dong_ban.isSelected()) {
+                replaceTextInDocxFile("HOP-DONG-BAN", replaces);
+            }
+            if (bao_mat.isSelected()) {
+                replaceTextInDocxFile("THOA-THUAN-BAO-MAT", replaces);
+            }
+            if (hop_dong_thue.isSelected()) {
+                replaceTextInDocxFile("HOP-DONG-THUE", replaces);
+            }
+            if (uy_quyen.isSelected()) {
+                replaceTextInDocxFile("UY-QUYEN", replaces);
+            }
+            if (giao_khoan.isSelected()) {
+                replaceTextInDocxFile("HOP-DONG-GIAO-KHOAN", replaces);
+            }
+            if (to_trinh_ban.isSelected()) {
+                replaceTextInDocxFile("TO-TRINH-BAN", replaces);
+            }
             replaceTextInDocxFile("BIEN-BAN-BAN-GIAO", replaces);
-            replaceTextInDocxFile("UY-QUYEN", replaces);
-            replaceTextInDocxFile("HOP-DONG-GIAO-KHOAN", replaces);
 
-            if (deviceName1.getSelectedIndex() != 0) {
-                addNewRecord("KHACH_HANG", getAuthorizedInfo(deviceName1));
-            }
-            if (deviceName2.getSelectedIndex() != 0) {
-                addNewRecord("KHACH_HANG", getAuthorizedInfo(deviceName2));
-            }
-            if (deviceName3.getSelectedIndex() != 0) {
-                addNewRecord("KHACH_HANG", getAuthorizedInfo(deviceName3));
+            if (!authorizedName.getText().trim().isEmpty()) {
+                if (deviceName1.getSelectedIndex() != 0) {
+                    List<String> customerInfo = saveCustomerInfo();
+                    customerInfo.add(deviceName1.getSelectedItem().toString().trim());
+                    addNewRecord("KHACH_HANG", customerInfo);
+                }
+                if (deviceName2.getSelectedIndex() != 0) {
+                    List<String> customerInfo = saveCustomerInfo();
+                    customerInfo.add(deviceName2.getSelectedItem().toString().trim());
+                    addNewRecord("KHACH_HANG", customerInfo);
+                }
+                if (deviceName3.getSelectedIndex() != 0) {
+                    List<String> customerInfo = saveCustomerInfo();
+                    customerInfo.add(deviceName3.getSelectedItem().toString().trim());
+                    addNewRecord("KHACH_HANG", customerInfo);
+                }
             }
 
             if (authorizerComId.getSelectedIndex() == -1) {
-                addNewRecord("UY_QUYEN", getAuthorizerInfo());
+                addNewRecord("UY_QUYEN", saveAuthorizerInfo());
                 authorizerComId.addItem(authorizerComId.getSelectedItem().toString().trim());
             }
 
@@ -162,7 +259,7 @@ public class InputForm {
         }
     }
 
-    private HashMap<String, String> getInputData() {
+    private HashMap<String, String> getDataInput() {
         HashMap<String, String> replaces = new HashMap<>();
 
         replaces.put("{authorizedName}", authorizedName.getText().trim().toUpperCase());
@@ -201,9 +298,9 @@ public class InputForm {
         replaces.put("{quantity1}", quantity1.getText().trim());
         replaces.put("{quantity2}", quantity2.getText().trim());
         replaces.put("{quantity3}", quantity3.getText().trim());
-        replaces.put("{unitPrice1}", unitPrice1.getSelectedItem().toString().trim());
-        replaces.put("{unitPrice2}", unitPrice2.getSelectedItem().toString().trim());
-        replaces.put("{unitPrice3}", unitPrice3.getSelectedItem().toString().trim());
+        replaces.put("{unitPrice1}", unitPrice1.getText().trim());
+        replaces.put("{unitPrice2}", unitPrice2.getText().trim());
+        replaces.put("{unitPrice3}", unitPrice3.getText().trim());
         replaces.put("{fee1}", fee1.getText().trim());
         replaces.put("{fee2}", fee2.getText().trim());
         replaces.put("{fee3}", fee3.getText().trim());
@@ -227,38 +324,62 @@ public class InputForm {
         replaceText(srcDocx, dstDocx, replaces);
     }
 
-    private void addCalculateListener(JComboBox unitPriceCB, JTextField quantityTF, JTextField feeTF) {
-        String unitPriceCBValue = unitPriceCB.getSelectedItem().toString().replaceAll("\\.", "");
-        String quantityTFValue = quantityTF.getText().replaceAll("\\.", "");
+    private DocumentListener documentListener = new DocumentListener() {
+        public void insertUpdate(DocumentEvent e) {
+            updateTotalFee();
+        }
 
-        if (!unitPriceCBValue.isEmpty() && !quantityTFValue.isEmpty()) {
-            long quantity = Integer.parseInt(quantityTFValue);
+        public void removeUpdate(DocumentEvent e) {
+            updateTotalFee();
+        }
 
-            if (unitPriceCB.getSelectedIndex() != 0 && quantity != 0) {
-                long unitPrice = Integer.parseInt(unitPriceCBValue);
-                long fee = quantity * unitPrice;
+        public void changedUpdate(DocumentEvent e) {
+            updateTotalFee();
+        }
 
-                NumberFormat numberFormat = NumberFormat.getInstance(new Locale("vi", "VN"));
-                feeTF.setText(numberFormat.format(fee));
+        private void updateTotalFee() {
+            int totalFeeValue = 0;
 
-            } else {
-                feeTF.setText("");
+            String fee1Value = fee1.getText().replaceAll("\\.", "");
+            if (!fee1Value.isEmpty()) {
+                totalFeeValue += Integer.parseInt(fee1Value);
             }
 
+            String fee2Value = fee2.getText().replaceAll("\\.", "");
+            if (!fee2Value.isEmpty()) {
+                totalFeeValue += Integer.parseInt(fee2Value);
+            }
+
+            String fee3Value = fee3.getText().replaceAll("\\.", "");
+            if (!fee3Value.isEmpty()) {
+                totalFeeValue += Integer.parseInt(fee3Value);
+            }
+
+            NumberFormat numberFormat = NumberFormat.getInstance(new Locale("vi", "VN"));
+            totalFee.setText(numberFormat.format(totalFeeValue));
+            totalFeeAsText.setText(convertToWords(totalFeeValue) + " đồng");
+        }
+    };
+
+    private void addCalculation(JTextField unitPrice, JTextField quantity, JTextField fee) {
+        String unitPriceValue = unitPrice.getText().replaceAll("\\.", "");
+        String quantityValue = quantity.getText().replaceAll("\\.", "");
+
+        if (!unitPriceValue.isEmpty() && !quantityValue.isEmpty()) {
+            int quantityInt = Integer.parseInt(quantityValue);
+            int unitPriceInt = Integer.parseInt(unitPriceValue);
+
+            int feeValue = quantityInt * unitPriceInt;
+            NumberFormat numberFormat = NumberFormat.getInstance(new Locale("vi", "VN"));
+            fee.setText(numberFormat.format(feeValue));
+
         } else {
-            feeTF.setText("");
+            fee.setText("");
         }
     }
 
-    private void addListenerForInputField(JComboBox deviceNameCB, JComboBox unitPriceCB, JTextField quantityTF, JTextField feeTF) {
-        deviceNameCB.addActionListener(e -> {
-            int select = deviceNameCB.getSelectedIndex();
-            if (select == 1 || select == 2) {
-                unitPriceCB.setSelectedIndex(select);
-            }
-        });
-
-        unitPriceCB.getEditor().getEditorComponent().addKeyListener(new KeyAdapter() {
+    private void addCalculationListener(JComboBox deviceName, JTextField unitPrice, JTextField quantity, JTextField fee, JTextField monthlyFee) {
+        unitPrice.addKeyListener(new KeyAdapter() {
             @Override
             public void keyTyped(KeyEvent e) {
                 char c = e.getKeyChar();
@@ -268,18 +389,7 @@ public class InputForm {
             }
         });
 
-        unitPriceCB.addActionListener(e -> {
-            addCalculateListener(unitPriceCB, quantityTF, feeTF);
-        });
-
-        unitPriceCB.getEditor().getEditorComponent().addFocusListener(new FocusAdapter() {
-            @Override
-            public void focusLost(FocusEvent e) {
-                addCalculateListener(unitPriceCB, quantityTF, feeTF);
-            }
-        });
-
-        quantityTF.addKeyListener(new KeyAdapter() {
+        quantity.addKeyListener(new KeyAdapter() {
             @Override
             public void keyTyped(KeyEvent e) {
                 char c = e.getKeyChar();
@@ -289,32 +399,59 @@ public class InputForm {
             }
         });
 
-        quantityTF.addActionListener(e -> {
-            addCalculateListener(unitPriceCB, quantityTF, feeTF);
+        monthlyFee.addKeyListener(new KeyAdapter() {
+            @Override
+            public void keyTyped(KeyEvent e) {
+                char c = e.getKeyChar();
+                if (!Character.isDigit(c) && c != '.') {
+                    e.consume();
+                }
+            }
         });
 
-        quantityTF.addFocusListener(new FocusAdapter() {
+        unitPrice.addFocusListener(new FocusAdapter() {
             @Override
             public void focusLost(FocusEvent e) {
-                addCalculateListener(unitPriceCB, quantityTF, feeTF);
+                addCalculation(unitPrice, quantity, fee);
+            }
+        });
+
+        quantity.addFocusListener(new FocusAdapter() {
+            @Override
+            public void focusLost(FocusEvent e) {
+                addCalculation(unitPrice, quantity, fee);
+            }
+        });
+
+        unitPrice.addActionListener(e -> {
+            addCalculation(unitPrice, quantity, fee);
+        });
+
+        quantity.addActionListener(e -> {
+            addCalculation(unitPrice, quantity, fee);
+        });
+
+        fee.getDocument().addDocumentListener(documentListener);
+
+        deviceName.addActionListener(e -> {
+            int select = deviceName.getSelectedIndex();
+            if (select == 1) {
+                unitPrice.setText("10.000.000");
+                monthlyFee.setText("350.000");
+                addCalculation(unitPrice, quantity, fee);
+            } else if (select == 2) {
+                unitPrice.setText("5.000.000");
+                monthlyFee.setText("250.000");
+                addCalculation(unitPrice, quantity, fee);
+            } else {
+                unitPrice.setText("");
+                monthlyFee.setText("");
+                fee.setText("");
             }
         });
     }
 
-    private void clearAuthorizerInfo() {
-        authorizerComName.setText("");
-        authorizerComAddress.setText("");
-        authorizerComIdDate.setText("");
-        authorizerComIdPlace.setText("");
-        authorizerName.setText("");
-        authorizerIdAddress.setText("");
-        authorizerAddress.setText("");
-        authorizerId.setText("");
-        authorizerIdDate.setText("");
-        authorizerIdPlace.setText("");
-    }
-
-    private List<String> getAuthorizerInfo() {
+    private List<String> saveAuthorizerInfo() {
         List<String> authorizerInfo = new ArrayList<>();
         authorizerInfo.add("index 0");
         authorizerInfo.add(authorizerComName.getText().trim().toUpperCase());
@@ -331,7 +468,7 @@ public class InputForm {
         return authorizerInfo;
     }
 
-    private List<String> getAuthorizedInfo(JComboBox deviceName) {
+    private List<String> saveCustomerInfo() {
         List<String> authorizedInfo = new ArrayList<>();
         authorizedInfo.add("index 0");
         authorizedInfo.add(authorizedName.getText().trim().toUpperCase());
@@ -343,9 +480,9 @@ public class InputForm {
         authorizedInfo.add(authorizedAddress.getText().trim());
         authorizedInfo.add(authorizedAcc.getText().trim());
         authorizedInfo.add(authorizedBank.getText().trim());
-        authorizedInfo.add("# dia chi giao hang");
-        authorizedInfo.add(deviceName.getSelectedItem().toString().trim());
+        authorizedInfo.add("index 10");
         return authorizedInfo;
     }
+
 }
 
