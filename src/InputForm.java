@@ -31,7 +31,7 @@ public class InputForm {
     private JComboBox<String> authorizerComId, deviceName1, deviceName2, deviceName3;
     private JRadioButton leaseRadio, sellRadio, sellWithTIDRadio;
     private JCheckBox addDevice2, addDevice3,
-            to_trinh_thue, hop_dong_ban, bao_mat, bbbg, hop_dong_thue, uy_quyen, giao_khoan, to_trinh_ban;
+            to_trinh_thue, hop_dong_ban, bao_mat, bb_giao_nhan, hop_dong_thue, uy_quyen, hd_giao_khoan, to_trinh_ban;
     private JButton exportButton;
 
     public InputForm() {
@@ -157,10 +157,10 @@ public class InputForm {
                 to_trinh_thue.setSelected(true);
                 hop_dong_ban.setSelected(false);
                 bao_mat.setSelected(false);
-                bbbg.setSelected(true);
+                bb_giao_nhan.setSelected(true);
                 hop_dong_thue.setSelected(true);
                 uy_quyen.setSelected(true);
-                giao_khoan.setSelected(true);
+                hd_giao_khoan.setSelected(true);
                 to_trinh_ban.setSelected(false);
             }
         });
@@ -170,10 +170,10 @@ public class InputForm {
                 to_trinh_thue.setSelected(false);
                 hop_dong_ban.setSelected(true);
                 bao_mat.setSelected(true);
-                bbbg.setSelected(true);
+                bb_giao_nhan.setSelected(true);
                 hop_dong_thue.setSelected(false);
                 uy_quyen.setSelected(false);
-                giao_khoan.setSelected(false);
+                hd_giao_khoan.setSelected(false);
                 to_trinh_ban.setSelected(true);
             }
         });
@@ -183,38 +183,59 @@ public class InputForm {
                 to_trinh_thue.setSelected(false);
                 hop_dong_ban.setSelected(true);
                 bao_mat.setSelected(false);
-                bbbg.setSelected(true);
+                bb_giao_nhan.setSelected(true);
                 hop_dong_thue.setSelected(false);
                 uy_quyen.setSelected(true);
-                giao_khoan.setSelected(true);
+                hd_giao_khoan.setSelected(true);
                 to_trinh_ban.setSelected(true);
             }
         });
 
         exportButton.addActionListener(e -> {
-            HashMap<String, String> replaces = getDataInput();
-            if (to_trinh_thue.isSelected()) {
-                replaceTextInDocxFile("TO-TRINH-CHO-THUE", replaces);
+            StringBuilder msg = new StringBuilder();
+
+            if (!to_trinh_thue.isSelected() && !hop_dong_ban.isSelected() && !bao_mat.isSelected() &&
+                    !hop_dong_thue.isSelected() && !uy_quyen.isSelected() && !hd_giao_khoan.isSelected() &&
+                    !to_trinh_ban.isSelected() && !bb_giao_nhan.isSelected()) {
+                msg.append("Không có file nào được xuất ra!\n");
+                msg.append("\n");
+            } else {
+                msg.append("Các file được xuất ra gồm có:\n");
+                HashMap<String, String> replaces = getDataInput();
+                if (to_trinh_thue.isSelected()) {
+                    replaceTextInDocxFile("TO-TRINH-CHO-THUE", replaces);
+                    msg.append("- Tờ trình cho thuê máy\n");
+                }
+                if (hop_dong_ban.isSelected()) {
+                    replaceTextInDocxFile("HOP-DONG-BAN", replaces);
+                    msg.append("- Hợp đồng mua bán\n");
+                }
+                if (bao_mat.isSelected()) {
+                    replaceTextInDocxFile("THOA-THUAN-BAO-MAT", replaces);
+                    msg.append("- Thỏa thuận bảo mật\n");
+                }
+                if (hop_dong_thue.isSelected()) {
+                    replaceTextInDocxFile("HOP-DONG-THUE", replaces);
+                    msg.append("- Hợp đồng thuê máy\n");
+                }
+                if (uy_quyen.isSelected()) {
+                    replaceTextInDocxFile("UY-QUYEN", replaces);
+                    msg.append("- Giấy ủy quyền\n");
+                }
+                if (hd_giao_khoan.isSelected()) {
+                    replaceTextInDocxFile("HOP-DONG-GIAO-KHOAN", replaces);
+                    msg.append("- Hợp đồng giao khoán\n");
+                }
+                if (to_trinh_ban.isSelected()) {
+                    replaceTextInDocxFile("TO-TRINH-BAN", replaces);
+                    msg.append("- Tờ trình bán máy\n");
+                }
+                if (bb_giao_nhan.isSelected()) {
+                    replaceTextInDocxFile("BIEN-BAN-BAN-GIAO", replaces);
+                    msg.append("- Biên bản giao nhận\n");
+                }
+                msg.append("\n");
             }
-            if (hop_dong_ban.isSelected()) {
-                replaceTextInDocxFile("HOP-DONG-BAN", replaces);
-            }
-            if (bao_mat.isSelected()) {
-                replaceTextInDocxFile("THOA-THUAN-BAO-MAT", replaces);
-            }
-            if (hop_dong_thue.isSelected()) {
-                replaceTextInDocxFile("HOP-DONG-THUE", replaces);
-            }
-            if (uy_quyen.isSelected()) {
-                replaceTextInDocxFile("UY-QUYEN", replaces);
-            }
-            if (giao_khoan.isSelected()) {
-                replaceTextInDocxFile("HOP-DONG-GIAO-KHOAN", replaces);
-            }
-            if (to_trinh_ban.isSelected()) {
-                replaceTextInDocxFile("TO-TRINH-BAN", replaces);
-            }
-            replaceTextInDocxFile("BIEN-BAN-BAN-GIAO", replaces);
 
             if (!authorizedName.getText().trim().isEmpty()) {
                 if (deviceName1.getSelectedIndex() != 0) {
@@ -232,14 +253,18 @@ public class InputForm {
                     customerInfo.add(deviceName3.getSelectedItem().toString().trim());
                     addNewRecord("KHACH_HANG", customerInfo);
                 }
+                msg.append("Thông tin khách hàng đã được lưu vào file lưu trữ!\n");
+                msg.append("\n");
             }
 
             if (authorizerComId.getSelectedIndex() == -1) {
                 addNewRecord("UY_QUYEN", saveAuthorizerInfo());
                 authorizerComId.addItem(authorizerComId.getSelectedItem().toString().trim());
+                msg.append("Thông tin đơn vị ủy quyền đã được lưu vào file lưu trữ!");
+                msg.append("\n");
             }
 
-            JOptionPane.showMessageDialog(mainPanel, "Hồ sơ được xuất thành công!");
+            JOptionPane.showMessageDialog(mainPanel, msg);
         });
     }
 
