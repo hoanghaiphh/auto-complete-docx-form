@@ -16,7 +16,7 @@ public class MSExcelActions {
     private static final String FILE_NAME = System.getProperty("user.dir") + File.separator
             + "sourceDocs" + File.separator + "THONG_TIN.xlsx";
 
-    public static void addNewRecord(String sheetName, List<String> authorizerInfo) {
+    public static void addNewRecord(String sheetName, List<String> dataList) {
         FileInputStream fis = null;
         try {
             fis = new FileInputStream(FILE_NAME);
@@ -26,8 +26,8 @@ public class MSExcelActions {
             int rowIndex = sheet.getLastRowNum() + 1;
             Row newRow = sheet.createRow(rowIndex);
             newRow.createCell(0).setCellValue(rowIndex);
-            for (int i = 1; i < authorizerInfo.size(); i++) {
-                newRow.createCell(i).setCellValue(authorizerInfo.get(i));
+            for (int i = 1; i < dataList.size(); i++) {
+                newRow.createCell(i).setCellValue(dataList.get(i));
             }
 
             FileOutputStream fos = new FileOutputStream(FILE_NAME);
@@ -48,7 +48,7 @@ public class MSExcelActions {
         }
     }
 
-    public static Row getRecord(String sheetName, int columnIndex, String value) {
+    public static Row getRowByColumnValue(String sheetName, int columnIndex, String value) {
         Row result = null;
         FileInputStream fis = null;
         try {
@@ -77,17 +77,18 @@ public class MSExcelActions {
         return result;
     }
 
-    public static List<String> getAllAuthorizerComIds() {
-        List<String> comIds = new ArrayList<>();
+    public static List<Row> getListRowByColumnValue(String sheetName, int columnIndex, String value) {
+        List<Row> result = new ArrayList<>();
         FileInputStream fis = null;
         try {
             fis = new FileInputStream(FILE_NAME);
             Workbook workbook = new XSSFWorkbook(fis);
-            Sheet sheet = workbook.getSheet("UY_QUYEN");
+            Sheet sheet = workbook.getSheet(sheetName);
             for (int rowIndex = 1; rowIndex <= sheet.getLastRowNum(); rowIndex++) {
                 Row row = sheet.getRow(rowIndex);
-                Cell cell = row.getCell(3);
-                comIds.add(cell.getStringCellValue());
+                if (row.getCell(columnIndex).getStringCellValue().equalsIgnoreCase(value)) {
+                    result.add(row);
+                }
             }
             workbook.close();
         } catch (Exception e) {
@@ -101,6 +102,33 @@ public class MSExcelActions {
                 e.printStackTrace();
             }
         }
-        return comIds;
+        return result;
+    }
+
+    public static List<String> getListValueOfColumn(String sheetName, int columnIndex) {
+        List<String> result = new ArrayList<>();
+        FileInputStream fis = null;
+        try {
+            fis = new FileInputStream(FILE_NAME);
+            Workbook workbook = new XSSFWorkbook(fis);
+            Sheet sheet = workbook.getSheet(sheetName);
+            for (int rowIndex = 1; rowIndex <= sheet.getLastRowNum(); rowIndex++) {
+                Row row = sheet.getRow(rowIndex);
+                Cell cell = row.getCell(columnIndex);
+                result.add(cell.getStringCellValue());
+            }
+            workbook.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                if (fis != null) {
+                    fis.close();
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        return result;
     }
 }
