@@ -703,7 +703,7 @@
                   <foreground color="-16777216"/>
                   <maximumRowCount value="10"/>
                   <model>
-                    <item value=" "/>
+                    <item value=""/>
                   </model>
                 </properties>
               </component>
@@ -722,7 +722,7 @@
                   <lightWeightPopupEnabled value="true"/>
                   <maximumRowCount value="10"/>
                   <model>
-                    <item value=" "/>
+                    <item value=""/>
                   </model>
                   <opaque value="true"/>
                   <popupVisible value="false"/>
@@ -1385,7 +1385,7 @@
           </component>
           <component id="8da81" class="javax.swing.JCheckBox" binding="to_trinh_thue">
             <constraints>
-              <grid row="0" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+              <grid row="0" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
               <font name="Cambria" size="16" style="0"/>
@@ -1395,7 +1395,7 @@
           </component>
           <component id="4972d" class="javax.swing.JCheckBox" binding="to_trinh_ban">
             <constraints>
-              <grid row="0" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+              <grid row="0" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
               <font name="Cambria" size="16" style="0"/>
@@ -1405,7 +1405,7 @@
           </component>
           <component id="a2ecf" class="javax.swing.JCheckBox" binding="hop_dong_thue">
             <constraints>
-              <grid row="0" column="5" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+              <grid row="0" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
               <font name="Cambria" size="16" style="0"/>
@@ -1415,7 +1415,7 @@
           </component>
           <component id="52f0f" class="javax.swing.JCheckBox" binding="hop_dong_ban">
             <constraints>
-              <grid row="0" column="6" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+              <grid row="0" column="5" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
               <font name="Cambria" size="16" style="0"/>
@@ -1425,17 +1425,17 @@
           </component>
           <component id="fd06f" class="javax.swing.JCheckBox" binding="hd_giao_khoan">
             <constraints>
-              <grid row="0" column="7" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+              <grid row="0" column="6" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
               <font name="Cambria" size="16" style="0"/>
               <foreground color="-16750453"/>
-              <text value="HĐ giao khoán"/>
+              <text value="Giao khoán"/>
             </properties>
           </component>
           <component id="cbc12" class="javax.swing.JCheckBox" binding="uy_quyen">
             <constraints>
-              <grid row="0" column="8" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+              <grid row="0" column="7" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
               <font name="Cambria" size="16" style="0"/>
@@ -1445,29 +1445,34 @@
           </component>
           <component id="718a8" class="javax.swing.JCheckBox" binding="bao_mat">
             <constraints>
+              <grid row="0" column="8" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <font name="Cambria" size="16" style="0"/>
+              <foreground color="-16750453"/>
+              <text value="Bảo mật"/>
+            </properties>
+          </component>
+          <component id="383fa" class="javax.swing.JCheckBox" binding="bb_giao_nhan">
+            <constraints>
               <grid row="0" column="9" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
               <font name="Cambria" size="16" style="0"/>
               <foreground color="-16750453"/>
-              <text value="TT bảo mật"/>
+              <text value="BBBG"/>
             </properties>
           </component>
-          <component id="383fa" class="javax.swing.JCheckBox" binding="bb_giao_nhan">
+          <component id="fd1b8" class="javax.swing.JCheckBox" binding="cam_ket">
             <constraints>
               <grid row="0" column="10" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
               <font name="Cambria" size="16" style="0"/>
-              <foreground color="-16750453"/>
-              <text value="BB giao nhận"/>
+              <foreground color="-9737365"/>
+              <text value="Cam kết"/>
             </properties>
           </component>
-          <hspacer id="8de55">
-            <constraints>
-              <grid row="0" column="2" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
-            </constraints>
-          </hspacer>
         </children>
       </grid>
       <vspacer id="a4206">

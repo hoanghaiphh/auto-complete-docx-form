@@ -29,7 +29,7 @@ public class InputForm {
             mid1, mid2, mid3, mid4, mid5, mid6, mid7, mid8, tid1, tid2, tid3, tid4, tid5, tid6, tid7, tid8;
     private JComboBox<String> authorizedName, authorizedId, deviceName1, deviceName2, deviceName3, authorizerComName, authorizerComId, exportSelect;
     private JCheckBox addDevice2, addDevice3, addMid2, addMid3, addMid4, addMid5, addMid6, addMid7, addMid8,
-            to_trinh_thue, hop_dong_ban, bao_mat, bb_giao_nhan, hop_dong_thue, uy_quyen, hd_giao_khoan, to_trinh_ban;
+            to_trinh_thue, hop_dong_ban, bao_mat, bb_giao_nhan, hop_dong_thue, uy_quyen, hd_giao_khoan, to_trinh_ban, cam_ket;
     private JButton exportButton;
 
     private static boolean authorizedNameFlag = false;
@@ -112,10 +112,6 @@ public class InputForm {
         //  TEN_KHACH_HANG
         authorizedName.getEditor().getEditorComponent().setForeground(new Color(0, 104, 139));
 
-        List<String> authorizedNameList = getListValueOfColumn("KHACH_HANG", 1);
-        List<String> upperCaseList = authorizedNameList.stream().map(String::toUpperCase).toList();
-        Set<String> dataList = new HashSet<>(upperCaseList);
-
         JTextField authorizedNameTF = (JTextField) authorizedName.getEditor().getEditorComponent();
 
         authorizedNameTF.getDocument().addDocumentListener(new DocumentListener() {
@@ -139,6 +135,10 @@ public class InputForm {
                     return;
                 }
                 authorizedNameFlag = true;
+
+                List<String> authorizedNameList = getListValueOfColumn("KHACH_HANG", 1);
+                List<String> upperCaseList = authorizedNameList.stream().map(String::toUpperCase).toList();
+                Set<String> dataList = new HashSet<>(upperCaseList);
 
                 SwingUtilities.invokeLater(() -> {
                     String input = authorizedNameTF.getText();
@@ -267,6 +267,7 @@ public class InputForm {
                 uy_quyen.setSelected(false);
                 hd_giao_khoan.setSelected(false);
                 to_trinh_ban.setSelected(false);
+                cam_ket.setSelected(false);
             }
         });
 
@@ -275,7 +276,7 @@ public class InputForm {
 
             if (!to_trinh_thue.isSelected() && !hop_dong_ban.isSelected() && !bao_mat.isSelected() &&
                     !hop_dong_thue.isSelected() && !uy_quyen.isSelected() && !hd_giao_khoan.isSelected() &&
-                    !to_trinh_ban.isSelected() && !bb_giao_nhan.isSelected()) {
+                    !to_trinh_ban.isSelected() && !bb_giao_nhan.isSelected() && !cam_ket.isSelected()) {
                 msg.append("Không có File nào được xuất ra!\n");
                 msg.append("\n");
             } else {
@@ -313,10 +314,13 @@ public class InputForm {
                     replaceTextInDocxFile("BIEN-BAN-BAN-GIAO", replaces);
                     msg.append("- Biên bản giao nhận\n");
                 }
+                if (cam_ket.isSelected()) {
+                    replaceTextInDocxFile("CAM-KET", replaces);
+                    msg.append("- Giấy cam kết\n");
+                }
                 msg.append("\n");
             }
 
-            // TODO: review excel file (add Quantity column / remove columns / ...)
             if (!authorizedName.getSelectedItem().toString().trim().isEmpty()
                     && !authorizedId.getSelectedItem().toString().trim().isEmpty()) {
 
@@ -327,22 +331,25 @@ public class InputForm {
                     if (deviceName1.getSelectedIndex() != 0) {
                         List<String> customerInfo = saveCustomerInfo();
                         customerInfo.add(deviceName1.getSelectedItem().toString().trim());
+                        customerInfo.add(quantity1.getText().trim());
                         addNewRecord("KHACH_HANG", customerInfo);
                     }
                     if (deviceName2.getSelectedIndex() != 0) {
                         List<String> customerInfo = saveCustomerInfo();
                         customerInfo.add(deviceName2.getSelectedItem().toString().trim());
+                        customerInfo.add(quantity2.getText().trim());
                         addNewRecord("KHACH_HANG", customerInfo);
                     }
                     if (deviceName3.getSelectedIndex() != 0) {
                         List<String> customerInfo = saveCustomerInfo();
                         customerInfo.add(deviceName3.getSelectedItem().toString().trim());
+                        customerInfo.add(quantity3.getText().trim());
                         addNewRecord("KHACH_HANG", customerInfo);
                     }
 
                     msg.append("Thông tin KHÁCH HÀNG đã được lưu lại!\n");
                     msg.append("\n");
-                } // TODO: save when no device? not exist -> save / save with mocking device
+                }
             }
 
             if (authorizerComId.getSelectedIndex() == -1 && authorizerComName.getSelectedIndex() == -1) {
@@ -390,57 +397,51 @@ public class InputForm {
         }
     }
 
-    private String getMidTidList() {
+    private List<Map.Entry<String, String>> getMidTidList() {
         HashMap<String, String> allValues = new HashMap<>();
 
         String mid1Value = mid1.getText().trim();
-        if (!mid1Value.isEmpty()) {
-            allValues.put(mid1Value, tid1.getText().trim());
+        String tid1Value = tid1.getText().trim();
+        if (!mid1Value.isEmpty() && !tid1Value.isEmpty()) {
+            allValues.put(mid1Value, tid1Value);
         }
         String mid2Value = mid2.getText().trim();
-        if (!mid2Value.isEmpty()) {
-            allValues.put(mid2Value, tid2.getText().trim());
+        String tid2Value = tid2.getText().trim();
+        if (!mid2Value.isEmpty() && !tid2Value.isEmpty()) {
+            allValues.put(mid2Value, tid2Value);
         }
         String mid3Value = mid3.getText().trim();
-        if (!mid3Value.isEmpty()) {
-            allValues.put(mid3Value, tid3.getText().trim());
+        String tid3Value = tid3.getText().trim();
+        if (!mid3Value.isEmpty() && !tid3Value.isEmpty()) {
+            allValues.put(mid3Value, tid3Value);
         }
         String mid4Value = mid4.getText().trim();
-        if (!mid4Value.isEmpty()) {
-            allValues.put(mid4Value, tid4.getText().trim());
+        String tid4Value = tid4.getText().trim();
+        if (!mid4Value.isEmpty() && !tid4Value.isEmpty()) {
+            allValues.put(mid4Value, tid4Value);
         }
         String mid5Value = mid5.getText().trim();
-        if (!mid5Value.isEmpty()) {
-            allValues.put(mid5Value, tid5.getText().trim());
+        String tid5Value = tid5.getText().trim();
+        if (!mid5Value.isEmpty() && !tid5Value.isEmpty()) {
+            allValues.put(mid5Value, tid5Value);
         }
         String mid6Value = mid6.getText().trim();
-        if (!mid6Value.isEmpty()) {
-            allValues.put(mid6Value, tid6.getText().trim());
+        String tid6Value = tid6.getText().trim();
+        if (!mid6Value.isEmpty() && !tid6Value.isEmpty()) {
+            allValues.put(mid6Value, tid6Value);
         }
         String mid7Value = mid7.getText().trim();
-        if (!mid7Value.isEmpty()) {
-            allValues.put(mid7Value, tid7.getText().trim());
+        String tid7Value = tid7.getText().trim();
+        if (!mid7Value.isEmpty() && !tid7Value.isEmpty()) {
+            allValues.put(mid7Value, tid7Value);
         }
         String mid8Value = mid8.getText().trim();
-        if (!mid8Value.isEmpty()) {
-            allValues.put(mid8Value, tid8.getText().trim());
+        String tid8Value = tid8.getText().trim();
+        if (!mid8Value.isEmpty() && !tid8Value.isEmpty()) {
+            allValues.put(mid8Value, tid8Value);
         }
 
-        List<Map.Entry<String, String>> entryList = new ArrayList<>(allValues.entrySet());
-        StringBuilder midTidList = new StringBuilder();
-
-        if (entryList.size() > 1) {
-            for (int i = 0; i < entryList.size() - 1; i++) {
-                midTidList.append("MiD_").append(i + 1).append(": ").append(entryList.get(i).getKey()).append(" ".repeat(10))
-                        .append("TiD_").append(i + 1).append(": ").append(entryList.get(i).getValue()).append(" ".repeat(100));
-            }
-            midTidList.append("MiD_").append(entryList.size()).append(": ").append(entryList.get(entryList.size() - 1).getKey()).append(" ".repeat(10))
-                    .append("TiD_").append(entryList.size()).append(": ").append(entryList.get(entryList.size() - 1).getValue());
-        } else if (entryList.size() == 1) {
-            midTidList.append("MiD: ").append(entryList.get(0).getKey()).append(" ".repeat(10)).append("TiD: ").append(entryList.get(0).getValue());
-        }
-
-        return midTidList.toString();
+        return new ArrayList<>(allValues.entrySet());
     }
 
     private HashMap<String, String> getDataInput() {
@@ -497,7 +498,30 @@ public class InputForm {
         replaces.put("{handoverIdDate}", handoverIdDate.getText().trim());
         replaces.put("{handoverIdPlace}", handoverIdPlace.getText().trim());
 
-        replaces.put("{midTidList}", getMidTidList());
+        StringBuilder mids = new StringBuilder();
+        StringBuilder tids = new StringBuilder();
+        StringBuilder midTitle = new StringBuilder();
+        StringBuilder tidTitle = new StringBuilder();
+
+        List<Map.Entry<String, String>> midTidList = getMidTidList();
+        if (midTidList.size() > 1) {
+            for (int i = 0; i < midTidList.size(); i++) {
+                mids.append(midTidList.get(i).getKey()).append(" ".repeat(10));
+                tids.append(midTidList.get(i).getValue()).append(" ".repeat(10));
+                midTitle.append("MiD").append(" ").append(i + 1).append(":").append(" ");
+                tidTitle.append("TiD").append(" ").append(i + 1).append(":").append(" ");
+            }
+        } else if (midTidList.size() == 1) {
+            mids.append(midTidList.get(0).getKey());
+            tids.append(midTidList.get(0).getValue());
+            midTitle.append("MiD:");
+            tidTitle.append("TiD:");
+        }
+
+        replaces.put("{mid}", midTitle.toString());
+        replaces.put("{tid}", tidTitle.toString());
+        replaces.put("{midList}", mids.toString());
+        replaces.put("{tidList}", tids.toString());
 
         return replaces;
     }
