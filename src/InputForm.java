@@ -1,5 +1,8 @@
 import org.apache.poi.ss.usermodel.DataFormatter;
 import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.ss.usermodel.Sheet;
+import org.apache.poi.ss.usermodel.Workbook;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 import javax.swing.*;
 import javax.swing.event.*;
@@ -9,6 +12,8 @@ import java.awt.event.FocusEvent;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.text.NumberFormat;
 import java.text.SimpleDateFormat;
 import java.util.*;
@@ -25,11 +30,13 @@ public class InputForm {
     private JTextField authorizedIdDate, authorizedIdPlace, authorizedAddress, authorizedTel, authorizedEmail, authorizedAcc, authorizedBank,
             quantity1, quantity2, quantity3, unitPrice1, unitPrice2, unitPrice3, fee1, fee2, fee3, totalFee, totalFeeAsText, monthFee, monthFee2, monthFee3,
             handoverName, handoverId, handoverIdDate, handoverIdPlace,
-            authorizerComAddress, authorizerComIdDate, authorizerComIdPlace, authorizerName, authorizerAddress, authorizerId, authorizerIdAddress, authorizerIdDate, authorizerIdPlace,
-            mid1, mid2, mid3, mid4, mid5, mid6, mid7, mid8, tid1, tid2, tid3, tid4, tid5, tid6, tid7, tid8;
+            authorizerComAddress, authorizerComIdDate, authorizerComIdPlace, authorizerName, authorizerId, authorizerIdDate, authorizerIdPlace,
+            mid1, mid2, mid3, mid4, mid5, mid6, tid1, tid2, tid3, tid4, tid5, tid6,
+            authorizedBirthday, shopName, vinattiNo, authorizerTaxCode, authorizerTel, authorizerEmail;
     private JComboBox<String> authorizedName, authorizedId, deviceName1, deviceName2, deviceName3, authorizerComName, authorizerComId, exportSelect;
-    private JCheckBox addDevice2, addDevice3, addMid2, addMid3, addMid4, addMid5, addMid6, addMid7, addMid8,
+    private JCheckBox addDevice2, addDevice3, addMid2, addMid3, addMid4, addMid5, addMid6,
             to_trinh_thue, hop_dong_ban, bao_mat, bb_giao_nhan, hop_dong_thue, uy_quyen, hd_giao_khoan, to_trinh_ban, cam_ket;
+    private JRadioButton onefin, vinatti, appota;
     private JButton exportButton;
 
     private static boolean authorizedNameFlag = false;
@@ -62,12 +69,14 @@ public class InputForm {
                     authorizerComAddress.setText(row.getCell(2).getStringCellValue());
                     authorizerComIdDate.setText(row.getCell(4).getStringCellValue());
                     authorizerComIdPlace.setText(row.getCell(5).getStringCellValue());
-                    authorizerName.setText(row.getCell(6).getStringCellValue());
-                    authorizerIdAddress.setText(row.getCell(7).getStringCellValue());
-                    authorizerAddress.setText(row.getCell(8).getStringCellValue());
-                    authorizerId.setText(new DataFormatter().formatCellValue(row.getCell(9)));
-                    authorizerIdDate.setText(row.getCell(10).getStringCellValue());
-                    authorizerIdPlace.setText(row.getCell(11).getStringCellValue());
+                    authorizerTaxCode.setText(row.getCell(6) != null ? new DataFormatter().formatCellValue(row.getCell(6)) : "");
+                    shopName.setText(row.getCell(7) != null ? row.getCell(7).getStringCellValue() : "");
+                    authorizerName.setText(row.getCell(8).getStringCellValue());
+                    authorizerId.setText(new DataFormatter().formatCellValue(row.getCell(11)));
+                    authorizerIdDate.setText(row.getCell(12).getStringCellValue());
+                    authorizerIdPlace.setText(row.getCell(13).getStringCellValue());
+                    authorizerTel.setText(row.getCell(14) != null ? new DataFormatter().formatCellValue(row.getCell(14)) : "");
+                    authorizerEmail.setText(row.getCell(15) != null ? row.getCell(15).getStringCellValue() : "");
                 } else {
                     clearAuthorizerInfo();
                 }
@@ -94,12 +103,14 @@ public class InputForm {
                     authorizerComId.setSelectedItem(row.getCell(3).getStringCellValue());
                     authorizerComIdDate.setText(row.getCell(4).getStringCellValue());
                     authorizerComIdPlace.setText(row.getCell(5).getStringCellValue());
-                    authorizerName.setText(row.getCell(6).getStringCellValue());
-                    authorizerIdAddress.setText(row.getCell(7).getStringCellValue());
-                    authorizerAddress.setText(row.getCell(8).getStringCellValue());
-                    authorizerId.setText(new DataFormatter().formatCellValue(row.getCell(9)));
-                    authorizerIdDate.setText(row.getCell(10).getStringCellValue());
-                    authorizerIdPlace.setText(row.getCell(11).getStringCellValue());
+                    authorizerTaxCode.setText(row.getCell(6) != null ? new DataFormatter().formatCellValue(row.getCell(6)) : "");
+                    shopName.setText(row.getCell(7) != null ? row.getCell(7).getStringCellValue() : "");
+                    authorizerName.setText(row.getCell(8).getStringCellValue());
+                    authorizerId.setText(new DataFormatter().formatCellValue(row.getCell(11)));
+                    authorizerIdDate.setText(row.getCell(12).getStringCellValue());
+                    authorizerIdPlace.setText(row.getCell(13).getStringCellValue());
+                    authorizerTel.setText(row.getCell(14) != null ? new DataFormatter().formatCellValue(row.getCell(14)) : "");
+                    authorizerEmail.setText(row.getCell(15) != null ? row.getCell(15).getStringCellValue() : "");
                 } else {
                     clearAuthorizerInfo();
                 }
@@ -185,7 +196,7 @@ public class InputForm {
             if (!authorizedNameValue.isEmpty()) {
                 List<Row> rows = getListRowByColumnValue("KHACH_HANG", 1, authorizedNameValue);
                 Set<String> uniqueSet = rows.stream()
-                        .map(row -> new DataFormatter().formatCellValue(row.getCell(4))).collect(Collectors.toSet());
+                        .map(row -> new DataFormatter().formatCellValue(row.getCell(5))).collect(Collectors.toSet());
                 List<String> uniqueList = new ArrayList<>(uniqueSet);
 
                 if (!uniqueList.isEmpty()) {
@@ -215,15 +226,16 @@ public class InputForm {
         authorizedId.addActionListener(e -> {
             if (authorizedId.getSelectedIndex() > 0) {
                 String authorizedIdValue = authorizedId.getSelectedItem().toString().trim();
-                Row row = getRowByColumnValue("KHACH_HANG", 4, authorizedIdValue);
+                Row row = getRowByColumnValue("KHACH_HANG", 5, authorizedIdValue);
 
-                authorizedTel.setText(new DataFormatter().formatCellValue(row.getCell(2)));
-                authorizedEmail.setText(row.getCell(3).getStringCellValue());
-                authorizedIdDate.setText(row.getCell(5).getStringCellValue());
-                authorizedIdPlace.setText(row.getCell(6).getStringCellValue());
-                authorizedAddress.setText(row.getCell(7).getStringCellValue());
-                authorizedAcc.setText(new DataFormatter().formatCellValue(row.getCell(8)));
-                authorizedBank.setText(row.getCell(9).getStringCellValue());
+                authorizedBirthday.setText(row.getCell(2) != null ? row.getCell(2).getStringCellValue() : "");
+                authorizedTel.setText(new DataFormatter().formatCellValue(row.getCell(3)));
+                authorizedEmail.setText(row.getCell(4).getStringCellValue());
+                authorizedIdDate.setText(row.getCell(6).getStringCellValue());
+                authorizedIdPlace.setText(row.getCell(7).getStringCellValue());
+                authorizedAddress.setText(row.getCell(8).getStringCellValue());
+                authorizedAcc.setText(new DataFormatter().formatCellValue(row.getCell(9)));
+                authorizedBank.setText(row.getCell(10).getStringCellValue());
             } else if (authorizedId.getSelectedIndex() == 0) {
                 clearCustomerInfo();
             }
@@ -299,8 +311,20 @@ public class InputForm {
                     msg.append("- Hợp đồng thuê máy\n");
                 }
                 if (uy_quyen.isSelected()) {
-                    replaceTextInDocxFile("UY-QUYEN", replaces);
-                    msg.append("- Giấy ủy quyền\n");
+                    if (onefin.isSelected()) {
+                        replaceTextInDocxFile("UY-QUYEN-ONEFIN", replaces);
+                        msg.append("- Giấy ủy quyền ONEFIN\n");
+                    } else if (appota.isSelected()) {
+                        replaceTextInDocxFile("UY-QUYEN-APPOTA", replaces);
+                        exportAppotaExcel();
+                        msg.append("- Giấy ủy quyền APPOTA (Word & Excel)\n");
+                    } else if (vinatti.isSelected()) {
+                        replaceTextInDocxFile("UY-QUYEN-VINATTI", replaces);
+                        msg.append("- Giấy ủy quyền VINATTI\n");
+                    } else {
+                        JOptionPane.showMessageDialog(mainPanel, "VUI LÒNG CHỌN LOẠI ỦY QUYỀN !!!");
+                        return;
+                    }
                 }
                 if (hd_giao_khoan.isSelected()) {
                     replaceTextInDocxFile("HOP-DONG-GIAO-KHOAN", replaces);
@@ -377,8 +401,39 @@ public class InputForm {
         setEnabledMidTid(addMid4, mid4, tid4);
         setEnabledMidTid(addMid5, mid5, tid5);
         setEnabledMidTid(addMid6, mid6, tid6);
-        setEnabledMidTid(addMid7, mid7, tid7);
-        setEnabledMidTid(addMid8, mid8, tid8);
+
+        // TRUNG_GIAN_THANH_TOAN
+        onefin.addActionListener(e -> {
+            if (onefin.isSelected()) {
+                vinattiNo.setText("");
+                vinattiNo.setEnabled(false);
+                authorizerTaxCode.setEnabled(false);
+                authorizerTel.setEnabled(false);
+                authorizerEmail.setEnabled(false);
+                shopName.setEnabled(false);
+            }
+        });
+
+        appota.addActionListener(e -> {
+            if (appota.isSelected()) {
+                vinattiNo.setText("");
+                vinattiNo.setEnabled(false);
+                authorizerTaxCode.setEnabled(false);
+                authorizerTel.setEnabled(false);
+                authorizerEmail.setEnabled(false);
+                shopName.setEnabled(true);
+            }
+        });
+
+        vinatti.addActionListener(e -> {
+            if (vinatti.isSelected()) {
+                vinattiNo.setEnabled(true);
+                authorizerTaxCode.setEnabled(true);
+                authorizerTel.setEnabled(true);
+                authorizerEmail.setEnabled(true);
+                shopName.setEnabled(false);
+            }
+        });
     }
 
     public static void main(String[] args) {
@@ -430,16 +485,6 @@ public class InputForm {
         if (!mid6Value.isEmpty() && !tid6Value.isEmpty()) {
             allValues.put(mid6Value, tid6Value);
         }
-        String mid7Value = mid7.getText().trim();
-        String tid7Value = tid7.getText().trim();
-        if (!mid7Value.isEmpty() && !tid7Value.isEmpty()) {
-            allValues.put(mid7Value, tid7Value);
-        }
-        String mid8Value = mid8.getText().trim();
-        String tid8Value = tid8.getText().trim();
-        if (!mid8Value.isEmpty() && !tid8Value.isEmpty()) {
-            allValues.put(mid8Value, tid8Value);
-        }
 
         return new ArrayList<>(allValues.entrySet());
     }
@@ -462,22 +507,20 @@ public class InputForm {
         replaces.put("{authorizerComId}", authorizerComId.getSelectedItem().toString().trim());
         replaces.put("{authorizerComIdDate}", authorizerComIdDate.getText().trim());
         replaces.put("{authorizerComIdPlace}", authorizerComIdPlace.getText().trim());
-        replaces.put("{contractNo}", authorizerComId.getSelectedItem().toString().trim() + "/ONEFIN");
+        replaces.put("{contractNo}", authorizerComId.getSelectedItem().toString().trim() + "/2024/HĐDV/ONEFIN");
 
         replaces.put("{authorizerName}", authorizerName.getText().trim().toUpperCase());
-        replaces.put("{authorizerAddress}", authorizerAddress.getText().trim());
         replaces.put("{authorizerId}", authorizerId.getText().trim());
-        replaces.put("{authorizerIdAddress}", authorizerIdAddress.getText().trim());
         replaces.put("{authorizerIdDate}", authorizerIdDate.getText().trim());
         replaces.put("{authorizerIdPlace}", authorizerIdPlace.getText().trim());
 
         String deviceName1Value = deviceName1.getSelectedItem().toString().trim();
-        replaces.put("{deviceName1}", deviceName1Value.isEmpty() ? "" : ("Cho thuê máy POS " + deviceName1Value));
+        replaces.put("{deviceName1}", deviceName1Value.isEmpty() ? "" : ("Cọc thuê máy POS " + deviceName1Value));
         String deviceName2Value = deviceName2.getSelectedItem().toString().trim();
-        replaces.put("{deviceName2}", deviceName2Value.isEmpty() ? "" : ("Cho thuê máy POS " + deviceName2Value));
+        replaces.put("{deviceName2}", deviceName2Value.isEmpty() ? "" : ("Cọc thuê máy POS " + deviceName2Value));
         replaces.put("{index2}", deviceName2Value.isEmpty() ? "" : "2");
         String deviceName3Value = deviceName3.getSelectedItem().toString().trim();
-        replaces.put("{deviceName3}", deviceName3Value.isEmpty() ? "" : ("Cho thuê máy POS " + deviceName3Value));
+        replaces.put("{deviceName3}", deviceName3Value.isEmpty() ? "" : ("Cọc thuê máy POS " + deviceName3Value));
         replaces.put("{index3}", deviceName3Value.isEmpty() ? "" : "3");
 
         replaces.put("{quantity1}", quantity1.getText().trim());
@@ -523,6 +566,14 @@ public class InputForm {
         replaces.put("{midList}", mids.toString());
         replaces.put("{tidList}", tids.toString());
 
+        replaces.put("{tid1}", tid1.getText().trim());
+        replaces.put("{authorizedBirthday}", authorizedBirthday.getText().trim());
+        replaces.put("{vinattiNo}", vinattiNo.getText().trim());
+        replaces.put("{authorizerTaxCode}", authorizerTaxCode.getText().trim());
+        replaces.put("{authorizerTel}", authorizerTel.getText().trim());
+        replaces.put("{authorizerEmail}", authorizerEmail.getText().trim());
+        replaces.put("{shopName}", shopName.getText().trim().toUpperCase());
+
         return replaces;
     }
 
@@ -532,6 +583,48 @@ public class InputForm {
         String dstDocx = System.getProperty("user.dir") + File.separator + "resultDocs" + File.separator
                 + authorizedId.getSelectedItem().toString().trim() + "_" + fileName + new SimpleDateFormat("_yyyy-MM-dd").format(new Date()) + ".docx";
         replaceText(srcDocx, dstDocx, replaces);
+    }
+
+    private void exportAppotaExcel() {
+        String srcAppotaExcel = System.getProperty("user.dir") + File.separator + "sourceDocs" + File.separator
+                + "UY-QUYEN-APPOTA.xlsx";
+        String dstAppotaExcel = System.getProperty("user.dir") + File.separator + "resultDocs" + File.separator
+                + authorizedId.getSelectedItem().toString().trim() + "_UY-QUYEN-APPOTA" + new SimpleDateFormat("_yyyy-MM-dd").format(new Date()) + ".xlsx";
+
+        FileInputStream fis = null;
+        try {
+            fis = new FileInputStream(srcAppotaExcel);
+            Workbook workbook = new XSSFWorkbook(fis);
+            Sheet sheet = workbook.getSheet("Sheet1");
+
+            int rowIndex = sheet.getLastRowNum() + 1;
+            Row newRow = sheet.createRow(rowIndex);
+            newRow.createCell(0).setCellValue(1);
+            newRow.createCell(2).setCellValue(authorizerComAddress.getText().trim());
+            newRow.createCell(4).setCellValue(tid1.getText().trim());
+            newRow.createCell(6).setCellValue("105881679913");
+            newRow.createCell(7).setCellValue("NGUYỄN BÁ BA");
+            newRow.createCell(8).setCellValue("Vietinbank");
+            newRow.createCell(9).setCellValue(authorizedAcc.getText().trim());
+            newRow.createCell(10).setCellValue(authorizedName.getSelectedItem().toString().trim().toUpperCase());
+            newRow.createCell(11).setCellValue(authorizedBank.getText().trim());
+
+            FileOutputStream fos = new FileOutputStream(dstAppotaExcel);
+            workbook.write(fos);
+            fos.close();
+            workbook.close();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                if (fis != null) {
+                    fis.close();
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
     }
 
     private void addCalculation(JTextField unitPrice, JTextField quantity, JTextField fee) {
@@ -646,7 +739,7 @@ public class InputForm {
 
         deviceName.addActionListener(e -> {
             int select = deviceName.getSelectedIndex();
-            if (select == 1 || select == 3) {
+            if (select == 1 || select == 3 || select == 4) {
                 unitPrice.setText("10.000.000");
                 monthlyFee.setText("350.000");
                 addCalculation(unitPrice, quantity, fee);
@@ -708,12 +801,15 @@ public class InputForm {
         authorizerComIdDate.setText("");
         authorizerComIdPlace.setText("");
         authorizerName.setText("");
-        authorizerIdAddress.setText("");
-        authorizerAddress.setText("");
         authorizerId.setText("");
         authorizerIdDate.setText("");
         authorizerIdPlace.setText("Cục cảnh sát QLHC về TTXH");
         authorizerIdPlace.setCaretPosition(0);
+        vinattiNo.setText("");
+        authorizerTaxCode.setText("");
+        authorizerTel.setText("");
+        authorizerEmail.setText("");
+        shopName.setText("");
     }
 
     private void clearCustomerInfo() {
@@ -726,6 +822,7 @@ public class InputForm {
         authorizedAddress.setText("");
         authorizedAcc.setText("");
         authorizedBank.setText("");
+        authorizedBirthday.setText("");
     }
 
     private List<String> saveAuthorizerInfo() {
@@ -736,12 +833,16 @@ public class InputForm {
         authorizerInfo.add(authorizerComId.getSelectedItem().toString().trim());
         authorizerInfo.add(authorizerComIdDate.getText().trim());
         authorizerInfo.add(authorizerComIdPlace.getText().trim());
+        authorizerInfo.add(authorizerTaxCode.getText().trim());
+        authorizerInfo.add(shopName.getText().trim().toUpperCase());
         authorizerInfo.add(authorizerName.getText().trim().toUpperCase());
-        authorizerInfo.add(authorizerIdAddress.getText().trim());
-        authorizerInfo.add(authorizerAddress.getText().trim());
+        authorizerInfo.add("");
+        authorizerInfo.add("");
         authorizerInfo.add(authorizerId.getText().trim());
         authorizerInfo.add(authorizerIdDate.getText().trim());
         authorizerInfo.add(authorizerIdPlace.getText().trim());
+        authorizerInfo.add(authorizerTel.getText().trim());
+        authorizerInfo.add(authorizerEmail.getText().trim());
         return authorizerInfo;
     }
 
@@ -749,6 +850,7 @@ public class InputForm {
         List<String> authorizedInfo = new ArrayList<>();
         authorizedInfo.add("index 0");
         authorizedInfo.add(authorizedName.getSelectedItem().toString().trim().toUpperCase());
+        authorizedInfo.add(authorizedBirthday.getText().trim());
         authorizedInfo.add(authorizedTel.getText().trim());
         authorizedInfo.add(authorizedEmail.getText().trim());
         authorizedInfo.add(authorizedId.getSelectedItem().toString().trim());
@@ -757,7 +859,7 @@ public class InputForm {
         authorizedInfo.add(authorizedAddress.getText().trim());
         authorizedInfo.add(authorizedAcc.getText().trim());
         authorizedInfo.add(authorizedBank.getText().trim());
-        authorizedInfo.add("dc_giao_hang");
+        authorizedInfo.add("");
         return authorizedInfo;
     }
 
