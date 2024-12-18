@@ -31,10 +31,10 @@ public class InputForm {
             quantity1, quantity2, quantity3, unitPrice1, unitPrice2, unitPrice3, fee1, fee2, fee3, totalFee, totalFeeAsText, monthFee, monthFee2, monthFee3,
             handoverName, handoverId, handoverIdDate, handoverIdPlace,
             authorizerComAddress, authorizerComIdDate, authorizerComIdPlace, authorizerName, authorizerId, authorizerIdDate, authorizerIdPlace,
-            mid1, mid2, mid3, mid4, mid5, mid6, tid1, tid2, tid3, tid4, tid5, tid6,
-            authorizedBirthday, shopName, vinattiNo, authorizerTaxCode, authorizerTel, authorizerEmail;
+            mid1, mid2, mid3, mid4, mid5, tid1, tid2, tid3, tid4, tid5,
+            authorizedBirthday, shopName, vinattiNo, authorizerTaxCode, authorizerTel, authorizerEmail, serie, posName;
     private JComboBox<String> authorizedName, authorizedId, deviceName1, deviceName2, deviceName3, authorizerComName, authorizerComId, exportSelect;
-    private JCheckBox addDevice2, addDevice3, addMid2, addMid3, addMid4, addMid5, addMid6,
+    private JCheckBox addDevice2, addDevice3, addMid2, addMid3, addMid4, addMid5,
             to_trinh_thue, hop_dong_ban, bao_mat, bb_giao_nhan, hop_dong_thue, uy_quyen, hd_giao_khoan, to_trinh_ban, cam_ket;
     private JRadioButton onefin, vinatti, appota;
     private JButton exportButton;
@@ -72,9 +72,9 @@ public class InputForm {
                     authorizerTaxCode.setText(row.getCell(6) != null ? new DataFormatter().formatCellValue(row.getCell(6)) : "");
                     shopName.setText(row.getCell(7) != null ? row.getCell(7).getStringCellValue() : "");
                     authorizerName.setText(row.getCell(8).getStringCellValue());
-                    authorizerId.setText(new DataFormatter().formatCellValue(row.getCell(11)));
-                    authorizerIdDate.setText(row.getCell(12).getStringCellValue());
-                    authorizerIdPlace.setText(row.getCell(13).getStringCellValue());
+                    authorizerId.setText(row.getCell(11) != null ? new DataFormatter().formatCellValue(row.getCell(11)) : "");
+                    authorizerIdDate.setText(row.getCell(12) != null ? row.getCell(12).getStringCellValue() : "");
+                    authorizerIdPlace.setText(row.getCell(13) != null ? row.getCell(13).getStringCellValue() : "");
                     authorizerTel.setText(row.getCell(14) != null ? new DataFormatter().formatCellValue(row.getCell(14)) : "");
                     authorizerEmail.setText(row.getCell(15) != null ? row.getCell(15).getStringCellValue() : "");
                 } else {
@@ -106,9 +106,9 @@ public class InputForm {
                     authorizerTaxCode.setText(row.getCell(6) != null ? new DataFormatter().formatCellValue(row.getCell(6)) : "");
                     shopName.setText(row.getCell(7) != null ? row.getCell(7).getStringCellValue() : "");
                     authorizerName.setText(row.getCell(8).getStringCellValue());
-                    authorizerId.setText(new DataFormatter().formatCellValue(row.getCell(11)));
-                    authorizerIdDate.setText(row.getCell(12).getStringCellValue());
-                    authorizerIdPlace.setText(row.getCell(13).getStringCellValue());
+                    authorizerId.setText(row.getCell(11) != null ? new DataFormatter().formatCellValue(row.getCell(11)) : "");
+                    authorizerIdDate.setText(row.getCell(12) != null ? row.getCell(12).getStringCellValue() : "");
+                    authorizerIdPlace.setText(row.getCell(13) != null ? row.getCell(13).getStringCellValue() : "");
                     authorizerTel.setText(row.getCell(14) != null ? new DataFormatter().formatCellValue(row.getCell(14)) : "");
                     authorizerEmail.setText(row.getCell(15) != null ? row.getCell(15).getStringCellValue() : "");
                 } else {
@@ -400,38 +400,71 @@ public class InputForm {
         setEnabledMidTid(addMid3, mid3, tid3);
         setEnabledMidTid(addMid4, mid4, tid4);
         setEnabledMidTid(addMid5, mid5, tid5);
-        setEnabledMidTid(addMid6, mid6, tid6);
 
         // TRUNG_GIAN_THANH_TOAN
         onefin.addActionListener(e -> {
             if (onefin.isSelected()) {
+                authorizerId.setEnabled(true);
+                authorizerIdDate.setEnabled(true);
+                authorizerIdPlace.setEnabled(true);
+
                 vinattiNo.setText("");
                 vinattiNo.setEnabled(false);
                 authorizerTaxCode.setEnabled(false);
                 authorizerTel.setEnabled(false);
                 authorizerEmail.setEnabled(false);
                 shopName.setEnabled(false);
+
+                serie.setText("");
+                posName.setText("");
+                serie.setEnabled(false);
+                posName.setEnabled(false);
             }
         });
 
         appota.addActionListener(e -> {
             if (appota.isSelected()) {
+                authorizerId.setText("");
+                authorizerIdDate.setText("");
+                authorizerIdPlace.setText("");
+                authorizerId.setEnabled(false);
+                authorizerIdDate.setEnabled(false);
+                authorizerIdPlace.setEnabled(false);
+
                 vinattiNo.setText("");
                 vinattiNo.setEnabled(false);
                 authorizerTaxCode.setEnabled(false);
                 authorizerTel.setEnabled(false);
                 authorizerEmail.setEnabled(false);
                 shopName.setEnabled(true);
+
+                serie.setEnabled(true);
+                serie.setEditable(true);
+                posName.setEnabled(true);
+                posName.setEditable(true);
             }
         });
 
         vinatti.addActionListener(e -> {
             if (vinatti.isSelected()) {
+                authorizerId.setText("");
+                authorizerIdDate.setText("");
+                authorizerIdPlace.setText("");
+                authorizerId.setEnabled(false);
+                authorizerIdDate.setEnabled(false);
+                authorizerIdPlace.setEnabled(false);
+
                 vinattiNo.setEnabled(true);
+                vinattiNo.setEditable(true);
                 authorizerTaxCode.setEnabled(true);
                 authorizerTel.setEnabled(true);
                 authorizerEmail.setEnabled(true);
                 shopName.setEnabled(false);
+
+                serie.setText("");
+                posName.setText("");
+                serie.setEnabled(false);
+                posName.setEnabled(false);
             }
         });
     }
@@ -479,11 +512,6 @@ public class InputForm {
         String tid5Value = tid5.getText().trim();
         if (!mid5Value.isEmpty() && !tid5Value.isEmpty()) {
             allValues.put(mid5Value, tid5Value);
-        }
-        String mid6Value = mid6.getText().trim();
-        String tid6Value = tid6.getText().trim();
-        if (!mid6Value.isEmpty() && !tid6Value.isEmpty()) {
-            allValues.put(mid6Value, tid6Value);
         }
 
         return new ArrayList<>(allValues.entrySet());
@@ -600,8 +628,11 @@ public class InputForm {
             int rowIndex = sheet.getLastRowNum() + 1;
             Row newRow = sheet.createRow(rowIndex);
             newRow.createCell(0).setCellValue(1);
+            newRow.createCell(1).setCellValue(posName.getText().trim().toUpperCase());
             newRow.createCell(2).setCellValue(authorizerComAddress.getText().trim());
+            newRow.createCell(3).setCellValue(mid1.getText().trim());
             newRow.createCell(4).setCellValue(tid1.getText().trim());
+            newRow.createCell(5).setCellValue(serie.getText().trim());
             newRow.createCell(6).setCellValue("105881679913");
             newRow.createCell(7).setCellValue("NGUYỄN BÁ BA");
             newRow.createCell(8).setCellValue("Vietinbank");
