@@ -368,19 +368,6 @@
                   <text value="Người bàn giao:"/>
                 </properties>
               </component>
-              <component id="549af" class="javax.swing.JTextField" binding="handoverName">
-                <constraints>
-                  <grid row="12" column="1" row-span="1" col-span="9" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
-                    <preferred-size width="-1" height="40"/>
-                  </grid>
-                </constraints>
-                <properties>
-                  <font name="Cambria" size="20" style="1"/>
-                  <foreground color="-16750453"/>
-                  <horizontalAlignment value="10"/>
-                  <text value="NGUYỄN THỊ HOÀNG YẾN"/>
-                </properties>
-              </component>
               <component id="a9e04" class="javax.swing.JLabel">
                 <constraints>
                   <grid row="13" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
@@ -401,7 +388,7 @@
                   <font name="Cambria" size="20" style="1"/>
                   <foreground color="-9737365"/>
                   <horizontalAlignment value="10"/>
-                  <text value="042193017175"/>
+                  <text value=""/>
                 </properties>
               </component>
               <component id="63734" class="javax.swing.JLabel">
@@ -423,7 +410,7 @@
                   <font name="Cambria" size="20" style="1"/>
                   <foreground color="-9737365"/>
                   <horizontalAlignment value="10"/>
-                  <text value="09/05/2021"/>
+                  <text value=""/>
                 </properties>
               </component>
               <component id="330c4" class="javax.swing.JLabel">
@@ -771,6 +758,23 @@
                   <grid row="10" column="0" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
                 </constraints>
               </vspacer>
+              <component id="bc912" class="javax.swing.JComboBox" binding="handoverName">
+                <constraints>
+                  <grid row="12" column="1" row-span="1" col-span="9" vsize-policy="0" hsize-policy="7" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                    <preferred-size width="200" height="40"/>
+                  </grid>
+                </constraints>
+                <properties>
+                  <background color="-3355444"/>
+                  <editable value="true"/>
+                  <font name="Cambria" size="20" style="1"/>
+                  <foreground color="-16777216"/>
+                  <maximumRowCount value="10"/>
+                  <model>
+                    <item value=""/>
+                  </model>
+                </properties>
+              </component>
             </children>
           </grid>
           <grid id="14784" layout-manager="GridLayoutManager" row-count="14" column-count="6" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
@@ -902,30 +906,23 @@
                       <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
                     </constraints>
                     <properties>
-                      <font name="Cambria" size="18" style="1"/>
-                      <foreground color="-16750453"/>
+                      <font name="Cambria" size="18" style="0"/>
+                      <foreground color="-13158601"/>
                       <text value="MSDN:"/>
                     </properties>
                   </component>
-                  <component id="dc01" class="javax.swing.JComboBox" binding="authorizerComId">
+                  <component id="38ce9" class="javax.swing.JTextField" binding="authorizerComId">
                     <constraints>
                       <grid row="0" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="1" indent="0" use-parent-layout="false">
                         <preferred-size width="200" height="40"/>
                       </grid>
                     </constraints>
                     <properties>
-                      <background color="-3355444"/>
-                      <editable value="true"/>
                       <font name="Cambria" size="20" style="1"/>
-                      <foreground color="-16777216"/>
-                      <lightWeightPopupEnabled value="true"/>
-                      <maximumRowCount value="10"/>
-                      <model/>
-                      <opaque value="true"/>
-                      <popupVisible value="false"/>
+                      <foreground color="-9737365"/>
                     </properties>
                   </component>
-                  <component id="9e86f" class="javax.swing.JComboBox" binding="authorizerComName">
+                  <component id="4549a" class="javax.swing.JComboBox" binding="authorizerComName">
                     <constraints>
                       <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="7" anchor="8" fill="1" indent="0" use-parent-layout="false">
                         <preferred-size width="200" height="40"/>
@@ -937,7 +934,9 @@
                       <font name="Cambria" size="20" style="1"/>
                       <foreground color="-16777216"/>
                       <maximumRowCount value="10"/>
-                      <model/>
+                      <model>
+                        <item value=""/>
+                      </model>
                     </properties>
                   </component>
                 </children>
@@ -1215,7 +1214,8 @@
                     </constraints>
                     <properties>
                       <font name="Cambria" size="18" style="1"/>
-                      <text value=""/>
+                      <foreground color="-9737365"/>
+                      <text value="5"/>
                     </properties>
                   </component>
                   <component id="11131" class="javax.swing.JCheckBox" binding="addMid3">
@@ -1224,7 +1224,8 @@
                     </constraints>
                     <properties>
                       <font name="Cambria" size="18" style="1"/>
-                      <text value=""/>
+                      <foreground color="-9737365"/>
+                      <text value="3"/>
                     </properties>
                   </component>
                 </children>
@@ -1236,7 +1237,7 @@
                 <properties>
                   <font name="Cambria" size="18" style="1"/>
                   <foreground color="-16750453"/>
-                  <text value="MID / TID:"/>
+                  <text value="MID / TID 1:"/>
                 </properties>
               </component>
               <grid id="e02d9" layout-manager="GridLayoutManager" row-count="1" column-count="6" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
@@ -1412,7 +1413,8 @@
                 </constraints>
                 <properties>
                   <font name="Cambria" size="18" style="1"/>
-                  <text value=""/>
+                  <foreground color="-9737365"/>
+                  <text value="4"/>
                 </properties>
               </component>
               <component id="57870" class="javax.swing.JCheckBox" binding="addMid2">
@@ -1421,7 +1423,8 @@
                 </constraints>
                 <properties>
                   <font name="Cambria" size="18" style="1"/>
-                  <text value=""/>
+                  <foreground color="-9737365"/>
+                  <text value="2"/>
                 </properties>
               </component>
             </children>
@@ -1465,7 +1468,7 @@
                 <item value=""/>
                 <item value="Cho thuê máy"/>
                 <item value="Bán máy trắng"/>
-                <item value="Bán máy + TID"/>
+                <item value="Bán máy kèm TID"/>
               </model>
             </properties>
           </component>

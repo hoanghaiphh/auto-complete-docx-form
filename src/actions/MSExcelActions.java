@@ -13,7 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MSExcelActions {
-    private static final String FILE_NAME = System.getProperty("user.dir") + File.separator
+    public static final String FILE_NAME = System.getProperty("user.dir") + File.separator
             + "sourceDocs" + File.separator + "THONG_TIN.xlsx";
 
     public static void addNewRecord(String sheetName, List<String> dataList) {
@@ -130,5 +130,39 @@ public class MSExcelActions {
             }
         }
         return result;
+    }
+
+    public static void updateRecord(String srcFile, String dstFile, String sheetName, int rowIndex, List<String> dataList) {
+        FileInputStream fis = null;
+        try {
+            fis = new FileInputStream(srcFile);
+            Workbook workbook = new XSSFWorkbook(fis);
+            Sheet sheet = workbook.getSheet(sheetName);
+
+            Row row = sheet.getRow(rowIndex);
+            for (int i = 1; i < dataList.size(); i++) {
+                Cell cell = row.getCell(i);
+                if (cell == null) {
+                    cell = row.createCell(i);
+                }
+                cell.setCellValue(dataList.get(i));
+            }
+
+            FileOutputStream fos = new FileOutputStream(dstFile);
+            workbook.write(fos);
+            fos.close();
+            workbook.close();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                if (fis != null) {
+                    fis.close();
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
     }
 }
