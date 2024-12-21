@@ -35,6 +35,10 @@ public class InputForm {
     private JRadioButton onefin, vinatti, appota;
     private JButton exportButton;
 
+    private JComboBox<String> uy_quyen_1, uy_quyen_2, uy_quyen_3, uy_quyen_4, uy_quyen_5;
+    private JTextField tidQuantity1, tidQuantity2, tidQuantity3, tidQuantity4, tidQuantity5, tidsQuantity;
+    private JButton loadButton, mergeButton;
+
     private static String serviceType = "", key1 = "", key2 = "", key3 = "", key4 = "", key0 = "",
             value1 = "", value2 = "", value3 = "", value4 = "", value0 = "";
 
@@ -109,12 +113,30 @@ public class InputForm {
                         authorizedId.setSelectedIndex(1);
                     } else {
                         authorizedId.setSelectedItem("< chọn căn cước >");
-                        clearCustomerInfo();
+                        authorizedTel.setText("");
+                        authorizedEmail.setText("@gmail.com");
+                        authorizedEmail.setCaretPosition(0);
+                        authorizedIdDate.setText("");
+                        authorizedIdPlace.setText("Cục cảnh sát QLHC về TTXH");
+                        authorizedIdPlace.setCaretPosition(0);
+                        authorizedAddress.setText("");
+                        authorizedAcc.setText("");
+                        authorizedBank.setText("");
+                        authorizedBirthday.setText("");
                     }
                 }
             } else {
                 authorizedId.setSelectedItem("");
-                clearCustomerInfo();
+                authorizedTel.setText("");
+                authorizedEmail.setText("@gmail.com");
+                authorizedEmail.setCaretPosition(0);
+                authorizedIdDate.setText("");
+                authorizedIdPlace.setText("Cục cảnh sát QLHC về TTXH");
+                authorizedIdPlace.setCaretPosition(0);
+                authorizedAddress.setText("");
+                authorizedAcc.setText("");
+                authorizedBank.setText("");
+                authorizedBirthday.setText("");
             }
         });
 
@@ -136,7 +158,16 @@ public class InputForm {
                 authorizedBank.setText(row.getCell(10) != null ? row.getCell(10).getStringCellValue() : "");
 
             } else if (authorizedId.getSelectedIndex() == 0) {
-                clearCustomerInfo();
+                authorizedTel.setText("");
+                authorizedEmail.setText("@gmail.com");
+                authorizedEmail.setCaretPosition(0);
+                authorizedIdDate.setText("");
+                authorizedIdPlace.setText("Cục cảnh sát QLHC về TTXH");
+                authorizedIdPlace.setCaretPosition(0);
+                authorizedAddress.setText("");
+                authorizedAcc.setText("");
+                authorizedBank.setText("");
+                authorizedBirthday.setText("");
             }
         });
 
@@ -447,6 +478,94 @@ public class InputForm {
                 posName.setEnabled(false);
             }
         });
+
+        //  HOP_NHAT_UY_QUYEN
+        loadButton.addActionListener(e -> {
+            String folderPath = System.getProperty("user.dir") + File.separator + "mergeDocs";
+            File folder = new File(folderPath);
+            File[] filesList = folder.listFiles();
+
+            List<String> fileNames = new ArrayList<>();
+            fileNames.add("");
+            if (filesList != null) {
+                for (File file : filesList) {
+                    if (file.isFile() && file.getName().toLowerCase().endsWith(".docx")) {
+                        fileNames.add(file.getName());
+                    }
+                }
+            }
+
+            uy_quyen_1.removeAllItems();
+            uy_quyen_2.removeAllItems();
+            uy_quyen_3.removeAllItems();
+            uy_quyen_4.removeAllItems();
+            uy_quyen_5.removeAllItems();
+
+            for (String fileName : fileNames) {
+                uy_quyen_1.addItem(fileName);
+                uy_quyen_2.addItem(fileName);
+                uy_quyen_3.addItem(fileName);
+                uy_quyen_4.addItem(fileName);
+                uy_quyen_5.addItem(fileName);
+            }
+        });
+
+        addListenerForUqComboBox(uy_quyen_1, tidQuantity1);
+        addListenerForUqComboBox(uy_quyen_2, tidQuantity2);
+        addListenerForUqComboBox(uy_quyen_3, tidQuantity3);
+        addListenerForUqComboBox(uy_quyen_4, tidQuantity4);
+        addListenerForUqComboBox(uy_quyen_5, tidQuantity5);
+
+        mergeButton.addActionListener(e -> {
+            List<JComboBox<String>> uy_quyen_list = List.of(uy_quyen_1, uy_quyen_2, uy_quyen_3, uy_quyen_4, uy_quyen_5);
+            long selectedCount = uy_quyen_list.stream()
+                    .filter(comboBox -> comboBox.getSelectedIndex() > 0)
+                    .count();
+            if (selectedCount < 2) {
+                JOptionPane.showMessageDialog(mainPanel, "VUI LÒNG CHỌN TỐI THIỂU 2 FILE !!!");
+                return;
+            }
+
+            Set<String> selectedItems = new HashSet<>();
+            for (JComboBox<String> comboBox : uy_quyen_list) {
+                if (comboBox.getSelectedIndex() > 0) {
+                    String selectedItem = comboBox.getSelectedItem().toString();
+                    if (!selectedItems.add(selectedItem)) {
+                        JOptionPane.showMessageDialog(mainPanel, "CÁC FILE ĐƯỢC CHỌN KHÔNG ĐƯỢC TRÙNG NHAU !!!");
+                        return;
+                    }
+                }
+            }
+
+            List<JTextField> tidQuantityList = List.of(tidQuantity1, tidQuantity2, tidQuantity3, tidQuantity4, tidQuantity5);
+            int totalTids = tidQuantityList.stream()
+                    .mapToInt(field -> field.getText().trim().isEmpty() ? 0 : Integer.parseInt(field.getText().trim()))
+                    .sum();
+            if (totalTids < 2 || totalTids > 5) {
+                JOptionPane.showMessageDialog(mainPanel, "TỔNG SỐ LƯỢNG TID TỐI THIỂU LÀ 2 VÀ KHÔNG ĐƯỢC VƯỢT QUÁ 5 !!!");
+                return;
+            }
+
+            String srcFile = System.getProperty("user.dir") + File.separator + "sourceDocs" + File.separator
+                    + "UY-QUYEN-HOP-NHAT.docx";
+            String dstFile = System.getProperty("user.dir") + File.separator + "resultDocs" + File.separator
+                    + "UY-QUYEN-HOP-NHAT" + new SimpleDateFormat("_yyyy-MM-dd").format(new Date()) + ".docx";
+            replaceText(srcFile, dstFile, getDataInput());
+
+            int dstRowIndex = 3;
+            for (int i = 0; i < uy_quyen_list.size(); i++) {
+                int tidQttValue = tidQuantityList.get(i).getText().trim().isEmpty() ? 0 : Integer.parseInt(tidQuantityList.get(i).getText().trim());
+                if (uy_quyen_list.get(i).getSelectedIndex() > 0 && tidQttValue > 0) {
+                    for (int j = 0; j < tidQttValue; j++) {
+                        copyTableRow(uy_quyen_list.get(i).getSelectedItem().toString(), 3 + j, dstRowIndex);
+                        dstRowIndex++;
+                    }
+                }
+            }
+
+            JOptionPane.showMessageDialog(mainPanel, "Hợp nhất ỦY QUYỀN thành công!");
+        });
+
     }
 
     public static void main(String[] args) {
@@ -823,19 +942,6 @@ public class InputForm {
         });
     }
 
-    private void clearCustomerInfo() {
-        authorizedTel.setText("");
-        authorizedEmail.setText("@gmail.com");
-        authorizedEmail.setCaretPosition(0);
-        authorizedIdDate.setText("");
-        authorizedIdPlace.setText("Cục cảnh sát QLHC về TTXH");
-        authorizedIdPlace.setCaretPosition(0);
-        authorizedAddress.setText("");
-        authorizedAcc.setText("");
-        authorizedBank.setText("");
-        authorizedBirthday.setText("");
-    }
-
     private List<String> saveCustomerInfo() {
         List<String> authorizedInfo = new ArrayList<>();
         authorizedInfo.add("index 0");
@@ -951,6 +1057,29 @@ public class InputForm {
                         comboBox.dispatchEvent(e);
                     }
                 }
+            }
+        });
+    }
+
+    private void addListenerForUqComboBox(JComboBox<String> uy_quyen, JTextField tidQtt) {
+        uy_quyen.addActionListener(e -> {
+            if (uy_quyen.getSelectedIndex() > 0) {
+                int tidCount = countRowsInFirstTable(uy_quyen.getSelectedItem().toString().trim());
+                tidQtt.setText(String.valueOf(tidCount - 5));
+                tidsQuantity.setText(String.valueOf(
+                        (!tidQuantity1.getText().trim().isEmpty() ? Integer.parseInt(tidQuantity1.getText()) : 0) +
+                                (!tidQuantity2.getText().trim().isEmpty() ? Integer.parseInt(tidQuantity2.getText()) : 0) +
+                                (!tidQuantity3.getText().trim().isEmpty() ? Integer.parseInt(tidQuantity3.getText()) : 0) +
+                                (!tidQuantity4.getText().trim().isEmpty() ? Integer.parseInt(tidQuantity4.getText()) : 0) +
+                                (!tidQuantity5.getText().trim().isEmpty() ? Integer.parseInt(tidQuantity5.getText()) : 0)));
+            } else {
+                tidQtt.setText("");
+                tidsQuantity.setText(String.valueOf(
+                        (!tidQuantity1.getText().trim().isEmpty() ? Integer.parseInt(tidQuantity1.getText()) : 0) +
+                                (!tidQuantity2.getText().trim().isEmpty() ? Integer.parseInt(tidQuantity2.getText()) : 0) +
+                                (!tidQuantity3.getText().trim().isEmpty() ? Integer.parseInt(tidQuantity3.getText()) : 0) +
+                                (!tidQuantity4.getText().trim().isEmpty() ? Integer.parseInt(tidQuantity4.getText()) : 0) +
+                                (!tidQuantity5.getText().trim().isEmpty() ? Integer.parseInt(tidQuantity5.getText()) : 0)));
             }
         });
     }
