@@ -9,10 +9,12 @@ import java.awt.event.FocusEvent;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.io.File;
+import java.text.Normalizer;
 import java.text.NumberFormat;
 import java.text.SimpleDateFormat;
 import java.util.*;
 import java.util.List;
+import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
 import static actions.NumberToWordsVN.convertToWords;
@@ -643,10 +645,18 @@ public class InputForm {
         return new ArrayList<>(tidList.entrySet());
     }
 
+    private String removeDiacritics(String str) {
+        str = str.replace("Đ", "D").replace("đ", "d");
+        String normalized = Normalizer.normalize(str, Normalizer.Form.NFD);
+        Pattern pattern = Pattern.compile("\\p{InCombiningDiacriticalMarks}+");
+        return pattern.matcher(normalized).replaceAll("").toUpperCase();
+    }
+
     private HashMap<String, String> getDataInput() {
         HashMap<String, String> replaces = new HashMap<>();
 
         replaces.put("{authorizedName}", authorizedName.getSelectedItem().toString().trim().toUpperCase());
+        replaces.put("{authorizedNameRD}", removeDiacritics(authorizedName.getSelectedItem().toString().trim()));
         replaces.put("{authorizedAddress}", authorizedAddress.getText().trim());
         replaces.put("{authorizedId}", authorizedId.getSelectedItem().toString().trim());
         replaces.put("{authorizedIdDate}", authorizedIdDate.getText().trim());
@@ -661,7 +671,7 @@ public class InputForm {
         replaces.put("{authorizerComId}", authorizerComId.getText().trim());
         replaces.put("{authorizerComIdDate}", authorizerComIdDate.getText().trim());
         replaces.put("{authorizerComIdPlace}", authorizerComIdPlace.getText().trim());
-        replaces.put("{contractNo}", authorizerComId.getText().trim() + "/2024/HĐDV/ONEFIN");
+        replaces.put("{contractNo}", authorizerComId.getText().trim());
 
         replaces.put("{authorizerName}", authorizerName.getText().trim().toUpperCase());
         replaces.put("{authorizerId}", authorizerId.getText().trim());
@@ -746,7 +756,8 @@ public class InputForm {
         String srcDocx = System.getProperty("user.dir") + File.separator + "sourceDocs" + File.separator
                 + fileName + ".docx";
         String dstDocx = System.getProperty("user.dir") + File.separator + "resultDocs" + File.separator
-                + authorizedId.getSelectedItem().toString().trim() + "_" + fileName + new SimpleDateFormat("_yyyy-MM-dd").format(new Date()) + ".docx";
+                + removeDiacritics(authorizedName.getSelectedItem().toString().trim()).replace(" ", "-")
+                + "_" + fileName + new SimpleDateFormat("_yyyy-MM-dd").format(new Date()) + ".docx";
         replaceText(srcDocx, dstDocx, replaces);
     }
 
@@ -754,7 +765,8 @@ public class InputForm {
         String srcAppotaExcel = System.getProperty("user.dir") + File.separator + "sourceDocs" + File.separator
                 + "UY-QUYEN-APPOTA.xlsx";
         String dstAppotaExcel = System.getProperty("user.dir") + File.separator + "resultDocs" + File.separator
-                + authorizedId.getSelectedItem().toString().trim() + "_UY-QUYEN-APPOTA" + new SimpleDateFormat("_yyyy-MM-dd").format(new Date()) + ".xlsx";
+                + removeDiacritics(authorizedName.getSelectedItem().toString().trim()).replace(" ", "-")
+                + "_UY-QUYEN-APPOTA" + new SimpleDateFormat("_yyyy-MM-dd").format(new Date()) + ".xlsx";
 
         List<String> dataList = new ArrayList<>();
         dataList.add("1");
@@ -764,10 +776,10 @@ public class InputForm {
         dataList.add(tid1.getText().trim());
         dataList.add(serie.getText().trim());
         dataList.add("105881679913");
-        dataList.add("NGUYỄN BÁ BA");
+        dataList.add("NGUYEN BA BA");
         dataList.add("Vietinbank");
         dataList.add(authorizedAcc.getText().trim());
-        dataList.add(authorizedName.getSelectedItem().toString().trim().toUpperCase());
+        dataList.add(removeDiacritics(authorizedName.getSelectedItem().toString().trim()));
         dataList.add(authorizedBank.getText().trim());
 
         updateRecord(srcAppotaExcel, dstAppotaExcel, "Sheet1", 2, dataList);
@@ -1083,6 +1095,7 @@ public class InputForm {
             }
         });
     }
+
 }
 
 class ComboBoxFlags {
