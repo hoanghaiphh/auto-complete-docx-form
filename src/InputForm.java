@@ -1096,8 +1096,8 @@ public class InputForm {
         });
     }
 
-}
+    private static class ComboBoxFlags {
+        boolean flag = false;
+    }
 
-class ComboBoxFlags {
-    boolean flag = false;
 }
