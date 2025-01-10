@@ -34,8 +34,14 @@ public class WordActions {
 
             if (tidInfoLists.length > 0 && tidInfoLists[0] != null) {
                 List<List<String>> tidInfoList = tidInfoLists[0];
+
                 if (srcDocx.contains("VINATTI")) {
-                    insertDataIntoTable_VINATTI(document, tidInfoList);
+                    if (srcDocx.contains("PHU-LUC")) {
+                        insertDataIntoTable_VINATTI_PHULUC(document, tidInfoList);
+                    } else if (srcDocx.contains("UY-QUYEN")) {
+                        insertDataIntoTable_VINATTI_UYQUYEN(document, tidInfoList);
+                    }
+
                 } else if (srcDocx.contains("APPOTA")) {
                     insertDataIntoTable_APPOTA(document, tidInfoList);
                 } else if (srcDocx.contains("ONEFIN")) {
@@ -102,13 +108,22 @@ public class WordActions {
         }
     }
 
-    private static void insertDataIntoTable_VINATTI(XWPFDocument document, List<List<String>> tidInfoList) {
+    private static void insertDataIntoTable_VINATTI_PHULUC(XWPFDocument document, List<List<String>> tidInfoList) {
         if (!tidInfoList.isEmpty()) {
             XWPFTable table = document.getTables().get(0);
             int startRow = 3;
 
             for (List<String> tidInfo : tidInfoList) {
-                XWPFTableRow row = (startRow == 3) ? table.getRow(startRow++) : table.insertNewTableRow(startRow++);
+                XWPFTableRow row;
+                if (startRow == 3) {
+                    row = table.getRow(startRow++);
+                } else {
+                    row = table.insertNewTableRow(startRow++);
+
+                    XWPFTableCell cell0 = row.getCell(0);
+                    if (cell0 == null) cell0 = row.createCell();
+                    insertParagraphsIntoCell(cell0, "");
+                }
 
                 XWPFTableCell cell1 = row.getCell(1);
                 if (cell1 == null) cell1 = row.createCell();
@@ -117,6 +132,43 @@ public class WordActions {
                 XWPFTableCell cell2 = row.getCell(2);
                 if (cell2 == null) cell2 = row.createCell();
                 insertParagraphsIntoCell(cell2, tidInfo.get(12), tidInfo.get(17), tidInfo.get(18), tidInfo.get(16));
+            }
+        }
+    }
+
+    private static void insertDataIntoTable_VINATTI_UYQUYEN(XWPFDocument document, List<List<String>> tidInfoList) {
+        if (!tidInfoList.isEmpty()) {
+            XWPFTable table = document.getTables().get(0);
+            int startRow = 1;
+
+            for (List<String> tidInfo : tidInfoList) {
+                XWPFTableRow row = (startRow == 1) ? table.getRow(startRow) : table.insertNewTableRow(startRow);
+
+                XWPFTableCell cell0 = row.getCell(0);
+                if (cell0 == null) cell0 = row.createCell();
+                insertParagraphsIntoCell(cell0, String.valueOf(startRow));
+
+                XWPFTableCell cell1 = row.getCell(1);
+                if (cell1 == null) cell1 = row.createCell();
+                insertParagraphsIntoCell(cell1, tidInfo.get(1));
+
+                XWPFTableCell cell2 = row.getCell(2);
+                if (cell2 == null) cell2 = row.createCell();
+                insertParagraphsIntoCell(cell2, tidInfo.get(8));
+
+                XWPFTableCell cell3 = row.getCell(3);
+                if (cell3 == null) cell3 = row.createCell();
+                insertParagraphsIntoCell(cell3, tidInfo.get(9));
+
+                XWPFTableCell cell4 = row.getCell(4);
+                if (cell4 == null) cell4 = row.createCell();
+                insertParagraphsIntoCell(cell4, tidInfo.get(10));
+
+                XWPFTableCell cell5 = row.getCell(5);
+                if (cell5 == null) cell5 = row.createCell();
+                insertParagraphsIntoCell(cell5, "");
+
+                startRow++;
             }
         }
     }

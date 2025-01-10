@@ -77,6 +77,7 @@ public class InputForm {
         static String serviceType = "";
     }
 
+
     public static void main(String[] args) {
         JFrame mainFrame = new JFrame("POS INFORMATION - VERSION 6.0 - ©COPYRIGHT BY HAIPH");
         mainFrame.setContentPane(new InputForm().mainPanel);
@@ -92,7 +93,6 @@ public class InputForm {
             ex.printStackTrace();
         }
     }
-
 
     public InputForm() {
         configFormUI();
@@ -660,25 +660,24 @@ public class InputForm {
                     exportDocx("HOP-DONG-GIAO-KHOAN", authorizedName, replaceTexts);
                     msg.append("- Hợp đồng giao khoán\n");
                 }
-
                 if (uy_quyen.isSelected()) {
-                    List<List<String>> result = getTidInfoList();
+                    List<List<String>> tidInfoList = getTidInfoList();
                     if (onefin.isSelected()) {
-                        exportDocx("UY-QUYEN-ONEFIN", authorizedName, replaceTexts, result);
-                        msg.append("- Giấy ủy quyền ONEFIN\n");
+                        exportDocx("UY-QUYEN-ONEFIN", authorizedName, replaceTexts, tidInfoList);
+                        msg.append("- Ủy quyền ONEFIN\n");
                     } else if (appota.isSelected()) {
-                        exportDocx("UY-QUYEN-APPOTA", authorizedName, replaceTexts, result);
-                        exportXlsx_APPOTA(authorizedName, result);
-                        msg.append("- Giấy ủy quyền APPOTA (Word & Excel)\n");
+                        exportDocx("UY-QUYEN-APPOTA", authorizedName, replaceTexts, tidInfoList);
+                        exportXlsx_APPOTA(authorizedName, tidInfoList);
+                        msg.append("- Ủy quyền APPOTA (Word & Excel)\n");
                     } else if (vinatti.isSelected()) {
-                        exportDocx("UY-QUYEN-VINATTI", authorizedName, replaceTexts, result);
-                        msg.append("- Giấy ủy quyền VINATTI\n");
+                        exportDocx("UY-QUYEN-VINATTI", authorizedName, replaceTexts, tidInfoList);
+                        exportDocx("PHU-LUC-VINATTI", authorizedName, replaceTexts, tidInfoList);
+                        msg.append("- Ủy quyền VINATTI (Ủy quyền + Phụ lục)\n");
                     } else {
                         JOptionPane.showMessageDialog(mainPanel, "VUI LÒNG CHỌN LOẠI ỦY QUYỀN !!!");
                         return;
                     }
                 }
-
                 if (bao_mat.isSelected()) {
                     exportDocx("THOA-THUAN-BAO-MAT", authorizedName, replaceTexts);
                     msg.append("- Thỏa thuận bảo mật\n");
@@ -945,6 +944,14 @@ public class InputForm {
         return authorizerInfo;
     }
 
+    private String getComboBoxValue(JComboBox<String> comboBox) {
+        return comboBox.getSelectedItem() != null ? comboBox.getSelectedItem().toString().trim() : "";
+    }
+
+    private String getFormattedCellValue(Row row, int cellIndex) {
+        DataFormatter formatter = new DataFormatter();
+        return row.getCell(cellIndex) != null ? formatter.formatCellValue(row.getCell(cellIndex)) : "";
+    }
 
     private void addSuggestionForComboBox(JComboBox<String> comboBox, String sheetName) {
         Flags flags = new Flags();
@@ -1137,15 +1144,6 @@ public class InputForm {
         newAccNo.setEditable(true);
         newAccBank.setEnabled(true);
         newAccBank.setEditable(true);
-    }
-
-    private String getComboBoxValue(JComboBox<String> comboBox) {
-        return comboBox.getSelectedItem() != null ? comboBox.getSelectedItem().toString().trim() : "";
-    }
-
-    private String getFormattedCellValue(Row row, int cellIndex) {
-        DataFormatter formatter = new DataFormatter();
-        return row.getCell(cellIndex) != null ? formatter.formatCellValue(row.getCell(cellIndex)) : "";
     }
 
 }
