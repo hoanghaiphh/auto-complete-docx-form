@@ -15,7 +15,7 @@ import static utilities.WordActions.*;
 
 public class InputForm {
     private JPanel mainPanel;
-    private JTabbedPane mainTabbedPane, authorizerTabbedPane;
+    private JTabbedPane mainTabbedPane;
     private JButton exportButton;
     private JComboBox<String> exportSelect;
     private JCheckBox to_trinh_thue, to_trinh_ban, hop_dong_thue, hop_dong_ban, bb_giao_nhan,
@@ -96,10 +96,10 @@ public class InputForm {
 
     public InputForm() {
         configFormUI();
+        configPaymentIntermediariesComponents();
         configCustomerComponents();
         configDeviceComponents();
         configHandoverStaffComponents();
-        configPaymentIntermediariesComponents();
         configAuthorizerComponents();
         configTidComponents();
         configExportComponents();
@@ -115,16 +115,102 @@ public class InputForm {
             mainTabbedPane.setTabComponentAt(i, label);
         }
 
-        for (int i = 0; i < authorizerTabbedPane.getTabCount(); i++) {
-            JLabel label = new JLabel(authorizerTabbedPane.getTitleAt(i));
-            label.setFont(newFont);
-            authorizerTabbedPane.setTabComponentAt(i, label);
-        }
-
         Color blue = new Color(0, 104, 139);
         authorizedName.getEditor().getEditorComponent().setForeground(blue);
         handoverName.getEditor().getEditorComponent().setForeground(blue);
         authorizerComName.getEditor().getEditorComponent().setForeground(blue);
+    }
+
+    private void configPaymentIntermediariesComponents() {
+
+        onefin.addActionListener(e -> {
+            if (onefin.isSelected()) {
+                authorizedBirthday.setEnabled(false);
+
+                authorizerComIdDate.setEnabled(true);
+                authorizerComIdPlace.setEnabled(true);
+
+                authorizerId.setEnabled(true);
+                authorizerIdDate.setEnabled(true);
+                authorizerIdPlace.setEnabled(true);
+
+                contractNo.setEnabled(false);
+                authorizerTaxCode.setEnabled(false);
+                authorizerTel.setEnabled(false);
+                authorizerEmail.setEnabled(false);
+                shopName.setEnabled(false);
+
+                for (int i = 0; i < ADD_TID_LIST.size(); i++) {
+                    if (ADD_TID_LIST.get(i).isSelected()) {
+                        setEnabledTidONEFIN(
+                                MID_LIST.get(i), TID_LIST.get(i), SERIE_LIST.get(i), POS_NAME_LIST.get(i),
+                                OLD_ACC_NAME_LIST.get(i), OLD_ACC_NO_LIST.get(i), OLD_ACC_BANK_LIST.get(i),
+                                NEW_ACC_NAME_LIST.get(i), NEW_ACC_NO_LIST.get(i), NEW_ACC_BANK_LIST.get(i));
+                    }
+                }
+            }
+        });
+
+        appota.addActionListener(e -> {
+            if (appota.isSelected()) {
+                authorizedBirthday.setEnabled(false);
+
+                authorizerComIdDate.setEnabled(false);
+                authorizerComIdPlace.setEnabled(false);
+
+                authorizerId.setEnabled(false);
+                authorizerIdDate.setEnabled(false);
+                authorizerIdPlace.setEnabled(false);
+
+                contractNo.setEnabled(false);
+                authorizerTaxCode.setEnabled(false);
+                authorizerTel.setEnabled(false);
+                authorizerEmail.setEnabled(false);
+                shopName.setEnabled(true);
+
+                for (int i = 0; i < ADD_TID_LIST.size(); i++) {
+                    if (ADD_TID_LIST.get(i).isSelected()) {
+                        setEnabledTidAPPOTA(
+                                MID_LIST.get(i), TID_LIST.get(i), SERIE_LIST.get(i), POS_NAME_LIST.get(i),
+                                OLD_ACC_NAME_LIST.get(i), OLD_ACC_NO_LIST.get(i), OLD_ACC_BANK_LIST.get(i),
+                                NEW_ACC_NAME_LIST.get(i), NEW_ACC_NO_LIST.get(i), NEW_ACC_BANK_LIST.get(i));
+                    }
+                }
+
+                addDefaultTidAccountWhenSwitchRadio();
+            }
+        });
+
+        vinatti.addActionListener(e -> {
+            if (vinatti.isSelected()) {
+                authorizedBirthday.setEnabled(true);
+
+                authorizerComIdDate.setEnabled(false);
+                authorizerComIdPlace.setEnabled(false);
+
+                authorizerId.setEnabled(false);
+                authorizerIdDate.setEnabled(false);
+                authorizerIdPlace.setEnabled(false);
+
+                contractNo.setEnabled(true);
+                authorizerTaxCode.setEnabled(true);
+                authorizerTel.setEnabled(true);
+                authorizerEmail.setEnabled(true);
+                shopName.setEnabled(false);
+
+                for (int i = 0; i < ADD_TID_LIST.size(); i++) {
+                    if (ADD_TID_LIST.get(i).isSelected()) {
+                        setEnabledTidVINATTI(
+                                MID_LIST.get(i), TID_LIST.get(i), SERIE_LIST.get(i), POS_NAME_LIST.get(i),
+                                OLD_ACC_NAME_LIST.get(i), OLD_ACC_NO_LIST.get(i), OLD_ACC_BANK_LIST.get(i),
+                                NEW_ACC_NAME_LIST.get(i), NEW_ACC_NO_LIST.get(i), NEW_ACC_BANK_LIST.get(i));
+                    }
+                }
+
+                addDefaultTidAccountWhenSwitchRadio();
+            }
+        });
+
     }
 
     private void configCustomerComponents() {
@@ -202,27 +288,22 @@ public class InputForm {
                 authorizedAcc.setText("");
                 authorizedBank.setText("");
             }
+
+            updateTextFieldsValue(NEW_ACC_NO_LIST, authorizedAcc);
+            updateTextFieldsValue(NEW_ACC_BANK_LIST, authorizedBank);
         });
 
         authorizedAcc.addFocusListener(new FocusAdapter() {
             @Override
             public void focusLost(FocusEvent e) {
-                for (JTextField newAccNo : NEW_ACC_NO_LIST) {
-                    if (newAccNo.isEnabled()) {
-                        newAccNo.setText(authorizedAcc.getText().trim());
-                    }
-                }
+                updateTextFieldsValue(NEW_ACC_NO_LIST, authorizedAcc);
             }
         });
 
         authorizedBank.addFocusListener(new FocusAdapter() {
             @Override
             public void focusLost(FocusEvent e) {
-                for (JTextField newAccBank : NEW_ACC_BANK_LIST) {
-                    if (newAccBank.isEnabled()) {
-                        newAccBank.setText(authorizedBank.getText().trim());
-                    }
-                }
+                updateTextFieldsValue(NEW_ACC_BANK_LIST, authorizedBank);
             }
         });
     }
@@ -360,92 +441,6 @@ public class InputForm {
         });
     }
 
-    private void configPaymentIntermediariesComponents() {
-
-        onefin.addActionListener(e -> {
-            if (onefin.isSelected()) {
-                authorizerComIdDate.setEnabled(true);
-                authorizerComIdPlace.setEnabled(true);
-
-                authorizerId.setEnabled(true);
-                authorizerIdDate.setEnabled(true);
-                authorizerIdPlace.setEnabled(true);
-
-                contractNo.setEnabled(false);
-                authorizerTaxCode.setEnabled(false);
-                authorizerTel.setEnabled(false);
-                authorizerEmail.setEnabled(false);
-                shopName.setEnabled(false);
-
-                for (int i = 0; i < ADD_TID_LIST.size(); i++) {
-                    if (ADD_TID_LIST.get(i).isSelected()) {
-                        setEnabledTidONEFIN(
-                                MID_LIST.get(i), TID_LIST.get(i), SERIE_LIST.get(i), POS_NAME_LIST.get(i),
-                                OLD_ACC_NAME_LIST.get(i), OLD_ACC_NO_LIST.get(i), OLD_ACC_BANK_LIST.get(i),
-                                NEW_ACC_NAME_LIST.get(i), NEW_ACC_NO_LIST.get(i), NEW_ACC_BANK_LIST.get(i));
-                    }
-                }
-            }
-        });
-
-        appota.addActionListener(e -> {
-            if (appota.isSelected()) {
-                authorizerComIdDate.setEnabled(false);
-                authorizerComIdPlace.setEnabled(false);
-
-                authorizerId.setEnabled(false);
-                authorizerIdDate.setEnabled(false);
-                authorizerIdPlace.setEnabled(false);
-
-                contractNo.setEnabled(false);
-                authorizerTaxCode.setEnabled(false);
-                authorizerTel.setEnabled(false);
-                authorizerEmail.setEnabled(false);
-                shopName.setEnabled(true);
-
-                for (int i = 0; i < ADD_TID_LIST.size(); i++) {
-                    if (ADD_TID_LIST.get(i).isSelected()) {
-                        setEnabledTidAPPOTA(
-                                MID_LIST.get(i), TID_LIST.get(i), SERIE_LIST.get(i), POS_NAME_LIST.get(i),
-                                OLD_ACC_NAME_LIST.get(i), OLD_ACC_NO_LIST.get(i), OLD_ACC_BANK_LIST.get(i),
-                                NEW_ACC_NAME_LIST.get(i), NEW_ACC_NO_LIST.get(i), NEW_ACC_BANK_LIST.get(i));
-                    }
-                }
-
-                addDefaultTidAccountWhenSwitchRadio();
-            }
-        });
-
-        vinatti.addActionListener(e -> {
-            if (vinatti.isSelected()) {
-                authorizerComIdDate.setEnabled(false);
-                authorizerComIdPlace.setEnabled(false);
-
-                authorizerId.setEnabled(false);
-                authorizerIdDate.setEnabled(false);
-                authorizerIdPlace.setEnabled(false);
-
-                contractNo.setEnabled(true);
-                authorizerTaxCode.setEnabled(true);
-                authorizerTel.setEnabled(true);
-                authorizerEmail.setEnabled(true);
-                shopName.setEnabled(false);
-
-                for (int i = 0; i < ADD_TID_LIST.size(); i++) {
-                    if (ADD_TID_LIST.get(i).isSelected()) {
-                        setEnabledTidVINATTI(
-                                MID_LIST.get(i), TID_LIST.get(i), SERIE_LIST.get(i), POS_NAME_LIST.get(i),
-                                OLD_ACC_NAME_LIST.get(i), OLD_ACC_NO_LIST.get(i), OLD_ACC_BANK_LIST.get(i),
-                                NEW_ACC_NAME_LIST.get(i), NEW_ACC_NO_LIST.get(i), NEW_ACC_BANK_LIST.get(i));
-                    }
-                }
-
-                addDefaultTidAccountWhenSwitchRadio();
-            }
-        });
-
-    }
-
     private void configAuthorizerComponents() {
         addSuggestionForComboBox(authorizerComName, "UY_QUYEN");
         authorizerComName.addActionListener(e -> {
@@ -516,7 +511,7 @@ public class InputForm {
                         setComboBoxValue(newAccName, getComboBoxValue(authorizedName).toUpperCase());
 
                     } else {
-                        JOptionPane.showMessageDialog(mainPanel, "VUI LÒNG CHỌN LOẠI ỦY QUYỀN !!!");
+                        JOptionPane.showMessageDialog(mainPanel, "Vui lòng chọn TRUNG GIAN THANH TOÁN !!!");
                     }
                 } else {
                     mid.setEnabled(false);
@@ -626,6 +621,7 @@ public class InputForm {
         });
 
         exportButton.addActionListener(e -> {
+            String filePrefix = removeDiacritics(getComboBoxValue(authorizedName)).replace(" ", "-");
             StringBuilder msg = new StringBuilder();
 
             //  Export Files
@@ -639,55 +635,60 @@ public class InputForm {
                 HashMap<String, String> replaceTexts = getInputData();
 
                 if (to_trinh_thue.isSelected()) {
-                    exportDocx("TO-TRINH-CHO-THUE", authorizedName, replaceTexts);
+                    exportDocx("TO-TRINH-CHO-THUE", filePrefix, replaceTexts);
                     msg.append("- Tờ trình cho thuê máy\n");
                 }
                 if (to_trinh_ban.isSelected()) {
-                    exportDocx("TO-TRINH-BAN", authorizedName, replaceTexts);
+                    exportDocx("TO-TRINH-BAN", filePrefix, replaceTexts);
                     msg.append("- Tờ trình bán máy\n");
                 }
                 if (hop_dong_thue.isSelected()) {
                     Flags.serviceType = "Cọc thuê máy POS ";
-                    exportDocx("HOP-DONG-THUE", authorizedName, getInputData());
+                    exportDocx("HOP-DONG-THUE", filePrefix, getInputData());
                     msg.append("- Hợp đồng thuê máy\n");
                 }
                 if (hop_dong_ban.isSelected()) {
                     Flags.serviceType = "Bán máy POS ";
-                    exportDocx("HOP-DONG-BAN", authorizedName, getInputData());
+                    exportDocx("HOP-DONG-BAN", filePrefix, getInputData());
                     msg.append("- Hợp đồng mua bán\n");
                 }
                 if (hd_giao_khoan.isSelected()) {
-                    exportDocx("HOP-DONG-GIAO-KHOAN", authorizedName, replaceTexts);
+                    exportDocx("HOP-DONG-GIAO-KHOAN", filePrefix, replaceTexts);
                     msg.append("- Hợp đồng giao khoán\n");
                 }
                 if (uy_quyen.isSelected()) {
                     List<List<String>> tidInfoList = getTidInfoList();
                     if (onefin.isSelected()) {
-                        exportDocx("UY-QUYEN-ONEFIN", authorizedName, replaceTexts, tidInfoList);
+                        exportDocx("UY-QUYEN-ONEFIN", filePrefix, replaceTexts, tidInfoList);
                         msg.append("- Ủy quyền ONEFIN\n");
                     } else if (appota.isSelected()) {
-                        exportDocx("UY-QUYEN-APPOTA", authorizedName, replaceTexts, tidInfoList);
+                        exportDocx("UY-QUYEN-APPOTA", filePrefix, replaceTexts, tidInfoList);
                         exportXlsx_APPOTA(authorizedName, tidInfoList);
-                        msg.append("- Ủy quyền APPOTA (Word & Excel)\n");
+                        msg.append("- Ủy quyền APPOTA (02 Files: Word & Excel)\n");
                     } else if (vinatti.isSelected()) {
-                        exportDocx("UY-QUYEN-VINATTI", authorizedName, replaceTexts, tidInfoList);
-                        exportDocx("PHU-LUC-VINATTI", authorizedName, replaceTexts, tidInfoList);
-                        msg.append("- Ủy quyền VINATTI (Ủy quyền + Phụ lục)\n");
+                        if (filePrefix.isEmpty()) {
+                            exportDocx("PHU-LUC-VINATTI", "(merged)", replaceTexts, tidInfoList);
+                            msg.append("- Phụ lục VINATTI\n");
+                        } else {
+                            exportDocx("UY-QUYEN-VINATTI", filePrefix, replaceTexts, tidInfoList);
+                            exportDocx("PHU-LUC-VINATTI", filePrefix, replaceTexts, tidInfoList);
+                            msg.append("- Ủy quyền VINATTI (02 Files: Ủy quyền + Phụ lục)\n");
+                        }
                     } else {
-                        JOptionPane.showMessageDialog(mainPanel, "VUI LÒNG CHỌN LOẠI ỦY QUYỀN !!!");
+                        JOptionPane.showMessageDialog(mainPanel, "Vui lòng chọn TRUNG GIAN THANH TOÁN !!!");
                         return;
                     }
                 }
                 if (bao_mat.isSelected()) {
-                    exportDocx("THOA-THUAN-BAO-MAT", authorizedName, replaceTexts);
+                    exportDocx("THOA-THUAN-BAO-MAT", filePrefix, replaceTexts);
                     msg.append("- Thỏa thuận bảo mật\n");
                 }
                 if (bb_giao_nhan.isSelected()) {
-                    exportDocx("BIEN-BAN-BAN-GIAO", authorizedName, replaceTexts);
+                    exportDocx("BIEN-BAN-BAN-GIAO", filePrefix, replaceTexts);
                     msg.append("- Biên bản giao nhận\n");
                 }
                 if (cam_ket.isSelected()) {
-                    exportDocx("CAM-KET", authorizedName, replaceTexts);
+                    exportDocx("CAM-KET", filePrefix, replaceTexts);
                     msg.append("- Giấy cam kết\n");
                 }
                 msg.append("\n");
@@ -1028,6 +1029,14 @@ public class InputForm {
         Flags.settingValueFlag = true;
         comboBox.setSelectedItem(value);
         Flags.settingValueFlag = false;
+    }
+
+    private void updateTextFieldsValue(List<JTextField> dstTextFields, JTextField srcTextField) {
+        for (JTextField textField : dstTextFields) {
+            if (textField.isEnabled()) {
+                textField.setText(srcTextField.getText().trim());
+            }
+        }
     }
 
     private void setCalculationRule(JTextField unitPrice, JTextField quantity, JTextField fee) {

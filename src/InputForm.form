@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="InputForm">
-  <grid id="27dc6" binding="mainPanel" layout-manager="GridLayoutManager" row-count="3" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+  <grid id="27dc6" binding="mainPanel" layout-manager="GridLayoutManager" row-count="4" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
     <margin top="10" left="10" bottom="10" right="10"/>
     <constraints>
       <xy x="20" y="20" width="2005" height="896"/>
@@ -10,7 +10,7 @@
     <children>
       <tabbedpane id="1860e" binding="mainTabbedPane">
         <constraints>
-          <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false">
+          <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false">
             <preferred-size width="700" height="550"/>
           </grid>
         </constraints>
@@ -20,7 +20,7 @@
           <grid id="4e7f1" layout-manager="GridLayoutManager" row-count="8" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
             <margin top="10" left="10" bottom="10" right="10"/>
             <constraints>
-              <tabbedpane title="          KHÁCH HÀNG          "/>
+              <tabbedpane title="               KHÁCH HÀNG               "/>
             </constraints>
             <properties/>
             <border type="none"/>
@@ -259,8 +259,8 @@
                     </constraints>
                     <properties>
                       <font name="Cambria" size="18" style="0"/>
-                      <foreground color="-7400172"/>
-                      <text value="*Ngày sinh:"/>
+                      <foreground color="-9737365"/>
+                      <text value="Ngày sinh:"/>
                     </properties>
                   </component>
                   <component id="8d235" class="javax.swing.JTextField" binding="authorizedBirthday">
@@ -809,15 +809,165 @@
               </grid>
             </children>
           </grid>
-          <grid id="226b0" layout-manager="GridLayoutManager" row-count="2" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
-            <margin top="0" left="0" bottom="0" right="0"/>
+          <grid id="c1676" layout-manager="GridLayoutManager" row-count="8" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+            <margin top="10" left="10" bottom="10" right="10"/>
             <constraints>
-              <tabbedpane title="          ỦY QUYỀN          "/>
+              <tabbedpane title="               HỘ KINH DOANH               "/>
             </constraints>
             <properties/>
             <border type="none"/>
             <children>
-              <grid id="71758" layout-manager="GridLayoutManager" row-count="1" column-count="5" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+              <grid id="84bb4" layout-manager="GridLayoutManager" row-count="2" column-count="3" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+                <margin top="0" left="0" bottom="0" right="0"/>
+                <constraints>
+                  <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties/>
+                <border type="none"/>
+                <children>
+                  <component id="3329f" class="javax.swing.JLabel">
+                    <constraints>
+                      <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                    </constraints>
+                    <properties>
+                      <font name="Cambria" size="18" style="0"/>
+                      <foreground color="-9737365"/>
+                      <text value="Mã số doanh nghiệp:"/>
+                    </properties>
+                  </component>
+                  <component id="f9523" class="javax.swing.JTextField" binding="authorizerComId">
+                    <constraints>
+                      <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                        <preferred-size width="250" height="40"/>
+                      </grid>
+                    </constraints>
+                    <properties>
+                      <font name="Cambria" size="20" style="1"/>
+                      <foreground color="-13158601"/>
+                    </properties>
+                  </component>
+                  <component id="bf6e2" class="javax.swing.JLabel">
+                    <constraints>
+                      <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                    </constraints>
+                    <properties>
+                      <font name="Cambria" size="18" style="0"/>
+                      <foreground color="-9737365"/>
+                      <text value="Ngày cấp lần đầu:"/>
+                    </properties>
+                  </component>
+                  <component id="fcabc" class="javax.swing.JTextField" binding="authorizerComIdDate">
+                    <constraints>
+                      <grid row="1" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                        <preferred-size width="250" height="40"/>
+                      </grid>
+                    </constraints>
+                    <properties>
+                      <font name="Cambria" size="20" style="1"/>
+                      <foreground color="-13158601"/>
+                      <horizontalAlignment value="2"/>
+                    </properties>
+                  </component>
+                  <component id="ae10a" class="javax.swing.JLabel">
+                    <constraints>
+                      <grid row="0" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                    </constraints>
+                    <properties>
+                      <font name="Cambria" size="18" style="0"/>
+                      <foreground color="-9737365"/>
+                      <text value="Nơi cấp:"/>
+                    </properties>
+                  </component>
+                  <component id="8d0aa" class="javax.swing.JTextField" binding="authorizerComIdPlace">
+                    <constraints>
+                      <grid row="1" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="7" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                        <preferred-size width="-1" height="40"/>
+                      </grid>
+                    </constraints>
+                    <properties>
+                      <font name="Cambria" size="20" style="1"/>
+                      <foreground color="-13158601"/>
+                    </properties>
+                  </component>
+                </children>
+              </grid>
+              <grid id="112a5" layout-manager="GridLayoutManager" row-count="2" column-count="3" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+                <margin top="0" left="0" bottom="0" right="0"/>
+                <constraints>
+                  <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties/>
+                <border type="none"/>
+                <children>
+                  <component id="1ad96" class="javax.swing.JLabel">
+                    <constraints>
+                      <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                    </constraints>
+                    <properties>
+                      <font name="Cambria" size="18" style="0"/>
+                      <foreground color="-9737365"/>
+                      <text value="Mã số thuế:"/>
+                    </properties>
+                  </component>
+                  <component id="1a02f" class="javax.swing.JTextField" binding="authorizerTaxCode">
+                    <constraints>
+                      <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                        <preferred-size width="250" height="40"/>
+                      </grid>
+                    </constraints>
+                    <properties>
+                      <font name="Cambria" size="20" style="1"/>
+                      <foreground color="-13158601"/>
+                    </properties>
+                  </component>
+                  <component id="28ef" class="javax.swing.JLabel">
+                    <constraints>
+                      <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                    </constraints>
+                    <properties>
+                      <font name="Cambria" size="18" style="0"/>
+                      <foreground color="-9737365"/>
+                      <text value="Tên cửa hàng:"/>
+                    </properties>
+                  </component>
+                  <component id="9b6b" class="javax.swing.JTextField" binding="shopName">
+                    <constraints>
+                      <grid row="1" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="7" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                        <preferred-size width="-1" height="40"/>
+                      </grid>
+                    </constraints>
+                    <properties>
+                      <font name="Cambria" size="20" style="1"/>
+                      <foreground color="-13158601"/>
+                    </properties>
+                  </component>
+                  <component id="fa4da" class="javax.swing.JLabel">
+                    <constraints>
+                      <grid row="0" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                    </constraints>
+                    <properties>
+                      <font name="Cambria" size="18" style="0"/>
+                      <foreground color="-9737365"/>
+                      <text value="Số hợp đồng:"/>
+                    </properties>
+                  </component>
+                  <component id="3cb8c" class="javax.swing.JTextField" binding="contractNo">
+                    <constraints>
+                      <grid row="1" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                        <preferred-size width="150" height="40"/>
+                      </grid>
+                    </constraints>
+                    <properties>
+                      <editable value="true"/>
+                      <enabled value="true"/>
+                      <font name="Cambria" size="20" style="1"/>
+                      <foreground color="-13158601"/>
+                      <horizontalAlignment value="2"/>
+                    </properties>
+                  </component>
+                </children>
+              </grid>
+              <grid id="bd06c" layout-manager="GridLayoutManager" row-count="2" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
                 <margin top="0" left="0" bottom="0" right="0"/>
                 <constraints>
                   <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
@@ -825,1567 +975,1357 @@
                 <properties/>
                 <border type="none"/>
                 <children>
-                  <component id="30485" class="javax.swing.JRadioButton" binding="onefin">
+                  <component id="f2b4a" class="javax.swing.JLabel">
                     <constraints>
-                      <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                      <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
                     </constraints>
                     <properties>
                       <font name="Cambria" size="18" style="1"/>
-                      <foreground color="-7399141"/>
-                      <selected value="false"/>
-                      <text value="ONEFIN"/>
+                      <foreground color="-16750453"/>
+                      <text value="TÊN HỘ KINH DOANH:"/>
                     </properties>
                   </component>
-                  <component id="66f15" class="javax.swing.JRadioButton" binding="vinatti">
+                  <component id="c59d5" class="javax.swing.JComboBox" binding="authorizerComName">
                     <constraints>
-                      <grid row="0" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                      <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="7" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                        <preferred-size width="-1" height="40"/>
+                      </grid>
                     </constraints>
                     <properties>
-                      <font name="Cambria" size="18" style="1"/>
-                      <foreground color="-7399141"/>
-                      <text value="VINATTI"/>
+                      <background color="-3355444"/>
+                      <editable value="true"/>
+                      <font name="Cambria" size="20" style="1"/>
+                      <foreground color="-16777216"/>
+                      <maximumRowCount value="10"/>
+                      <model>
+                        <item value=""/>
+                      </model>
                     </properties>
                   </component>
-                  <component id="a31b5" class="javax.swing.JRadioButton" binding="appota">
-                    <constraints>
-                      <grid row="0" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
-                    </constraints>
-                    <properties>
-                      <font name="Cambria" size="18" style="1"/>
-                      <foreground color="-7399141"/>
-                      <text value="APPOTA"/>
-                    </properties>
-                  </component>
-                  <hspacer id="9d278">
-                    <constraints>
-                      <grid row="0" column="4" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
-                    </constraints>
-                  </hspacer>
-                  <hspacer id="b2e07">
-                    <constraints>
-                      <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
-                    </constraints>
-                  </hspacer>
                 </children>
               </grid>
-              <tabbedpane id="ea22c" binding="authorizerTabbedPane">
+              <grid id="7becd" layout-manager="GridLayoutManager" row-count="2" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+                <margin top="0" left="0" bottom="0" right="0"/>
                 <constraints>
-                  <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false">
-                    <preferred-size width="200" height="200"/>
-                  </grid>
+                  <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
                 </constraints>
                 <properties/>
                 <border type="none"/>
                 <children>
-                  <grid id="7fd76" layout-manager="GridLayoutManager" row-count="6" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
-                    <margin top="10" left="10" bottom="10" right="10"/>
+                  <component id="261af" class="javax.swing.JLabel">
                     <constraints>
-                      <tabbedpane title="     Thông tin hộ kinh doanh     "/>
+                      <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
                     </constraints>
-                    <properties/>
-                    <border type="none"/>
-                    <children>
-                      <grid id="64012" layout-manager="GridLayoutManager" row-count="2" column-count="3" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
-                        <margin top="0" left="0" bottom="0" right="0"/>
-                        <constraints>
-                          <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
-                        </constraints>
-                        <properties/>
-                        <border type="none"/>
-                        <children>
-                          <component id="a8107" class="javax.swing.JLabel">
-                            <constraints>
-                              <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
-                            </constraints>
-                            <properties>
-                              <font name="Cambria" size="18" style="0"/>
-                              <foreground color="-9737365"/>
-                              <text value="Mã số doanh nghiệp:"/>
-                            </properties>
-                          </component>
-                          <component id="8733" class="javax.swing.JTextField" binding="authorizerComId">
-                            <constraints>
-                              <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="1" indent="0" use-parent-layout="false">
-                                <preferred-size width="250" height="40"/>
-                              </grid>
-                            </constraints>
-                            <properties>
-                              <font name="Cambria" size="20" style="1"/>
-                              <foreground color="-13158601"/>
-                            </properties>
-                          </component>
-                          <component id="c0787" class="javax.swing.JLabel">
-                            <constraints>
-                              <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
-                            </constraints>
-                            <properties>
-                              <font name="Cambria" size="18" style="0"/>
-                              <foreground color="-9737365"/>
-                              <text value="Ngày cấp lần đầu:"/>
-                            </properties>
-                          </component>
-                          <component id="d5ad5" class="javax.swing.JTextField" binding="authorizerComIdDate">
-                            <constraints>
-                              <grid row="1" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="1" indent="0" use-parent-layout="false">
-                                <preferred-size width="250" height="40"/>
-                              </grid>
-                            </constraints>
-                            <properties>
-                              <font name="Cambria" size="20" style="1"/>
-                              <foreground color="-13158601"/>
-                              <horizontalAlignment value="2"/>
-                            </properties>
-                          </component>
-                          <component id="4919a" class="javax.swing.JLabel">
-                            <constraints>
-                              <grid row="0" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
-                            </constraints>
-                            <properties>
-                              <font name="Cambria" size="18" style="0"/>
-                              <foreground color="-9737365"/>
-                              <text value="Nơi cấp:"/>
-                            </properties>
-                          </component>
-                          <component id="fd019" class="javax.swing.JTextField" binding="authorizerComIdPlace">
-                            <constraints>
-                              <grid row="1" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="7" anchor="8" fill="1" indent="0" use-parent-layout="false">
-                                <preferred-size width="-1" height="40"/>
-                              </grid>
-                            </constraints>
-                            <properties>
-                              <font name="Cambria" size="20" style="1"/>
-                              <foreground color="-13158601"/>
-                            </properties>
-                          </component>
-                        </children>
-                      </grid>
-                      <grid id="aed0c" layout-manager="GridLayoutManager" row-count="2" column-count="3" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
-                        <margin top="0" left="0" bottom="0" right="0"/>
-                        <constraints>
-                          <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
-                        </constraints>
-                        <properties/>
-                        <border type="none"/>
-                        <children>
-                          <component id="a7ec9" class="javax.swing.JLabel">
-                            <constraints>
-                              <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
-                            </constraints>
-                            <properties>
-                              <font name="Cambria" size="18" style="0"/>
-                              <foreground color="-9737365"/>
-                              <text value="Mã số thuế:"/>
-                            </properties>
-                          </component>
-                          <component id="ab130" class="javax.swing.JTextField" binding="authorizerTaxCode">
-                            <constraints>
-                              <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="1" indent="0" use-parent-layout="false">
-                                <preferred-size width="250" height="40"/>
-                              </grid>
-                            </constraints>
-                            <properties>
-                              <font name="Cambria" size="20" style="1"/>
-                              <foreground color="-13158601"/>
-                            </properties>
-                          </component>
-                          <component id="76284" class="javax.swing.JLabel">
-                            <constraints>
-                              <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
-                            </constraints>
-                            <properties>
-                              <font name="Cambria" size="18" style="0"/>
-                              <foreground color="-9737365"/>
-                              <text value="Tên cửa hàng:"/>
-                            </properties>
-                          </component>
-                          <component id="f90ab" class="javax.swing.JTextField" binding="shopName">
-                            <constraints>
-                              <grid row="1" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="7" anchor="8" fill="1" indent="0" use-parent-layout="false">
-                                <preferred-size width="-1" height="40"/>
-                              </grid>
-                            </constraints>
-                            <properties>
-                              <font name="Cambria" size="20" style="1"/>
-                              <foreground color="-13158601"/>
-                            </properties>
-                          </component>
-                          <component id="43497" class="javax.swing.JLabel">
-                            <constraints>
-                              <grid row="0" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
-                            </constraints>
-                            <properties>
-                              <font name="Cambria" size="18" style="0"/>
-                              <foreground color="-9737365"/>
-                              <text value="Số hợp đồng:"/>
-                            </properties>
-                          </component>
-                          <component id="93611" class="javax.swing.JTextField" binding="contractNo">
-                            <constraints>
-                              <grid row="1" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="1" indent="0" use-parent-layout="false">
-                                <preferred-size width="150" height="40"/>
-                              </grid>
-                            </constraints>
-                            <properties>
-                              <editable value="true"/>
-                              <enabled value="true"/>
-                              <font name="Cambria" size="20" style="1"/>
-                              <foreground color="-13158601"/>
-                              <horizontalAlignment value="2"/>
-                            </properties>
-                          </component>
-                        </children>
-                      </grid>
-                      <grid id="f4231" layout-manager="GridLayoutManager" row-count="2" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
-                        <margin top="0" left="0" bottom="0" right="0"/>
-                        <constraints>
-                          <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
-                        </constraints>
-                        <properties/>
-                        <border type="none"/>
-                        <children>
-                          <component id="6f482" class="javax.swing.JLabel">
-                            <constraints>
-                              <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
-                            </constraints>
-                            <properties>
-                              <font name="Cambria" size="18" style="1"/>
-                              <foreground color="-16750453"/>
-                              <text value="TÊN HỘ KINH DOANH:"/>
-                            </properties>
-                          </component>
-                          <component id="faac7" class="javax.swing.JComboBox" binding="authorizerComName">
-                            <constraints>
-                              <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="7" anchor="8" fill="1" indent="0" use-parent-layout="false">
-                                <preferred-size width="-1" height="40"/>
-                              </grid>
-                            </constraints>
-                            <properties>
-                              <background color="-3355444"/>
-                              <editable value="true"/>
-                              <font name="Cambria" size="20" style="1"/>
-                              <foreground color="-16777216"/>
-                              <maximumRowCount value="10"/>
-                              <model>
-                                <item value=""/>
-                              </model>
-                            </properties>
-                          </component>
-                        </children>
-                      </grid>
-                      <grid id="1897c" layout-manager="GridLayoutManager" row-count="2" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
-                        <margin top="0" left="0" bottom="0" right="0"/>
-                        <constraints>
-                          <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
-                        </constraints>
-                        <properties/>
-                        <border type="none"/>
-                        <children>
-                          <component id="ffe9a" class="javax.swing.JLabel">
-                            <constraints>
-                              <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
-                            </constraints>
-                            <properties>
-                              <font name="Cambria" size="18" style="0"/>
-                              <foreground color="-9737365"/>
-                              <text value="Địa chỉ đăng ký kinh doanh:"/>
-                            </properties>
-                          </component>
-                          <component id="15640" class="javax.swing.JTextField" binding="authorizerComAddress">
-                            <constraints>
-                              <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="7" anchor="8" fill="1" indent="0" use-parent-layout="false">
-                                <preferred-size width="-1" height="40"/>
-                              </grid>
-                            </constraints>
-                            <properties>
-                              <font name="Cambria" size="20" style="1"/>
-                              <foreground color="-13158601"/>
-                            </properties>
-                          </component>
-                        </children>
-                      </grid>
-                      <grid id="6ed40" layout-manager="GridLayoutManager" row-count="2" column-count="4" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
-                        <margin top="0" left="0" bottom="0" right="0"/>
-                        <constraints>
-                          <grid row="4" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
-                        </constraints>
-                        <properties/>
-                        <border type="none"/>
-                        <children>
-                          <component id="1b108" class="javax.swing.JLabel">
-                            <constraints>
-                              <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
-                            </constraints>
-                            <properties>
-                              <font name="Cambria" size="18" style="1"/>
-                              <foreground color="-16750453"/>
-                              <text value="NGƯỜI ĐẠI DIỆN THEO PHÁP LUẬT:"/>
-                            </properties>
-                          </component>
-                          <component id="92c5a" class="javax.swing.JTextField" binding="authorizerName">
-                            <constraints>
-                              <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="1" indent="0" use-parent-layout="false">
-                                <preferred-size width="400" height="40"/>
-                              </grid>
-                            </constraints>
-                            <properties>
-                              <font name="Cambria" size="20" style="1"/>
-                              <foreground color="-16750453"/>
-                            </properties>
-                          </component>
-                          <component id="7a22f" class="javax.swing.JLabel">
-                            <constraints>
-                              <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
-                            </constraints>
-                            <properties>
-                              <font name="Cambria" size="18" style="0"/>
-                              <foreground color="-9737365"/>
-                              <text value="Số căn cước:"/>
-                            </properties>
-                          </component>
-                          <component id="42cf8" class="javax.swing.JTextField" binding="authorizerId">
-                            <constraints>
-                              <grid row="1" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="1" indent="0" use-parent-layout="false">
-                                <preferred-size width="250" height="40"/>
-                              </grid>
-                            </constraints>
-                            <properties>
-                              <font name="Cambria" size="20" style="1"/>
-                              <foreground color="-13158601"/>
-                            </properties>
-                          </component>
-                          <component id="c266f" class="javax.swing.JLabel">
-                            <constraints>
-                              <grid row="0" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
-                            </constraints>
-                            <properties>
-                              <font name="Cambria" size="18" style="0"/>
-                              <foreground color="-9737365"/>
-                              <text value="Ngày cấp:"/>
-                            </properties>
-                          </component>
-                          <component id="5c04b" class="javax.swing.JTextField" binding="authorizerIdDate">
-                            <constraints>
-                              <grid row="1" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="1" indent="0" use-parent-layout="false">
-                                <preferred-size width="250" height="40"/>
-                              </grid>
-                            </constraints>
-                            <properties>
-                              <font name="Cambria" size="20" style="1"/>
-                              <foreground color="-13158601"/>
-                              <horizontalAlignment value="2"/>
-                            </properties>
-                          </component>
-                          <component id="aae03" class="javax.swing.JLabel">
-                            <constraints>
-                              <grid row="0" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
-                            </constraints>
-                            <properties>
-                              <font name="Cambria" size="18" style="0"/>
-                              <foreground color="-9737365"/>
-                              <text value="Nơi cấp:"/>
-                            </properties>
-                          </component>
-                          <component id="7181c" class="javax.swing.JTextField" binding="authorizerIdPlace">
-                            <constraints>
-                              <grid row="1" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="7" anchor="8" fill="1" indent="0" use-parent-layout="false">
-                                <preferred-size width="-1" height="40"/>
-                              </grid>
-                            </constraints>
-                            <properties>
-                              <font name="Cambria" size="20" style="1"/>
-                              <foreground color="-13158601"/>
-                              <text value="Cục cảnh sát QLHC về TTXH"/>
-                            </properties>
-                          </component>
-                        </children>
-                      </grid>
-                      <grid id="5cf0c" layout-manager="GridLayoutManager" row-count="2" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
-                        <margin top="0" left="0" bottom="0" right="0"/>
-                        <constraints>
-                          <grid row="5" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
-                        </constraints>
-                        <properties/>
-                        <border type="none"/>
-                        <children>
-                          <component id="163d3" class="javax.swing.JLabel">
-                            <constraints>
-                              <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
-                            </constraints>
-                            <properties>
-                              <font name="Cambria" size="18" style="0"/>
-                              <foreground color="-9737365"/>
-                              <text value="Số điện thoại:"/>
-                            </properties>
-                          </component>
-                          <component id="278cc" class="javax.swing.JTextField" binding="authorizerTel">
-                            <constraints>
-                              <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="1" indent="0" use-parent-layout="false">
-                                <preferred-size width="250" height="40"/>
-                              </grid>
-                            </constraints>
-                            <properties>
-                              <font name="Cambria" size="20" style="1"/>
-                              <foreground color="-13158601"/>
-                            </properties>
-                          </component>
-                          <component id="4bdd9" class="javax.swing.JLabel">
-                            <constraints>
-                              <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
-                            </constraints>
-                            <properties>
-                              <font name="Cambria" size="18" style="0"/>
-                              <foreground color="-9737365"/>
-                              <text value="E-mail:"/>
-                            </properties>
-                          </component>
-                          <component id="ac776" class="javax.swing.JTextField" binding="authorizerEmail">
-                            <constraints>
-                              <grid row="1" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="7" anchor="8" fill="1" indent="0" use-parent-layout="false">
-                                <preferred-size width="-1" height="40"/>
-                              </grid>
-                            </constraints>
-                            <properties>
-                              <font name="Cambria" size="20" style="1"/>
-                              <foreground color="-13158601"/>
-                              <text value=""/>
-                            </properties>
-                          </component>
-                        </children>
-                      </grid>
-                    </children>
-                  </grid>
-                  <grid id="95b58" layout-manager="GridLayoutManager" row-count="16" column-count="8" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
-                    <margin top="10" left="10" bottom="10" right="10"/>
+                    <properties>
+                      <font name="Cambria" size="18" style="0"/>
+                      <foreground color="-9737365"/>
+                      <text value="Địa chỉ đăng ký kinh doanh:"/>
+                    </properties>
+                  </component>
+                  <component id="f2550" class="javax.swing.JTextField" binding="authorizerComAddress">
                     <constraints>
-                      <tabbedpane title="     Chi tiết thiết bị     "/>
+                      <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="7" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                        <preferred-size width="-1" height="40"/>
+                      </grid>
                     </constraints>
-                    <properties/>
-                    <border type="none"/>
-                    <children>
-                      <component id="64165" class="javax.swing.JTextField" binding="mid4">
-                        <constraints>
-                          <grid row="11" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="1" indent="0" use-parent-layout="false">
-                            <preferred-size width="170" height="35"/>
-                          </grid>
-                        </constraints>
-                        <properties>
-                          <editable value="false"/>
-                          <enabled value="false"/>
-                          <font name="Cambria" size="16" style="1"/>
-                          <foreground color="-13158601"/>
-                          <horizontalAlignment value="0"/>
-                          <text value=""/>
-                        </properties>
-                      </component>
-                      <component id="a7c60" class="javax.swing.JTextField" binding="tid4">
-                        <constraints>
-                          <grid row="11" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="1" indent="0" use-parent-layout="false">
-                            <preferred-size width="120" height="35"/>
-                          </grid>
-                        </constraints>
-                        <properties>
-                          <editable value="false"/>
-                          <enabled value="false"/>
-                          <font name="Cambria" size="16" style="1"/>
-                          <foreground color="-13158601"/>
-                          <horizontalAlignment value="0"/>
-                          <text value=""/>
-                        </properties>
-                      </component>
-                      <component id="28b07" class="javax.swing.JTextField" binding="mid2">
-                        <constraints>
-                          <grid row="5" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="1" indent="0" use-parent-layout="false">
-                            <preferred-size width="170" height="35"/>
-                          </grid>
-                        </constraints>
-                        <properties>
-                          <editable value="false"/>
-                          <enabled value="false"/>
-                          <font name="Cambria" size="16" style="1"/>
-                          <foreground color="-13158601"/>
-                          <horizontalAlignment value="0"/>
-                          <text value=""/>
-                        </properties>
-                      </component>
-                      <component id="483b8" class="javax.swing.JTextField" binding="tid2">
-                        <constraints>
-                          <grid row="5" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="1" indent="0" use-parent-layout="false">
-                            <preferred-size width="120" height="35"/>
-                          </grid>
-                        </constraints>
-                        <properties>
-                          <editable value="false"/>
-                          <enabled value="false"/>
-                          <font name="Cambria" size="16" style="1"/>
-                          <foreground color="-13158601"/>
-                          <horizontalAlignment value="0"/>
-                          <text value=""/>
-                        </properties>
-                      </component>
-                      <component id="5eefb" class="javax.swing.JTextField" binding="mid1">
-                        <constraints>
-                          <grid row="2" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="1" indent="0" use-parent-layout="false">
-                            <preferred-size width="170" height="35"/>
-                          </grid>
-                        </constraints>
-                        <properties>
-                          <editable value="false"/>
-                          <enabled value="false"/>
-                          <font name="Cambria" size="16" style="1"/>
-                          <foreground color="-13158601"/>
-                          <horizontalAlignment value="0"/>
-                          <text value=""/>
-                        </properties>
-                      </component>
-                      <component id="afd65" class="javax.swing.JTextField" binding="tid1">
-                        <constraints>
-                          <grid row="2" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="1" indent="0" use-parent-layout="false">
-                            <preferred-size width="120" height="35"/>
-                          </grid>
-                        </constraints>
-                        <properties>
-                          <editable value="false"/>
-                          <enabled value="false"/>
-                          <font name="Cambria" size="16" style="1"/>
-                          <foreground color="-13158601"/>
-                          <horizontalAlignment value="0"/>
-                          <text value=""/>
-                        </properties>
-                      </component>
-                      <component id="5509c" class="javax.swing.JTextField" binding="mid3">
-                        <constraints>
-                          <grid row="8" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="1" indent="0" use-parent-layout="false">
-                            <preferred-size width="170" height="35"/>
-                          </grid>
-                        </constraints>
-                        <properties>
-                          <editable value="false"/>
-                          <enabled value="false"/>
-                          <font name="Cambria" size="16" style="1"/>
-                          <foreground color="-13158601"/>
-                          <horizontalAlignment value="0"/>
-                          <text value=""/>
-                        </properties>
-                      </component>
-                      <component id="b350" class="javax.swing.JTextField" binding="tid3">
-                        <constraints>
-                          <grid row="8" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="1" indent="0" use-parent-layout="false">
-                            <preferred-size width="120" height="35"/>
-                          </grid>
-                        </constraints>
-                        <properties>
-                          <editable value="false"/>
-                          <enabled value="false"/>
-                          <font name="Cambria" size="16" style="1"/>
-                          <foreground color="-13158601"/>
-                          <horizontalAlignment value="0"/>
-                          <text value=""/>
-                        </properties>
-                      </component>
-                      <component id="54296" class="javax.swing.JTextField" binding="mid5">
-                        <constraints>
-                          <grid row="14" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="1" indent="0" use-parent-layout="false">
-                            <preferred-size width="170" height="35"/>
-                          </grid>
-                        </constraints>
-                        <properties>
-                          <editable value="false"/>
-                          <enabled value="false"/>
-                          <font name="Cambria" size="16" style="1"/>
-                          <foreground color="-13158601"/>
-                          <horizontalAlignment value="0"/>
-                          <text value=""/>
-                        </properties>
-                      </component>
-                      <component id="eb43e" class="javax.swing.JTextField" binding="tid5">
-                        <constraints>
-                          <grid row="14" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="1" indent="0" use-parent-layout="false">
-                            <preferred-size width="120" height="35"/>
-                          </grid>
-                        </constraints>
-                        <properties>
-                          <editable value="false"/>
-                          <enabled value="false"/>
-                          <font name="Cambria" size="16" style="1"/>
-                          <foreground color="-13158601"/>
-                          <horizontalAlignment value="0"/>
-                          <text value=""/>
-                        </properties>
-                      </component>
-                      <component id="e95cc" class="javax.swing.JCheckBox" binding="addTid5">
-                        <constraints>
-                          <grid row="14" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
-                        </constraints>
-                        <properties>
-                          <font name="Cambria" size="16" style="1"/>
-                          <foreground color="-16750453"/>
-                          <text value="5"/>
-                        </properties>
-                      </component>
-                      <component id="6df38" class="javax.swing.JCheckBox" binding="addTid3">
-                        <constraints>
-                          <grid row="8" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
-                        </constraints>
-                        <properties>
-                          <font name="Cambria" size="16" style="1"/>
-                          <foreground color="-16750453"/>
-                          <text value="3"/>
-                        </properties>
-                      </component>
-                      <component id="26b08" class="javax.swing.JCheckBox" binding="addTid4">
-                        <constraints>
-                          <grid row="11" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
-                        </constraints>
-                        <properties>
-                          <font name="Cambria" size="16" style="1"/>
-                          <foreground color="-16750453"/>
-                          <text value="4"/>
-                        </properties>
-                      </component>
-                      <component id="45cae" class="javax.swing.JCheckBox" binding="addTid2">
-                        <constraints>
-                          <grid row="5" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
-                        </constraints>
-                        <properties>
-                          <font name="Cambria" size="16" style="1"/>
-                          <foreground color="-16750453"/>
-                          <text value="2"/>
-                        </properties>
-                      </component>
-                      <component id="f2207" class="javax.swing.JLabel">
-                        <constraints>
-                          <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
-                        </constraints>
-                        <properties>
-                          <font name="Cambria" size="16" style="1"/>
-                          <foreground color="-16750453"/>
-                          <text value="- MID -"/>
-                        </properties>
-                      </component>
-                      <component id="c6f4f" class="javax.swing.JTextField" binding="serie1">
-                        <constraints>
-                          <grid row="2" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="1" indent="0" use-parent-layout="false">
-                            <preferred-size width="150" height="35"/>
-                          </grid>
-                        </constraints>
-                        <properties>
-                          <editable value="false"/>
-                          <enabled value="false"/>
-                          <font name="Cambria" size="16" style="1"/>
-                          <foreground color="-13158601"/>
-                          <horizontalAlignment value="0"/>
-                          <text value=""/>
-                        </properties>
-                      </component>
-                      <component id="87db0" class="javax.swing.JLabel">
-                        <constraints>
-                          <grid row="0" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
-                        </constraints>
-                        <properties>
-                          <font name="Cambria" size="16" style="1"/>
-                          <foreground color="-16750453"/>
-                          <text value="- SERIE -"/>
-                        </properties>
-                      </component>
-                      <component id="f5b76" class="javax.swing.JLabel">
-                        <constraints>
-                          <grid row="0" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
-                        </constraints>
-                        <properties>
-                          <font name="Cambria" size="16" style="1"/>
-                          <foreground color="-16750453"/>
-                          <text value="- TID -"/>
-                        </properties>
-                      </component>
-                      <component id="c951" class="javax.swing.JTextField" binding="oldAccBank1">
-                        <constraints>
-                          <grid row="2" column="7" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="1" indent="0" use-parent-layout="false">
-                            <preferred-size width="200" height="35"/>
-                          </grid>
-                        </constraints>
-                        <properties>
-                          <editable value="false"/>
-                          <enabled value="false"/>
-                          <font name="Cambria" size="16" style="1"/>
-                          <foreground color="-13158601"/>
-                          <horizontalAlignment value="0"/>
-                          <text value=""/>
-                        </properties>
-                      </component>
-                      <component id="d55cd" class="javax.swing.JTextField" binding="oldAccNo1">
-                        <constraints>
-                          <grid row="2" column="6" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="1" indent="0" use-parent-layout="false">
-                            <preferred-size width="160" height="35"/>
-                          </grid>
-                        </constraints>
-                        <properties>
-                          <editable value="false"/>
-                          <enabled value="false"/>
-                          <font name="Cambria" size="16" style="1"/>
-                          <foreground color="-13158601"/>
-                          <horizontalAlignment value="0"/>
-                          <text value=""/>
-                        </properties>
-                      </component>
-                      <component id="aa022" class="javax.swing.JComboBox" binding="oldAccName1">
-                        <constraints>
-                          <grid row="2" column="5" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="1" indent="0" use-parent-layout="false">
-                            <preferred-size width="270" height="35"/>
-                          </grid>
-                        </constraints>
-                        <properties>
-                          <background color="-3355444"/>
-                          <editable value="false"/>
-                          <enabled value="false"/>
-                          <font name="Cambria" size="16" style="1"/>
-                          <foreground color="-13158601"/>
-                          <maximumRowCount value="10"/>
-                          <model>
-                            <item value=""/>
-                          </model>
-                        </properties>
-                      </component>
-                      <component id="7e15" class="javax.swing.JLabel">
-                        <constraints>
-                          <grid row="0" column="5" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
-                        </constraints>
-                        <properties>
-                          <font name="Cambria" size="16" style="1"/>
-                          <foreground color="-16750453"/>
-                          <text value="- CHỦ TÀI KHOẢN -"/>
-                        </properties>
-                      </component>
-                      <component id="5735" class="javax.swing.JLabel">
-                        <constraints>
-                          <grid row="0" column="6" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
-                        </constraints>
-                        <properties>
-                          <font name="Cambria" size="16" style="1"/>
-                          <foreground color="-16750453"/>
-                          <text value="- SỐ TÀI KHOẢN -"/>
-                        </properties>
-                      </component>
-                      <component id="db8ca" class="javax.swing.JLabel">
-                        <constraints>
-                          <grid row="0" column="7" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
-                        </constraints>
-                        <properties>
-                          <font name="Cambria" size="16" style="1"/>
-                          <foreground color="-16750453"/>
-                          <text value="- NGÂN HÀNG -"/>
-                        </properties>
-                      </component>
-                      <component id="53268" class="javax.swing.JTextField" binding="serie2">
-                        <constraints>
-                          <grid row="5" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="1" indent="0" use-parent-layout="false">
-                            <preferred-size width="150" height="35"/>
-                          </grid>
-                        </constraints>
-                        <properties>
-                          <editable value="false"/>
-                          <enabled value="false"/>
-                          <font name="Cambria" size="16" style="1"/>
-                          <foreground color="-13158601"/>
-                          <horizontalAlignment value="0"/>
-                          <text value=""/>
-                        </properties>
-                      </component>
-                      <component id="82ba0" class="javax.swing.JTextField" binding="serie3">
-                        <constraints>
-                          <grid row="8" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="1" indent="0" use-parent-layout="false">
-                            <preferred-size width="150" height="35"/>
-                          </grid>
-                        </constraints>
-                        <properties>
-                          <editable value="false"/>
-                          <enabled value="false"/>
-                          <font name="Cambria" size="16" style="1"/>
-                          <foreground color="-13158601"/>
-                          <horizontalAlignment value="0"/>
-                          <text value=""/>
-                        </properties>
-                      </component>
-                      <component id="b6951" class="javax.swing.JTextField" binding="serie4">
-                        <constraints>
-                          <grid row="11" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="1" indent="0" use-parent-layout="false">
-                            <preferred-size width="150" height="35"/>
-                          </grid>
-                        </constraints>
-                        <properties>
-                          <editable value="false"/>
-                          <enabled value="false"/>
-                          <font name="Cambria" size="16" style="1"/>
-                          <foreground color="-13158601"/>
-                          <horizontalAlignment value="0"/>
-                          <text value=""/>
-                        </properties>
-                      </component>
-                      <component id="cc856" class="javax.swing.JTextField" binding="serie5">
-                        <constraints>
-                          <grid row="14" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="1" indent="0" use-parent-layout="false">
-                            <preferred-size width="150" height="35"/>
-                          </grid>
-                        </constraints>
-                        <properties>
-                          <editable value="false"/>
-                          <enabled value="false"/>
-                          <font name="Cambria" size="16" style="1"/>
-                          <foreground color="-13158601"/>
-                          <horizontalAlignment value="0"/>
-                          <text value=""/>
-                        </properties>
-                      </component>
-                      <component id="c661b" class="javax.swing.JComboBox" binding="oldAccName2">
-                        <constraints>
-                          <grid row="5" column="5" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="1" indent="0" use-parent-layout="false">
-                            <preferred-size width="270" height="35"/>
-                          </grid>
-                        </constraints>
-                        <properties>
-                          <background color="-3355444"/>
-                          <editable value="false"/>
-                          <enabled value="false"/>
-                          <font name="Cambria" size="16" style="1"/>
-                          <foreground color="-13158601"/>
-                          <maximumRowCount value="10"/>
-                          <model>
-                            <item value=""/>
-                          </model>
-                        </properties>
-                      </component>
-                      <component id="d367b" class="javax.swing.JComboBox" binding="oldAccName3">
-                        <constraints>
-                          <grid row="8" column="5" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="1" indent="0" use-parent-layout="false">
-                            <preferred-size width="270" height="35"/>
-                          </grid>
-                        </constraints>
-                        <properties>
-                          <background color="-3355444"/>
-                          <editable value="false"/>
-                          <enabled value="false"/>
-                          <font name="Cambria" size="16" style="1"/>
-                          <foreground color="-13158601"/>
-                          <maximumRowCount value="10"/>
-                          <model>
-                            <item value=""/>
-                          </model>
-                        </properties>
-                      </component>
-                      <component id="24e12" class="javax.swing.JComboBox" binding="oldAccName4">
-                        <constraints>
-                          <grid row="11" column="5" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="1" indent="0" use-parent-layout="false">
-                            <preferred-size width="270" height="35"/>
-                          </grid>
-                        </constraints>
-                        <properties>
-                          <background color="-3355444"/>
-                          <editable value="false"/>
-                          <enabled value="false"/>
-                          <font name="Cambria" size="16" style="1"/>
-                          <foreground color="-13158601"/>
-                          <maximumRowCount value="10"/>
-                          <model>
-                            <item value=""/>
-                          </model>
-                        </properties>
-                      </component>
-                      <component id="b9dc4" class="javax.swing.JComboBox" binding="oldAccName5">
-                        <constraints>
-                          <grid row="14" column="5" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="1" indent="0" use-parent-layout="false">
-                            <preferred-size width="270" height="35"/>
-                          </grid>
-                        </constraints>
-                        <properties>
-                          <background color="-3355444"/>
-                          <editable value="false"/>
-                          <enabled value="false"/>
-                          <font name="Cambria" size="16" style="1"/>
-                          <foreground color="-13158601"/>
-                          <maximumRowCount value="10"/>
-                          <model>
-                            <item value=""/>
-                          </model>
-                        </properties>
-                      </component>
-                      <component id="8d8e5" class="javax.swing.JTextField" binding="oldAccNo2">
-                        <constraints>
-                          <grid row="5" column="6" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="1" indent="0" use-parent-layout="false">
-                            <preferred-size width="160" height="35"/>
-                          </grid>
-                        </constraints>
-                        <properties>
-                          <editable value="false"/>
-                          <enabled value="false"/>
-                          <font name="Cambria" size="16" style="1"/>
-                          <foreground color="-13158601"/>
-                          <horizontalAlignment value="0"/>
-                          <text value=""/>
-                        </properties>
-                      </component>
-                      <component id="aadb7" class="javax.swing.JTextField" binding="oldAccNo3">
-                        <constraints>
-                          <grid row="8" column="6" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="1" indent="0" use-parent-layout="false">
-                            <preferred-size width="160" height="35"/>
-                          </grid>
-                        </constraints>
-                        <properties>
-                          <editable value="false"/>
-                          <enabled value="false"/>
-                          <font name="Cambria" size="16" style="1"/>
-                          <foreground color="-13158601"/>
-                          <horizontalAlignment value="0"/>
-                          <text value=""/>
-                        </properties>
-                      </component>
-                      <component id="dc58c" class="javax.swing.JTextField" binding="oldAccNo4">
-                        <constraints>
-                          <grid row="11" column="6" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="1" indent="0" use-parent-layout="false">
-                            <preferred-size width="160" height="35"/>
-                          </grid>
-                        </constraints>
-                        <properties>
-                          <editable value="false"/>
-                          <enabled value="false"/>
-                          <font name="Cambria" size="16" style="1"/>
-                          <foreground color="-13158601"/>
-                          <horizontalAlignment value="0"/>
-                          <text value=""/>
-                        </properties>
-                      </component>
-                      <component id="728ba" class="javax.swing.JTextField" binding="oldAccNo5">
-                        <constraints>
-                          <grid row="14" column="6" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="1" indent="0" use-parent-layout="false">
-                            <preferred-size width="160" height="35"/>
-                          </grid>
-                        </constraints>
-                        <properties>
-                          <editable value="false"/>
-                          <enabled value="false"/>
-                          <font name="Cambria" size="16" style="1"/>
-                          <foreground color="-13158601"/>
-                          <horizontalAlignment value="0"/>
-                          <text value=""/>
-                        </properties>
-                      </component>
-                      <component id="fddba" class="javax.swing.JTextField" binding="oldAccBank2">
-                        <constraints>
-                          <grid row="5" column="7" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="1" indent="0" use-parent-layout="false">
-                            <preferred-size width="200" height="35"/>
-                          </grid>
-                        </constraints>
-                        <properties>
-                          <editable value="false"/>
-                          <enabled value="false"/>
-                          <font name="Cambria" size="16" style="1"/>
-                          <foreground color="-13158601"/>
-                          <horizontalAlignment value="0"/>
-                          <text value=""/>
-                        </properties>
-                      </component>
-                      <component id="cd44e" class="javax.swing.JTextField" binding="oldAccBank3">
-                        <constraints>
-                          <grid row="8" column="7" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="1" indent="0" use-parent-layout="false">
-                            <preferred-size width="200" height="35"/>
-                          </grid>
-                        </constraints>
-                        <properties>
-                          <editable value="false"/>
-                          <enabled value="false"/>
-                          <font name="Cambria" size="16" style="1"/>
-                          <foreground color="-13158601"/>
-                          <horizontalAlignment value="0"/>
-                          <text value=""/>
-                        </properties>
-                      </component>
-                      <component id="bb706" class="javax.swing.JTextField" binding="oldAccBank4">
-                        <constraints>
-                          <grid row="11" column="7" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="1" indent="0" use-parent-layout="false">
-                            <preferred-size width="200" height="35"/>
-                          </grid>
-                        </constraints>
-                        <properties>
-                          <editable value="false"/>
-                          <enabled value="false"/>
-                          <font name="Cambria" size="16" style="1"/>
-                          <foreground color="-13158601"/>
-                          <horizontalAlignment value="0"/>
-                          <text value=""/>
-                        </properties>
-                      </component>
-                      <component id="e21f" class="javax.swing.JTextField" binding="oldAccBank5">
-                        <constraints>
-                          <grid row="14" column="7" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="1" indent="0" use-parent-layout="false">
-                            <preferred-size width="200" height="35"/>
-                          </grid>
-                        </constraints>
-                        <properties>
-                          <editable value="false"/>
-                          <enabled value="false"/>
-                          <font name="Cambria" size="16" style="1"/>
-                          <foreground color="-13158601"/>
-                          <horizontalAlignment value="0"/>
-                          <text value=""/>
-                        </properties>
-                      </component>
-                      <component id="4bf78" class="javax.swing.JComboBox" binding="newAccName1">
-                        <constraints>
-                          <grid row="3" column="5" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="1" indent="0" use-parent-layout="false">
-                            <preferred-size width="270" height="35"/>
-                          </grid>
-                        </constraints>
-                        <properties>
-                          <background color="-3355444"/>
-                          <editable value="false"/>
-                          <enabled value="false"/>
-                          <font name="Cambria" size="16" style="1"/>
-                          <foreground color="-13158601"/>
-                          <maximumRowCount value="10"/>
-                          <model>
-                            <item value=""/>
-                          </model>
-                        </properties>
-                      </component>
-                      <component id="ad1b2" class="javax.swing.JTextField" binding="newAccNo1">
-                        <constraints>
-                          <grid row="3" column="6" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="1" indent="0" use-parent-layout="false">
-                            <preferred-size width="160" height="35"/>
-                          </grid>
-                        </constraints>
-                        <properties>
-                          <editable value="false"/>
-                          <enabled value="false"/>
-                          <font name="Cambria" size="16" style="1"/>
-                          <foreground color="-13158601"/>
-                          <horizontalAlignment value="0"/>
-                          <text value=""/>
-                        </properties>
-                      </component>
-                      <component id="165fa" class="javax.swing.JTextField" binding="newAccBank1">
-                        <constraints>
-                          <grid row="3" column="7" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="1" indent="0" use-parent-layout="false">
-                            <preferred-size width="200" height="35"/>
-                          </grid>
-                        </constraints>
-                        <properties>
-                          <editable value="false"/>
-                          <enabled value="false"/>
-                          <font name="Cambria" size="16" style="1"/>
-                          <foreground color="-13158601"/>
-                          <horizontalAlignment value="0"/>
-                          <text value=""/>
-                        </properties>
-                      </component>
-                      <component id="3d4dd" class="javax.swing.JComboBox" binding="newAccName2">
-                        <constraints>
-                          <grid row="6" column="5" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="1" indent="0" use-parent-layout="false">
-                            <preferred-size width="270" height="35"/>
-                          </grid>
-                        </constraints>
-                        <properties>
-                          <background color="-3355444"/>
-                          <editable value="false"/>
-                          <enabled value="false"/>
-                          <font name="Cambria" size="16" style="1"/>
-                          <foreground color="-13158601"/>
-                          <maximumRowCount value="10"/>
-                          <model>
-                            <item value=""/>
-                          </model>
-                        </properties>
-                      </component>
-                      <component id="45a16" class="javax.swing.JTextField" binding="newAccNo2">
-                        <constraints>
-                          <grid row="6" column="6" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="1" indent="0" use-parent-layout="false">
-                            <preferred-size width="160" height="35"/>
-                          </grid>
-                        </constraints>
-                        <properties>
-                          <editable value="false"/>
-                          <enabled value="false"/>
-                          <font name="Cambria" size="16" style="1"/>
-                          <foreground color="-13158601"/>
-                          <horizontalAlignment value="0"/>
-                          <text value=""/>
-                        </properties>
-                      </component>
-                      <component id="f8dde" class="javax.swing.JTextField" binding="newAccBank2">
-                        <constraints>
-                          <grid row="6" column="7" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="1" indent="0" use-parent-layout="false">
-                            <preferred-size width="200" height="35"/>
-                          </grid>
-                        </constraints>
-                        <properties>
-                          <editable value="false"/>
-                          <enabled value="false"/>
-                          <font name="Cambria" size="16" style="1"/>
-                          <foreground color="-13158601"/>
-                          <horizontalAlignment value="0"/>
-                          <text value=""/>
-                        </properties>
-                      </component>
-                      <component id="935c5" class="javax.swing.JComboBox" binding="newAccName3">
-                        <constraints>
-                          <grid row="9" column="5" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="1" indent="0" use-parent-layout="false">
-                            <preferred-size width="270" height="35"/>
-                          </grid>
-                        </constraints>
-                        <properties>
-                          <background color="-3355444"/>
-                          <editable value="false"/>
-                          <enabled value="false"/>
-                          <font name="Cambria" size="16" style="1"/>
-                          <foreground color="-13158601"/>
-                          <maximumRowCount value="10"/>
-                          <model>
-                            <item value=""/>
-                          </model>
-                        </properties>
-                      </component>
-                      <component id="970c2" class="javax.swing.JTextField" binding="newAccNo3">
-                        <constraints>
-                          <grid row="9" column="6" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="1" indent="0" use-parent-layout="false">
-                            <preferred-size width="160" height="35"/>
-                          </grid>
-                        </constraints>
-                        <properties>
-                          <editable value="false"/>
-                          <enabled value="false"/>
-                          <font name="Cambria" size="16" style="1"/>
-                          <foreground color="-13158601"/>
-                          <horizontalAlignment value="0"/>
-                          <text value=""/>
-                        </properties>
-                      </component>
-                      <component id="eeb92" class="javax.swing.JTextField" binding="newAccBank3">
-                        <constraints>
-                          <grid row="9" column="7" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="1" indent="0" use-parent-layout="false">
-                            <preferred-size width="200" height="35"/>
-                          </grid>
-                        </constraints>
-                        <properties>
-                          <editable value="false"/>
-                          <enabled value="false"/>
-                          <font name="Cambria" size="16" style="1"/>
-                          <foreground color="-13158601"/>
-                          <horizontalAlignment value="0"/>
-                          <text value=""/>
-                        </properties>
-                      </component>
-                      <component id="44efd" class="javax.swing.JComboBox" binding="newAccName4">
-                        <constraints>
-                          <grid row="12" column="5" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="1" indent="0" use-parent-layout="false">
-                            <preferred-size width="270" height="35"/>
-                          </grid>
-                        </constraints>
-                        <properties>
-                          <background color="-3355444"/>
-                          <editable value="false"/>
-                          <enabled value="false"/>
-                          <font name="Cambria" size="16" style="1"/>
-                          <foreground color="-13158601"/>
-                          <maximumRowCount value="10"/>
-                          <model>
-                            <item value=""/>
-                          </model>
-                        </properties>
-                      </component>
-                      <component id="8cf0c" class="javax.swing.JTextField" binding="newAccNo4">
-                        <constraints>
-                          <grid row="12" column="6" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="1" indent="0" use-parent-layout="false">
-                            <preferred-size width="160" height="35"/>
-                          </grid>
-                        </constraints>
-                        <properties>
-                          <editable value="false"/>
-                          <enabled value="false"/>
-                          <font name="Cambria" size="16" style="1"/>
-                          <foreground color="-13158601"/>
-                          <horizontalAlignment value="0"/>
-                          <text value=""/>
-                        </properties>
-                      </component>
-                      <component id="fff72" class="javax.swing.JTextField" binding="newAccBank4">
-                        <constraints>
-                          <grid row="12" column="7" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="1" indent="0" use-parent-layout="false">
-                            <preferred-size width="200" height="35"/>
-                          </grid>
-                        </constraints>
-                        <properties>
-                          <editable value="false"/>
-                          <enabled value="false"/>
-                          <font name="Cambria" size="16" style="1"/>
-                          <foreground color="-13158601"/>
-                          <horizontalAlignment value="0"/>
-                          <text value=""/>
-                        </properties>
-                      </component>
-                      <component id="3019d" class="javax.swing.JComboBox" binding="newAccName5">
-                        <constraints>
-                          <grid row="15" column="5" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="1" indent="0" use-parent-layout="false">
-                            <preferred-size width="270" height="35"/>
-                          </grid>
-                        </constraints>
-                        <properties>
-                          <background color="-3355444"/>
-                          <editable value="false"/>
-                          <enabled value="false"/>
-                          <font name="Cambria" size="16" style="1"/>
-                          <foreground color="-13158601"/>
-                          <maximumRowCount value="10"/>
-                          <model>
-                            <item value=""/>
-                          </model>
-                        </properties>
-                      </component>
-                      <component id="52c3" class="javax.swing.JTextField" binding="newAccNo5">
-                        <constraints>
-                          <grid row="15" column="6" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="1" indent="0" use-parent-layout="false">
-                            <preferred-size width="160" height="35"/>
-                          </grid>
-                        </constraints>
-                        <properties>
-                          <editable value="false"/>
-                          <enabled value="false"/>
-                          <font name="Cambria" size="16" style="1"/>
-                          <foreground color="-13158601"/>
-                          <horizontalAlignment value="0"/>
-                          <text value=""/>
-                        </properties>
-                      </component>
-                      <component id="7be04" class="javax.swing.JTextField" binding="newAccBank5">
-                        <constraints>
-                          <grid row="15" column="7" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="1" indent="0" use-parent-layout="false">
-                            <preferred-size width="200" height="35"/>
-                          </grid>
-                        </constraints>
-                        <properties>
-                          <editable value="false"/>
-                          <enabled value="false"/>
-                          <font name="Cambria" size="16" style="1"/>
-                          <foreground color="-13158601"/>
-                          <horizontalAlignment value="0"/>
-                          <text value=""/>
-                        </properties>
-                      </component>
-                      <component id="b77ba" class="javax.swing.JLabel">
-                        <constraints>
-                          <grid row="3" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
-                        </constraints>
-                        <properties>
-                          <font name="Cambria" size="16" style="1"/>
-                          <foreground color="-9737365"/>
-                          <text value="TK MỚI:"/>
-                        </properties>
-                      </component>
-                      <component id="7ed4a" class="javax.swing.JLabel">
-                        <constraints>
-                          <grid row="6" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
-                        </constraints>
-                        <properties>
-                          <font name="Cambria" size="16" style="1"/>
-                          <foreground color="-9737365"/>
-                          <text value="TK MỚI:"/>
-                        </properties>
-                      </component>
-                      <component id="1c1ae" class="javax.swing.JLabel">
-                        <constraints>
-                          <grid row="9" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
-                        </constraints>
-                        <properties>
-                          <font name="Cambria" size="16" style="1"/>
-                          <foreground color="-9737365"/>
-                          <text value="TK MỚI:"/>
-                        </properties>
-                      </component>
-                      <component id="e64c5" class="javax.swing.JLabel">
-                        <constraints>
-                          <grid row="12" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
-                        </constraints>
-                        <properties>
-                          <font name="Cambria" size="16" style="1"/>
-                          <foreground color="-9737365"/>
-                          <text value="TK MỚI:"/>
-                        </properties>
-                      </component>
-                      <component id="8cf39" class="javax.swing.JLabel">
-                        <constraints>
-                          <grid row="15" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
-                        </constraints>
-                        <properties>
-                          <font name="Cambria" size="16" style="1"/>
-                          <foreground color="-9737365"/>
-                          <text value="TK MỚI:"/>
-                        </properties>
-                      </component>
-                      <component id="e29c1" class="javax.swing.JLabel">
-                        <constraints>
-                          <grid row="2" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
-                        </constraints>
-                        <properties>
-                          <font name="Cambria" size="16" style="1"/>
-                          <foreground color="-9737365"/>
-                          <text value="TK CŨ:"/>
-                        </properties>
-                      </component>
-                      <component id="5fe2d" class="javax.swing.JLabel">
-                        <constraints>
-                          <grid row="5" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
-                        </constraints>
-                        <properties>
-                          <font name="Cambria" size="16" style="1"/>
-                          <foreground color="-9737365"/>
-                          <text value="TK CŨ:"/>
-                        </properties>
-                      </component>
-                      <component id="960ae" class="javax.swing.JLabel">
-                        <constraints>
-                          <grid row="8" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
-                        </constraints>
-                        <properties>
-                          <font name="Cambria" size="16" style="1"/>
-                          <foreground color="-9737365"/>
-                          <text value="TK CŨ:"/>
-                        </properties>
-                      </component>
-                      <component id="3ce9d" class="javax.swing.JLabel">
-                        <constraints>
-                          <grid row="11" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
-                        </constraints>
-                        <properties>
-                          <font name="Cambria" size="16" style="1"/>
-                          <foreground color="-9737365"/>
-                          <text value="TK CŨ:"/>
-                        </properties>
-                      </component>
-                      <component id="a729" class="javax.swing.JLabel">
-                        <constraints>
-                          <grid row="14" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
-                        </constraints>
-                        <properties>
-                          <font name="Cambria" size="16" style="1"/>
-                          <foreground color="-9737365"/>
-                          <text value="TK CŨ:"/>
-                        </properties>
-                      </component>
-                      <grid id="975f4" layout-manager="GridLayoutManager" row-count="1" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
-                        <margin top="0" left="0" bottom="0" right="0"/>
-                        <constraints>
-                          <grid row="3" column="1" row-span="1" col-span="3" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
-                        </constraints>
-                        <properties/>
-                        <border type="none"/>
-                        <children>
-                          <component id="64617" class="javax.swing.JLabel">
-                            <constraints>
-                              <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
-                            </constraints>
-                            <properties>
-                              <font name="Cambria" size="16" style="1"/>
-                              <foreground color="-9737365"/>
-                              <text value="TÊN POS:"/>
-                            </properties>
-                          </component>
-                          <component id="fd083" class="javax.swing.JTextField" binding="posName1">
-                            <constraints>
-                              <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="7" anchor="8" fill="1" indent="0" use-parent-layout="false">
-                                <preferred-size width="-1" height="35"/>
-                              </grid>
-                            </constraints>
-                            <properties>
-                              <editable value="false"/>
-                              <enabled value="false"/>
-                              <font name="Cambria" size="16" style="1"/>
-                              <foreground color="-13158601"/>
-                              <horizontalAlignment value="10"/>
-                              <text value=""/>
-                            </properties>
-                          </component>
-                        </children>
-                      </grid>
-                      <grid id="2eee2" layout-manager="GridLayoutManager" row-count="1" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
-                        <margin top="0" left="0" bottom="0" right="0"/>
-                        <constraints>
-                          <grid row="6" column="1" row-span="1" col-span="3" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
-                        </constraints>
-                        <properties/>
-                        <border type="none"/>
-                        <children>
-                          <component id="9bf77" class="javax.swing.JLabel">
-                            <constraints>
-                              <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
-                            </constraints>
-                            <properties>
-                              <font name="Cambria" size="16" style="1"/>
-                              <foreground color="-9737365"/>
-                              <text value="TÊN POS:"/>
-                            </properties>
-                          </component>
-                          <component id="bd95e" class="javax.swing.JTextField" binding="posName2">
-                            <constraints>
-                              <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="7" anchor="8" fill="1" indent="0" use-parent-layout="false">
-                                <preferred-size width="-1" height="35"/>
-                              </grid>
-                            </constraints>
-                            <properties>
-                              <editable value="false"/>
-                              <enabled value="false"/>
-                              <font name="Cambria" size="16" style="1"/>
-                              <foreground color="-13158601"/>
-                              <horizontalAlignment value="10"/>
-                              <text value=""/>
-                            </properties>
-                          </component>
-                        </children>
-                      </grid>
-                      <grid id="cb727" layout-manager="GridLayoutManager" row-count="1" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
-                        <margin top="0" left="0" bottom="0" right="0"/>
-                        <constraints>
-                          <grid row="9" column="1" row-span="1" col-span="3" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
-                        </constraints>
-                        <properties/>
-                        <border type="none"/>
-                        <children>
-                          <component id="59a30" class="javax.swing.JLabel">
-                            <constraints>
-                              <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
-                            </constraints>
-                            <properties>
-                              <font name="Cambria" size="16" style="1"/>
-                              <foreground color="-9737365"/>
-                              <text value="TÊN POS:"/>
-                            </properties>
-                          </component>
-                          <component id="7f1ca" class="javax.swing.JTextField" binding="posName3">
-                            <constraints>
-                              <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="7" anchor="8" fill="1" indent="0" use-parent-layout="false">
-                                <preferred-size width="-1" height="35"/>
-                              </grid>
-                            </constraints>
-                            <properties>
-                              <editable value="false"/>
-                              <enabled value="false"/>
-                              <font name="Cambria" size="16" style="1"/>
-                              <foreground color="-13158601"/>
-                              <horizontalAlignment value="10"/>
-                              <text value=""/>
-                            </properties>
-                          </component>
-                        </children>
-                      </grid>
-                      <grid id="1b077" layout-manager="GridLayoutManager" row-count="1" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
-                        <margin top="0" left="0" bottom="0" right="0"/>
-                        <constraints>
-                          <grid row="12" column="1" row-span="1" col-span="3" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
-                        </constraints>
-                        <properties/>
-                        <border type="none"/>
-                        <children>
-                          <component id="2c8f3" class="javax.swing.JLabel">
-                            <constraints>
-                              <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
-                            </constraints>
-                            <properties>
-                              <font name="Cambria" size="16" style="1"/>
-                              <foreground color="-9737365"/>
-                              <text value="TÊN POS:"/>
-                            </properties>
-                          </component>
-                          <component id="49874" class="javax.swing.JTextField" binding="posName4">
-                            <constraints>
-                              <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="7" anchor="8" fill="1" indent="0" use-parent-layout="false">
-                                <preferred-size width="-1" height="35"/>
-                              </grid>
-                            </constraints>
-                            <properties>
-                              <editable value="false"/>
-                              <enabled value="false"/>
-                              <font name="Cambria" size="16" style="1"/>
-                              <foreground color="-13158601"/>
-                              <horizontalAlignment value="10"/>
-                              <text value=""/>
-                            </properties>
-                          </component>
-                        </children>
-                      </grid>
-                      <grid id="cc8f6" layout-manager="GridLayoutManager" row-count="1" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
-                        <margin top="0" left="0" bottom="0" right="0"/>
-                        <constraints>
-                          <grid row="15" column="1" row-span="1" col-span="3" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
-                        </constraints>
-                        <properties/>
-                        <border type="none"/>
-                        <children>
-                          <component id="16c1b" class="javax.swing.JLabel">
-                            <constraints>
-                              <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
-                            </constraints>
-                            <properties>
-                              <font name="Cambria" size="16" style="1"/>
-                              <foreground color="-9737365"/>
-                              <text value="TÊN POS:"/>
-                            </properties>
-                          </component>
-                          <component id="a0820" class="javax.swing.JTextField" binding="posName5">
-                            <constraints>
-                              <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="7" anchor="8" fill="1" indent="0" use-parent-layout="false">
-                                <preferred-size width="-1" height="35"/>
-                              </grid>
-                            </constraints>
-                            <properties>
-                              <editable value="false"/>
-                              <enabled value="false"/>
-                              <font name="Cambria" size="16" style="1"/>
-                              <foreground color="-13158601"/>
-                              <horizontalAlignment value="10"/>
-                              <text value=""/>
-                            </properties>
-                          </component>
-                        </children>
-                      </grid>
-                      <component id="94620" class="javax.swing.JSeparator">
-                        <constraints>
-                          <grid row="1" column="0" row-span="1" col-span="8" vsize-policy="6" hsize-policy="6" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
-                        </constraints>
-                        <properties/>
-                      </component>
-                      <component id="44ce5" class="javax.swing.JSeparator">
-                        <constraints>
-                          <grid row="4" column="0" row-span="1" col-span="8" vsize-policy="6" hsize-policy="6" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
-                        </constraints>
-                        <properties/>
-                      </component>
-                      <component id="67bba" class="javax.swing.JSeparator">
-                        <constraints>
-                          <grid row="7" column="0" row-span="1" col-span="8" vsize-policy="6" hsize-policy="6" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
-                        </constraints>
-                        <properties/>
-                      </component>
-                      <component id="3fd7b" class="javax.swing.JSeparator">
-                        <constraints>
-                          <grid row="10" column="0" row-span="1" col-span="8" vsize-policy="6" hsize-policy="6" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
-                        </constraints>
-                        <properties/>
-                      </component>
-                      <component id="d596b" class="javax.swing.JSeparator">
-                        <constraints>
-                          <grid row="13" column="0" row-span="1" col-span="8" vsize-policy="6" hsize-policy="6" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
-                        </constraints>
-                        <properties/>
-                      </component>
-                      <component id="b2dd8" class="javax.swing.JCheckBox" binding="addTid1">
-                        <constraints>
-                          <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
-                        </constraints>
-                        <properties>
-                          <font name="Cambria" size="16" style="1"/>
-                          <foreground color="-16750453"/>
-                          <text value="1"/>
-                        </properties>
-                      </component>
-                    </children>
-                  </grid>
+                    <properties>
+                      <font name="Cambria" size="20" style="1"/>
+                      <foreground color="-13158601"/>
+                    </properties>
+                  </component>
                 </children>
-              </tabbedpane>
+              </grid>
+              <grid id="1bc25" layout-manager="GridLayoutManager" row-count="2" column-count="4" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+                <margin top="0" left="0" bottom="0" right="0"/>
+                <constraints>
+                  <grid row="5" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties/>
+                <border type="none"/>
+                <children>
+                  <component id="eb8ae" class="javax.swing.JLabel">
+                    <constraints>
+                      <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                    </constraints>
+                    <properties>
+                      <font name="Cambria" size="18" style="1"/>
+                      <foreground color="-16750453"/>
+                      <text value="NGƯỜI ĐẠI DIỆN THEO PHÁP LUẬT:"/>
+                    </properties>
+                  </component>
+                  <component id="fee9e" class="javax.swing.JTextField" binding="authorizerName">
+                    <constraints>
+                      <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                        <preferred-size width="400" height="40"/>
+                      </grid>
+                    </constraints>
+                    <properties>
+                      <font name="Cambria" size="20" style="1"/>
+                      <foreground color="-16750453"/>
+                    </properties>
+                  </component>
+                  <component id="f9b86" class="javax.swing.JLabel">
+                    <constraints>
+                      <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                    </constraints>
+                    <properties>
+                      <font name="Cambria" size="18" style="0"/>
+                      <foreground color="-9737365"/>
+                      <text value="Số căn cước:"/>
+                    </properties>
+                  </component>
+                  <component id="474b1" class="javax.swing.JTextField" binding="authorizerId">
+                    <constraints>
+                      <grid row="1" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                        <preferred-size width="250" height="40"/>
+                      </grid>
+                    </constraints>
+                    <properties>
+                      <font name="Cambria" size="20" style="1"/>
+                      <foreground color="-13158601"/>
+                    </properties>
+                  </component>
+                  <component id="f8969" class="javax.swing.JLabel">
+                    <constraints>
+                      <grid row="0" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                    </constraints>
+                    <properties>
+                      <font name="Cambria" size="18" style="0"/>
+                      <foreground color="-9737365"/>
+                      <text value="Ngày cấp:"/>
+                    </properties>
+                  </component>
+                  <component id="291a0" class="javax.swing.JTextField" binding="authorizerIdDate">
+                    <constraints>
+                      <grid row="1" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                        <preferred-size width="250" height="40"/>
+                      </grid>
+                    </constraints>
+                    <properties>
+                      <font name="Cambria" size="20" style="1"/>
+                      <foreground color="-13158601"/>
+                      <horizontalAlignment value="2"/>
+                    </properties>
+                  </component>
+                  <component id="2978a" class="javax.swing.JLabel">
+                    <constraints>
+                      <grid row="0" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                    </constraints>
+                    <properties>
+                      <font name="Cambria" size="18" style="0"/>
+                      <foreground color="-9737365"/>
+                      <text value="Nơi cấp:"/>
+                    </properties>
+                  </component>
+                  <component id="87011" class="javax.swing.JTextField" binding="authorizerIdPlace">
+                    <constraints>
+                      <grid row="1" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="7" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                        <preferred-size width="-1" height="40"/>
+                      </grid>
+                    </constraints>
+                    <properties>
+                      <font name="Cambria" size="20" style="1"/>
+                      <foreground color="-13158601"/>
+                      <text value="Cục cảnh sát QLHC về TTXH"/>
+                    </properties>
+                  </component>
+                </children>
+              </grid>
+              <grid id="e9bb7" layout-manager="GridLayoutManager" row-count="2" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+                <margin top="0" left="0" bottom="0" right="0"/>
+                <constraints>
+                  <grid row="6" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties/>
+                <border type="none"/>
+                <children>
+                  <component id="b74d7" class="javax.swing.JLabel">
+                    <constraints>
+                      <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                    </constraints>
+                    <properties>
+                      <font name="Cambria" size="18" style="0"/>
+                      <foreground color="-9737365"/>
+                      <text value="Số điện thoại:"/>
+                    </properties>
+                  </component>
+                  <component id="426ca" class="javax.swing.JTextField" binding="authorizerTel">
+                    <constraints>
+                      <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                        <preferred-size width="250" height="40"/>
+                      </grid>
+                    </constraints>
+                    <properties>
+                      <font name="Cambria" size="20" style="1"/>
+                      <foreground color="-13158601"/>
+                    </properties>
+                  </component>
+                  <component id="a9696" class="javax.swing.JLabel">
+                    <constraints>
+                      <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                    </constraints>
+                    <properties>
+                      <font name="Cambria" size="18" style="0"/>
+                      <foreground color="-9737365"/>
+                      <text value="E-mail:"/>
+                    </properties>
+                  </component>
+                  <component id="dab9f" class="javax.swing.JTextField" binding="authorizerEmail">
+                    <constraints>
+                      <grid row="1" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="7" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                        <preferred-size width="-1" height="40"/>
+                      </grid>
+                    </constraints>
+                    <properties>
+                      <font name="Cambria" size="20" style="1"/>
+                      <foreground color="-13158601"/>
+                      <text value=""/>
+                    </properties>
+                  </component>
+                </children>
+              </grid>
+              <vspacer id="c411b">
+                <constraints>
+                  <grid row="7" column="0" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
+                </constraints>
+              </vspacer>
+              <vspacer id="cdc94">
+                <constraints>
+                  <grid row="4" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false">
+                    <preferred-size width="-1" height="20"/>
+                  </grid>
+                </constraints>
+              </vspacer>
+            </children>
+          </grid>
+          <grid id="fa77d" layout-manager="GridLayoutManager" row-count="16" column-count="8" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+            <margin top="10" left="10" bottom="10" right="10"/>
+            <constraints>
+              <tabbedpane title="               CHI TIẾT THIẾT BỊ               "/>
+            </constraints>
+            <properties/>
+            <border type="none"/>
+            <children>
+              <component id="a8fa0" class="javax.swing.JTextField" binding="mid4">
+                <constraints>
+                  <grid row="11" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                    <preferred-size width="170" height="35"/>
+                  </grid>
+                </constraints>
+                <properties>
+                  <editable value="false"/>
+                  <enabled value="false"/>
+                  <font name="Cambria" size="16" style="1"/>
+                  <foreground color="-13158601"/>
+                  <horizontalAlignment value="0"/>
+                  <text value=""/>
+                </properties>
+              </component>
+              <component id="46c0a" class="javax.swing.JTextField" binding="tid4">
+                <constraints>
+                  <grid row="11" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                    <preferred-size width="120" height="35"/>
+                  </grid>
+                </constraints>
+                <properties>
+                  <editable value="false"/>
+                  <enabled value="false"/>
+                  <font name="Cambria" size="16" style="1"/>
+                  <foreground color="-13158601"/>
+                  <horizontalAlignment value="0"/>
+                  <text value=""/>
+                </properties>
+              </component>
+              <component id="8c21e" class="javax.swing.JTextField" binding="mid2">
+                <constraints>
+                  <grid row="5" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                    <preferred-size width="170" height="35"/>
+                  </grid>
+                </constraints>
+                <properties>
+                  <editable value="false"/>
+                  <enabled value="false"/>
+                  <font name="Cambria" size="16" style="1"/>
+                  <foreground color="-13158601"/>
+                  <horizontalAlignment value="0"/>
+                  <text value=""/>
+                </properties>
+              </component>
+              <component id="afd88" class="javax.swing.JTextField" binding="tid2">
+                <constraints>
+                  <grid row="5" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                    <preferred-size width="120" height="35"/>
+                  </grid>
+                </constraints>
+                <properties>
+                  <editable value="false"/>
+                  <enabled value="false"/>
+                  <font name="Cambria" size="16" style="1"/>
+                  <foreground color="-13158601"/>
+                  <horizontalAlignment value="0"/>
+                  <text value=""/>
+                </properties>
+              </component>
+              <component id="3985a" class="javax.swing.JTextField" binding="mid1">
+                <constraints>
+                  <grid row="2" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                    <preferred-size width="170" height="35"/>
+                  </grid>
+                </constraints>
+                <properties>
+                  <editable value="false"/>
+                  <enabled value="false"/>
+                  <font name="Cambria" size="16" style="1"/>
+                  <foreground color="-13158601"/>
+                  <horizontalAlignment value="0"/>
+                  <text value=""/>
+                </properties>
+              </component>
+              <component id="f7545" class="javax.swing.JTextField" binding="tid1">
+                <constraints>
+                  <grid row="2" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                    <preferred-size width="120" height="35"/>
+                  </grid>
+                </constraints>
+                <properties>
+                  <editable value="false"/>
+                  <enabled value="false"/>
+                  <font name="Cambria" size="16" style="1"/>
+                  <foreground color="-13158601"/>
+                  <horizontalAlignment value="0"/>
+                  <text value=""/>
+                </properties>
+              </component>
+              <component id="5d0cf" class="javax.swing.JTextField" binding="mid3">
+                <constraints>
+                  <grid row="8" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                    <preferred-size width="170" height="35"/>
+                  </grid>
+                </constraints>
+                <properties>
+                  <editable value="false"/>
+                  <enabled value="false"/>
+                  <font name="Cambria" size="16" style="1"/>
+                  <foreground color="-13158601"/>
+                  <horizontalAlignment value="0"/>
+                  <text value=""/>
+                </properties>
+              </component>
+              <component id="699c0" class="javax.swing.JTextField" binding="tid3">
+                <constraints>
+                  <grid row="8" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                    <preferred-size width="120" height="35"/>
+                  </grid>
+                </constraints>
+                <properties>
+                  <editable value="false"/>
+                  <enabled value="false"/>
+                  <font name="Cambria" size="16" style="1"/>
+                  <foreground color="-13158601"/>
+                  <horizontalAlignment value="0"/>
+                  <text value=""/>
+                </properties>
+              </component>
+              <component id="acd4c" class="javax.swing.JTextField" binding="mid5">
+                <constraints>
+                  <grid row="14" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                    <preferred-size width="170" height="35"/>
+                  </grid>
+                </constraints>
+                <properties>
+                  <editable value="false"/>
+                  <enabled value="false"/>
+                  <font name="Cambria" size="16" style="1"/>
+                  <foreground color="-13158601"/>
+                  <horizontalAlignment value="0"/>
+                  <text value=""/>
+                </properties>
+              </component>
+              <component id="fe5c4" class="javax.swing.JTextField" binding="tid5">
+                <constraints>
+                  <grid row="14" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                    <preferred-size width="120" height="35"/>
+                  </grid>
+                </constraints>
+                <properties>
+                  <editable value="false"/>
+                  <enabled value="false"/>
+                  <font name="Cambria" size="16" style="1"/>
+                  <foreground color="-13158601"/>
+                  <horizontalAlignment value="0"/>
+                  <text value=""/>
+                </properties>
+              </component>
+              <component id="8cc0" class="javax.swing.JCheckBox" binding="addTid5">
+                <constraints>
+                  <grid row="14" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <font name="Cambria" size="16" style="1"/>
+                  <foreground color="-16750453"/>
+                  <text value="5"/>
+                </properties>
+              </component>
+              <component id="ca654" class="javax.swing.JCheckBox" binding="addTid3">
+                <constraints>
+                  <grid row="8" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <font name="Cambria" size="16" style="1"/>
+                  <foreground color="-16750453"/>
+                  <text value="3"/>
+                </properties>
+              </component>
+              <component id="9371e" class="javax.swing.JCheckBox" binding="addTid4">
+                <constraints>
+                  <grid row="11" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <font name="Cambria" size="16" style="1"/>
+                  <foreground color="-16750453"/>
+                  <text value="4"/>
+                </properties>
+              </component>
+              <component id="3b4b" class="javax.swing.JCheckBox" binding="addTid2">
+                <constraints>
+                  <grid row="5" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <font name="Cambria" size="16" style="1"/>
+                  <foreground color="-16750453"/>
+                  <text value="2"/>
+                </properties>
+              </component>
+              <component id="4eb74" class="javax.swing.JLabel">
+                <constraints>
+                  <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <font name="Cambria" size="16" style="1"/>
+                  <foreground color="-16750453"/>
+                  <text value="- MID -"/>
+                </properties>
+              </component>
+              <component id="32422" class="javax.swing.JTextField" binding="serie1">
+                <constraints>
+                  <grid row="2" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                    <preferred-size width="150" height="35"/>
+                  </grid>
+                </constraints>
+                <properties>
+                  <editable value="false"/>
+                  <enabled value="false"/>
+                  <font name="Cambria" size="16" style="1"/>
+                  <foreground color="-13158601"/>
+                  <horizontalAlignment value="0"/>
+                  <text value=""/>
+                </properties>
+              </component>
+              <component id="ff663" class="javax.swing.JLabel">
+                <constraints>
+                  <grid row="0" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <font name="Cambria" size="16" style="1"/>
+                  <foreground color="-16750453"/>
+                  <text value="- SERIE -"/>
+                </properties>
+              </component>
+              <component id="a11d0" class="javax.swing.JLabel">
+                <constraints>
+                  <grid row="0" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <font name="Cambria" size="16" style="1"/>
+                  <foreground color="-16750453"/>
+                  <text value="- TID -"/>
+                </properties>
+              </component>
+              <component id="7e95c" class="javax.swing.JTextField" binding="oldAccBank1">
+                <constraints>
+                  <grid row="2" column="7" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                    <preferred-size width="200" height="35"/>
+                  </grid>
+                </constraints>
+                <properties>
+                  <editable value="false"/>
+                  <enabled value="false"/>
+                  <font name="Cambria" size="16" style="1"/>
+                  <foreground color="-13158601"/>
+                  <horizontalAlignment value="0"/>
+                  <text value=""/>
+                </properties>
+              </component>
+              <component id="9cbb" class="javax.swing.JTextField" binding="oldAccNo1">
+                <constraints>
+                  <grid row="2" column="6" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                    <preferred-size width="160" height="35"/>
+                  </grid>
+                </constraints>
+                <properties>
+                  <editable value="false"/>
+                  <enabled value="false"/>
+                  <font name="Cambria" size="16" style="1"/>
+                  <foreground color="-13158601"/>
+                  <horizontalAlignment value="0"/>
+                  <text value=""/>
+                </properties>
+              </component>
+              <component id="cbda5" class="javax.swing.JComboBox" binding="oldAccName1">
+                <constraints>
+                  <grid row="2" column="5" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                    <preferred-size width="270" height="35"/>
+                  </grid>
+                </constraints>
+                <properties>
+                  <background color="-3355444"/>
+                  <editable value="false"/>
+                  <enabled value="false"/>
+                  <font name="Cambria" size="16" style="1"/>
+                  <foreground color="-13158601"/>
+                  <maximumRowCount value="10"/>
+                  <model>
+                    <item value=""/>
+                  </model>
+                </properties>
+              </component>
+              <component id="b9daf" class="javax.swing.JLabel">
+                <constraints>
+                  <grid row="0" column="5" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <font name="Cambria" size="16" style="1"/>
+                  <foreground color="-16750453"/>
+                  <text value="- CHỦ TÀI KHOẢN -"/>
+                </properties>
+              </component>
+              <component id="4bf" class="javax.swing.JLabel">
+                <constraints>
+                  <grid row="0" column="6" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <font name="Cambria" size="16" style="1"/>
+                  <foreground color="-16750453"/>
+                  <text value="- SỐ TÀI KHOẢN -"/>
+                </properties>
+              </component>
+              <component id="ee75e" class="javax.swing.JLabel">
+                <constraints>
+                  <grid row="0" column="7" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <font name="Cambria" size="16" style="1"/>
+                  <foreground color="-16750453"/>
+                  <text value="- NGÂN HÀNG -"/>
+                </properties>
+              </component>
+              <component id="12700" class="javax.swing.JTextField" binding="serie2">
+                <constraints>
+                  <grid row="5" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                    <preferred-size width="150" height="35"/>
+                  </grid>
+                </constraints>
+                <properties>
+                  <editable value="false"/>
+                  <enabled value="false"/>
+                  <font name="Cambria" size="16" style="1"/>
+                  <foreground color="-13158601"/>
+                  <horizontalAlignment value="0"/>
+                  <text value=""/>
+                </properties>
+              </component>
+              <component id="cde67" class="javax.swing.JTextField" binding="serie3">
+                <constraints>
+                  <grid row="8" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                    <preferred-size width="150" height="35"/>
+                  </grid>
+                </constraints>
+                <properties>
+                  <editable value="false"/>
+                  <enabled value="false"/>
+                  <font name="Cambria" size="16" style="1"/>
+                  <foreground color="-13158601"/>
+                  <horizontalAlignment value="0"/>
+                  <text value=""/>
+                </properties>
+              </component>
+              <component id="51c4c" class="javax.swing.JTextField" binding="serie4">
+                <constraints>
+                  <grid row="11" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                    <preferred-size width="150" height="35"/>
+                  </grid>
+                </constraints>
+                <properties>
+                  <editable value="false"/>
+                  <enabled value="false"/>
+                  <font name="Cambria" size="16" style="1"/>
+                  <foreground color="-13158601"/>
+                  <horizontalAlignment value="0"/>
+                  <text value=""/>
+                </properties>
+              </component>
+              <component id="a14f2" class="javax.swing.JTextField" binding="serie5">
+                <constraints>
+                  <grid row="14" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                    <preferred-size width="150" height="35"/>
+                  </grid>
+                </constraints>
+                <properties>
+                  <editable value="false"/>
+                  <enabled value="false"/>
+                  <font name="Cambria" size="16" style="1"/>
+                  <foreground color="-13158601"/>
+                  <horizontalAlignment value="0"/>
+                  <text value=""/>
+                </properties>
+              </component>
+              <component id="c6670" class="javax.swing.JComboBox" binding="oldAccName2">
+                <constraints>
+                  <grid row="5" column="5" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                    <preferred-size width="270" height="35"/>
+                  </grid>
+                </constraints>
+                <properties>
+                  <background color="-3355444"/>
+                  <editable value="false"/>
+                  <enabled value="false"/>
+                  <font name="Cambria" size="16" style="1"/>
+                  <foreground color="-13158601"/>
+                  <maximumRowCount value="10"/>
+                  <model>
+                    <item value=""/>
+                  </model>
+                </properties>
+              </component>
+              <component id="bbfe3" class="javax.swing.JComboBox" binding="oldAccName3">
+                <constraints>
+                  <grid row="8" column="5" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                    <preferred-size width="270" height="35"/>
+                  </grid>
+                </constraints>
+                <properties>
+                  <background color="-3355444"/>
+                  <editable value="false"/>
+                  <enabled value="false"/>
+                  <font name="Cambria" size="16" style="1"/>
+                  <foreground color="-13158601"/>
+                  <maximumRowCount value="10"/>
+                  <model>
+                    <item value=""/>
+                  </model>
+                </properties>
+              </component>
+              <component id="a246d" class="javax.swing.JComboBox" binding="oldAccName4">
+                <constraints>
+                  <grid row="11" column="5" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                    <preferred-size width="270" height="35"/>
+                  </grid>
+                </constraints>
+                <properties>
+                  <background color="-3355444"/>
+                  <editable value="false"/>
+                  <enabled value="false"/>
+                  <font name="Cambria" size="16" style="1"/>
+                  <foreground color="-13158601"/>
+                  <maximumRowCount value="10"/>
+                  <model>
+                    <item value=""/>
+                  </model>
+                </properties>
+              </component>
+              <component id="bfb30" class="javax.swing.JComboBox" binding="oldAccName5">
+                <constraints>
+                  <grid row="14" column="5" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                    <preferred-size width="270" height="35"/>
+                  </grid>
+                </constraints>
+                <properties>
+                  <background color="-3355444"/>
+                  <editable value="false"/>
+                  <enabled value="false"/>
+                  <font name="Cambria" size="16" style="1"/>
+                  <foreground color="-13158601"/>
+                  <maximumRowCount value="10"/>
+                  <model>
+                    <item value=""/>
+                  </model>
+                </properties>
+              </component>
+              <component id="9dded" class="javax.swing.JTextField" binding="oldAccNo2">
+                <constraints>
+                  <grid row="5" column="6" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                    <preferred-size width="160" height="35"/>
+                  </grid>
+                </constraints>
+                <properties>
+                  <editable value="false"/>
+                  <enabled value="false"/>
+                  <font name="Cambria" size="16" style="1"/>
+                  <foreground color="-13158601"/>
+                  <horizontalAlignment value="0"/>
+                  <text value=""/>
+                </properties>
+              </component>
+              <component id="b0481" class="javax.swing.JTextField" binding="oldAccNo3">
+                <constraints>
+                  <grid row="8" column="6" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                    <preferred-size width="160" height="35"/>
+                  </grid>
+                </constraints>
+                <properties>
+                  <editable value="false"/>
+                  <enabled value="false"/>
+                  <font name="Cambria" size="16" style="1"/>
+                  <foreground color="-13158601"/>
+                  <horizontalAlignment value="0"/>
+                  <text value=""/>
+                </properties>
+              </component>
+              <component id="26a7a" class="javax.swing.JTextField" binding="oldAccNo4">
+                <constraints>
+                  <grid row="11" column="6" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                    <preferred-size width="160" height="35"/>
+                  </grid>
+                </constraints>
+                <properties>
+                  <editable value="false"/>
+                  <enabled value="false"/>
+                  <font name="Cambria" size="16" style="1"/>
+                  <foreground color="-13158601"/>
+                  <horizontalAlignment value="0"/>
+                  <text value=""/>
+                </properties>
+              </component>
+              <component id="fbb0d" class="javax.swing.JTextField" binding="oldAccNo5">
+                <constraints>
+                  <grid row="14" column="6" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                    <preferred-size width="160" height="35"/>
+                  </grid>
+                </constraints>
+                <properties>
+                  <editable value="false"/>
+                  <enabled value="false"/>
+                  <font name="Cambria" size="16" style="1"/>
+                  <foreground color="-13158601"/>
+                  <horizontalAlignment value="0"/>
+                  <text value=""/>
+                </properties>
+              </component>
+              <component id="69c7c" class="javax.swing.JTextField" binding="oldAccBank2">
+                <constraints>
+                  <grid row="5" column="7" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                    <preferred-size width="200" height="35"/>
+                  </grid>
+                </constraints>
+                <properties>
+                  <editable value="false"/>
+                  <enabled value="false"/>
+                  <font name="Cambria" size="16" style="1"/>
+                  <foreground color="-13158601"/>
+                  <horizontalAlignment value="0"/>
+                  <text value=""/>
+                </properties>
+              </component>
+              <component id="4f5f5" class="javax.swing.JTextField" binding="oldAccBank3">
+                <constraints>
+                  <grid row="8" column="7" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                    <preferred-size width="200" height="35"/>
+                  </grid>
+                </constraints>
+                <properties>
+                  <editable value="false"/>
+                  <enabled value="false"/>
+                  <font name="Cambria" size="16" style="1"/>
+                  <foreground color="-13158601"/>
+                  <horizontalAlignment value="0"/>
+                  <text value=""/>
+                </properties>
+              </component>
+              <component id="7e0e6" class="javax.swing.JTextField" binding="oldAccBank4">
+                <constraints>
+                  <grid row="11" column="7" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                    <preferred-size width="200" height="35"/>
+                  </grid>
+                </constraints>
+                <properties>
+                  <editable value="false"/>
+                  <enabled value="false"/>
+                  <font name="Cambria" size="16" style="1"/>
+                  <foreground color="-13158601"/>
+                  <horizontalAlignment value="0"/>
+                  <text value=""/>
+                </properties>
+              </component>
+              <component id="c0298" class="javax.swing.JTextField" binding="oldAccBank5">
+                <constraints>
+                  <grid row="14" column="7" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                    <preferred-size width="200" height="35"/>
+                  </grid>
+                </constraints>
+                <properties>
+                  <editable value="false"/>
+                  <enabled value="false"/>
+                  <font name="Cambria" size="16" style="1"/>
+                  <foreground color="-13158601"/>
+                  <horizontalAlignment value="0"/>
+                  <text value=""/>
+                </properties>
+              </component>
+              <component id="bd54c" class="javax.swing.JComboBox" binding="newAccName1">
+                <constraints>
+                  <grid row="3" column="5" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                    <preferred-size width="270" height="35"/>
+                  </grid>
+                </constraints>
+                <properties>
+                  <background color="-3355444"/>
+                  <editable value="false"/>
+                  <enabled value="false"/>
+                  <font name="Cambria" size="16" style="1"/>
+                  <foreground color="-13158601"/>
+                  <maximumRowCount value="10"/>
+                  <model>
+                    <item value=""/>
+                  </model>
+                </properties>
+              </component>
+              <component id="87f20" class="javax.swing.JTextField" binding="newAccNo1">
+                <constraints>
+                  <grid row="3" column="6" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                    <preferred-size width="160" height="35"/>
+                  </grid>
+                </constraints>
+                <properties>
+                  <editable value="false"/>
+                  <enabled value="false"/>
+                  <font name="Cambria" size="16" style="1"/>
+                  <foreground color="-13158601"/>
+                  <horizontalAlignment value="0"/>
+                  <text value=""/>
+                </properties>
+              </component>
+              <component id="339d" class="javax.swing.JTextField" binding="newAccBank1">
+                <constraints>
+                  <grid row="3" column="7" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                    <preferred-size width="200" height="35"/>
+                  </grid>
+                </constraints>
+                <properties>
+                  <editable value="false"/>
+                  <enabled value="false"/>
+                  <font name="Cambria" size="16" style="1"/>
+                  <foreground color="-13158601"/>
+                  <horizontalAlignment value="0"/>
+                  <text value=""/>
+                </properties>
+              </component>
+              <component id="eae58" class="javax.swing.JComboBox" binding="newAccName2">
+                <constraints>
+                  <grid row="6" column="5" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                    <preferred-size width="270" height="35"/>
+                  </grid>
+                </constraints>
+                <properties>
+                  <background color="-3355444"/>
+                  <editable value="false"/>
+                  <enabled value="false"/>
+                  <font name="Cambria" size="16" style="1"/>
+                  <foreground color="-13158601"/>
+                  <maximumRowCount value="10"/>
+                  <model>
+                    <item value=""/>
+                  </model>
+                </properties>
+              </component>
+              <component id="4e00a" class="javax.swing.JTextField" binding="newAccNo2">
+                <constraints>
+                  <grid row="6" column="6" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                    <preferred-size width="160" height="35"/>
+                  </grid>
+                </constraints>
+                <properties>
+                  <editable value="false"/>
+                  <enabled value="false"/>
+                  <font name="Cambria" size="16" style="1"/>
+                  <foreground color="-13158601"/>
+                  <horizontalAlignment value="0"/>
+                  <text value=""/>
+                </properties>
+              </component>
+              <component id="d7503" class="javax.swing.JTextField" binding="newAccBank2">
+                <constraints>
+                  <grid row="6" column="7" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                    <preferred-size width="200" height="35"/>
+                  </grid>
+                </constraints>
+                <properties>
+                  <editable value="false"/>
+                  <enabled value="false"/>
+                  <font name="Cambria" size="16" style="1"/>
+                  <foreground color="-13158601"/>
+                  <horizontalAlignment value="0"/>
+                  <text value=""/>
+                </properties>
+              </component>
+              <component id="b2790" class="javax.swing.JComboBox" binding="newAccName3">
+                <constraints>
+                  <grid row="9" column="5" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                    <preferred-size width="270" height="35"/>
+                  </grid>
+                </constraints>
+                <properties>
+                  <background color="-3355444"/>
+                  <editable value="false"/>
+                  <enabled value="false"/>
+                  <font name="Cambria" size="16" style="1"/>
+                  <foreground color="-13158601"/>
+                  <maximumRowCount value="10"/>
+                  <model>
+                    <item value=""/>
+                  </model>
+                </properties>
+              </component>
+              <component id="8d259" class="javax.swing.JTextField" binding="newAccNo3">
+                <constraints>
+                  <grid row="9" column="6" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                    <preferred-size width="160" height="35"/>
+                  </grid>
+                </constraints>
+                <properties>
+                  <editable value="false"/>
+                  <enabled value="false"/>
+                  <font name="Cambria" size="16" style="1"/>
+                  <foreground color="-13158601"/>
+                  <horizontalAlignment value="0"/>
+                  <text value=""/>
+                </properties>
+              </component>
+              <component id="c577f" class="javax.swing.JTextField" binding="newAccBank3">
+                <constraints>
+                  <grid row="9" column="7" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                    <preferred-size width="200" height="35"/>
+                  </grid>
+                </constraints>
+                <properties>
+                  <editable value="false"/>
+                  <enabled value="false"/>
+                  <font name="Cambria" size="16" style="1"/>
+                  <foreground color="-13158601"/>
+                  <horizontalAlignment value="0"/>
+                  <text value=""/>
+                </properties>
+              </component>
+              <component id="378e8" class="javax.swing.JComboBox" binding="newAccName4">
+                <constraints>
+                  <grid row="12" column="5" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                    <preferred-size width="270" height="35"/>
+                  </grid>
+                </constraints>
+                <properties>
+                  <background color="-3355444"/>
+                  <editable value="false"/>
+                  <enabled value="false"/>
+                  <font name="Cambria" size="16" style="1"/>
+                  <foreground color="-13158601"/>
+                  <maximumRowCount value="10"/>
+                  <model>
+                    <item value=""/>
+                  </model>
+                </properties>
+              </component>
+              <component id="60cb1" class="javax.swing.JTextField" binding="newAccNo4">
+                <constraints>
+                  <grid row="12" column="6" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                    <preferred-size width="160" height="35"/>
+                  </grid>
+                </constraints>
+                <properties>
+                  <editable value="false"/>
+                  <enabled value="false"/>
+                  <font name="Cambria" size="16" style="1"/>
+                  <foreground color="-13158601"/>
+                  <horizontalAlignment value="0"/>
+                  <text value=""/>
+                </properties>
+              </component>
+              <component id="716fd" class="javax.swing.JTextField" binding="newAccBank4">
+                <constraints>
+                  <grid row="12" column="7" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                    <preferred-size width="200" height="35"/>
+                  </grid>
+                </constraints>
+                <properties>
+                  <editable value="false"/>
+                  <enabled value="false"/>
+                  <font name="Cambria" size="16" style="1"/>
+                  <foreground color="-13158601"/>
+                  <horizontalAlignment value="0"/>
+                  <text value=""/>
+                </properties>
+              </component>
+              <component id="d6fa6" class="javax.swing.JComboBox" binding="newAccName5">
+                <constraints>
+                  <grid row="15" column="5" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                    <preferred-size width="270" height="35"/>
+                  </grid>
+                </constraints>
+                <properties>
+                  <background color="-3355444"/>
+                  <editable value="false"/>
+                  <enabled value="false"/>
+                  <font name="Cambria" size="16" style="1"/>
+                  <foreground color="-13158601"/>
+                  <maximumRowCount value="10"/>
+                  <model>
+                    <item value=""/>
+                  </model>
+                </properties>
+              </component>
+              <component id="601e8" class="javax.swing.JTextField" binding="newAccNo5">
+                <constraints>
+                  <grid row="15" column="6" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                    <preferred-size width="160" height="35"/>
+                  </grid>
+                </constraints>
+                <properties>
+                  <editable value="false"/>
+                  <enabled value="false"/>
+                  <font name="Cambria" size="16" style="1"/>
+                  <foreground color="-13158601"/>
+                  <horizontalAlignment value="0"/>
+                  <text value=""/>
+                </properties>
+              </component>
+              <component id="5cd6a" class="javax.swing.JTextField" binding="newAccBank5">
+                <constraints>
+                  <grid row="15" column="7" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                    <preferred-size width="200" height="35"/>
+                  </grid>
+                </constraints>
+                <properties>
+                  <editable value="false"/>
+                  <enabled value="false"/>
+                  <font name="Cambria" size="16" style="1"/>
+                  <foreground color="-13158601"/>
+                  <horizontalAlignment value="0"/>
+                  <text value=""/>
+                </properties>
+              </component>
+              <component id="7b9bb" class="javax.swing.JLabel">
+                <constraints>
+                  <grid row="3" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <font name="Cambria" size="16" style="1"/>
+                  <foreground color="-9737365"/>
+                  <text value="TK MỚI:"/>
+                </properties>
+              </component>
+              <component id="4a050" class="javax.swing.JLabel">
+                <constraints>
+                  <grid row="6" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <font name="Cambria" size="16" style="1"/>
+                  <foreground color="-9737365"/>
+                  <text value="TK MỚI:"/>
+                </properties>
+              </component>
+              <component id="7bfe8" class="javax.swing.JLabel">
+                <constraints>
+                  <grid row="9" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <font name="Cambria" size="16" style="1"/>
+                  <foreground color="-9737365"/>
+                  <text value="TK MỚI:"/>
+                </properties>
+              </component>
+              <component id="36ab1" class="javax.swing.JLabel">
+                <constraints>
+                  <grid row="12" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <font name="Cambria" size="16" style="1"/>
+                  <foreground color="-9737365"/>
+                  <text value="TK MỚI:"/>
+                </properties>
+              </component>
+              <component id="d65e3" class="javax.swing.JLabel">
+                <constraints>
+                  <grid row="15" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <font name="Cambria" size="16" style="1"/>
+                  <foreground color="-9737365"/>
+                  <text value="TK MỚI:"/>
+                </properties>
+              </component>
+              <component id="54575" class="javax.swing.JLabel">
+                <constraints>
+                  <grid row="2" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <font name="Cambria" size="16" style="1"/>
+                  <foreground color="-9737365"/>
+                  <text value="TK CŨ:"/>
+                </properties>
+              </component>
+              <component id="fae2e" class="javax.swing.JLabel">
+                <constraints>
+                  <grid row="5" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <font name="Cambria" size="16" style="1"/>
+                  <foreground color="-9737365"/>
+                  <text value="TK CŨ:"/>
+                </properties>
+              </component>
+              <component id="577e6" class="javax.swing.JLabel">
+                <constraints>
+                  <grid row="8" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <font name="Cambria" size="16" style="1"/>
+                  <foreground color="-9737365"/>
+                  <text value="TK CŨ:"/>
+                </properties>
+              </component>
+              <component id="47d8c" class="javax.swing.JLabel">
+                <constraints>
+                  <grid row="11" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <font name="Cambria" size="16" style="1"/>
+                  <foreground color="-9737365"/>
+                  <text value="TK CŨ:"/>
+                </properties>
+              </component>
+              <component id="da5d" class="javax.swing.JLabel">
+                <constraints>
+                  <grid row="14" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <font name="Cambria" size="16" style="1"/>
+                  <foreground color="-9737365"/>
+                  <text value="TK CŨ:"/>
+                </properties>
+              </component>
+              <grid id="acfb2" layout-manager="GridLayoutManager" row-count="1" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+                <margin top="0" left="0" bottom="0" right="0"/>
+                <constraints>
+                  <grid row="3" column="1" row-span="1" col-span="3" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties/>
+                <border type="none"/>
+                <children>
+                  <component id="46d8c" class="javax.swing.JLabel">
+                    <constraints>
+                      <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
+                    </constraints>
+                    <properties>
+                      <font name="Cambria" size="16" style="1"/>
+                      <foreground color="-9737365"/>
+                      <text value="TÊN POS:"/>
+                    </properties>
+                  </component>
+                  <component id="f4ecf" class="javax.swing.JTextField" binding="posName1">
+                    <constraints>
+                      <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="7" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                        <preferred-size width="-1" height="35"/>
+                      </grid>
+                    </constraints>
+                    <properties>
+                      <editable value="false"/>
+                      <enabled value="false"/>
+                      <font name="Cambria" size="16" style="1"/>
+                      <foreground color="-13158601"/>
+                      <horizontalAlignment value="10"/>
+                      <text value=""/>
+                    </properties>
+                  </component>
+                </children>
+              </grid>
+              <grid id="ff8b8" layout-manager="GridLayoutManager" row-count="1" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+                <margin top="0" left="0" bottom="0" right="0"/>
+                <constraints>
+                  <grid row="6" column="1" row-span="1" col-span="3" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties/>
+                <border type="none"/>
+                <children>
+                  <component id="eb343" class="javax.swing.JLabel">
+                    <constraints>
+                      <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
+                    </constraints>
+                    <properties>
+                      <font name="Cambria" size="16" style="1"/>
+                      <foreground color="-9737365"/>
+                      <text value="TÊN POS:"/>
+                    </properties>
+                  </component>
+                  <component id="f6e02" class="javax.swing.JTextField" binding="posName2">
+                    <constraints>
+                      <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="7" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                        <preferred-size width="-1" height="35"/>
+                      </grid>
+                    </constraints>
+                    <properties>
+                      <editable value="false"/>
+                      <enabled value="false"/>
+                      <font name="Cambria" size="16" style="1"/>
+                      <foreground color="-13158601"/>
+                      <horizontalAlignment value="10"/>
+                      <text value=""/>
+                    </properties>
+                  </component>
+                </children>
+              </grid>
+              <grid id="51561" layout-manager="GridLayoutManager" row-count="1" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+                <margin top="0" left="0" bottom="0" right="0"/>
+                <constraints>
+                  <grid row="9" column="1" row-span="1" col-span="3" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties/>
+                <border type="none"/>
+                <children>
+                  <component id="d48c1" class="javax.swing.JLabel">
+                    <constraints>
+                      <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
+                    </constraints>
+                    <properties>
+                      <font name="Cambria" size="16" style="1"/>
+                      <foreground color="-9737365"/>
+                      <text value="TÊN POS:"/>
+                    </properties>
+                  </component>
+                  <component id="281a9" class="javax.swing.JTextField" binding="posName3">
+                    <constraints>
+                      <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="7" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                        <preferred-size width="-1" height="35"/>
+                      </grid>
+                    </constraints>
+                    <properties>
+                      <editable value="false"/>
+                      <enabled value="false"/>
+                      <font name="Cambria" size="16" style="1"/>
+                      <foreground color="-13158601"/>
+                      <horizontalAlignment value="10"/>
+                      <text value=""/>
+                    </properties>
+                  </component>
+                </children>
+              </grid>
+              <grid id="35b62" layout-manager="GridLayoutManager" row-count="1" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+                <margin top="0" left="0" bottom="0" right="0"/>
+                <constraints>
+                  <grid row="12" column="1" row-span="1" col-span="3" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties/>
+                <border type="none"/>
+                <children>
+                  <component id="f8cc5" class="javax.swing.JLabel">
+                    <constraints>
+                      <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
+                    </constraints>
+                    <properties>
+                      <font name="Cambria" size="16" style="1"/>
+                      <foreground color="-9737365"/>
+                      <text value="TÊN POS:"/>
+                    </properties>
+                  </component>
+                  <component id="f139b" class="javax.swing.JTextField" binding="posName4">
+                    <constraints>
+                      <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="7" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                        <preferred-size width="-1" height="35"/>
+                      </grid>
+                    </constraints>
+                    <properties>
+                      <editable value="false"/>
+                      <enabled value="false"/>
+                      <font name="Cambria" size="16" style="1"/>
+                      <foreground color="-13158601"/>
+                      <horizontalAlignment value="10"/>
+                      <text value=""/>
+                    </properties>
+                  </component>
+                </children>
+              </grid>
+              <grid id="e7be1" layout-manager="GridLayoutManager" row-count="1" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+                <margin top="0" left="0" bottom="0" right="0"/>
+                <constraints>
+                  <grid row="15" column="1" row-span="1" col-span="3" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties/>
+                <border type="none"/>
+                <children>
+                  <component id="6e19e" class="javax.swing.JLabel">
+                    <constraints>
+                      <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
+                    </constraints>
+                    <properties>
+                      <font name="Cambria" size="16" style="1"/>
+                      <foreground color="-9737365"/>
+                      <text value="TÊN POS:"/>
+                    </properties>
+                  </component>
+                  <component id="b3b17" class="javax.swing.JTextField" binding="posName5">
+                    <constraints>
+                      <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="7" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                        <preferred-size width="-1" height="35"/>
+                      </grid>
+                    </constraints>
+                    <properties>
+                      <editable value="false"/>
+                      <enabled value="false"/>
+                      <font name="Cambria" size="16" style="1"/>
+                      <foreground color="-13158601"/>
+                      <horizontalAlignment value="10"/>
+                      <text value=""/>
+                    </properties>
+                  </component>
+                </children>
+              </grid>
+              <component id="52cf9" class="javax.swing.JSeparator">
+                <constraints>
+                  <grid row="1" column="0" row-span="1" col-span="8" vsize-policy="6" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties/>
+              </component>
+              <component id="c7390" class="javax.swing.JSeparator">
+                <constraints>
+                  <grid row="4" column="0" row-span="1" col-span="8" vsize-policy="6" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties/>
+              </component>
+              <component id="35bfd" class="javax.swing.JSeparator">
+                <constraints>
+                  <grid row="7" column="0" row-span="1" col-span="8" vsize-policy="6" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties/>
+              </component>
+              <component id="f80ac" class="javax.swing.JSeparator">
+                <constraints>
+                  <grid row="10" column="0" row-span="1" col-span="8" vsize-policy="6" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties/>
+              </component>
+              <component id="66d39" class="javax.swing.JSeparator">
+                <constraints>
+                  <grid row="13" column="0" row-span="1" col-span="8" vsize-policy="6" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties/>
+              </component>
+              <component id="eebca" class="javax.swing.JCheckBox" binding="addTid1">
+                <constraints>
+                  <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <font name="Cambria" size="16" style="1"/>
+                  <foreground color="-16750453"/>
+                  <text value="1"/>
+                </properties>
+              </component>
             </children>
           </grid>
         </children>
@@ -2393,7 +2333,7 @@
       <grid id="fa745" layout-manager="GridLayoutManager" row-count="1" column-count="11" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
         <margin top="0" left="0" bottom="0" right="0"/>
         <constraints>
-          <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="0" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+          <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="0" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties/>
         <border type="none"/>
@@ -2517,7 +2457,7 @@
             </constraints>
             <properties>
               <font name="Cambria" size="16" style="0"/>
-              <foreground color="-7400172"/>
+              <foreground color="-16750453"/>
               <text value="Cam kết"/>
             </properties>
           </component>
@@ -2525,11 +2465,67 @@
       </grid>
       <vspacer id="a4206">
         <constraints>
-          <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false">
+          <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false">
             <preferred-size width="-1" height="5"/>
           </grid>
         </constraints>
       </vspacer>
+      <grid id="27629" layout-manager="GridLayoutManager" row-count="1" column-count="5" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+        <margin top="0" left="0" bottom="0" right="0"/>
+        <constraints>
+          <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties/>
+        <border type="none"/>
+        <children>
+          <component id="f65a8" class="javax.swing.JRadioButton" binding="onefin">
+            <constraints>
+              <grid row="0" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <font name="Cambria" size="16" style="1"/>
+              <foreground color="-7399141"/>
+              <selected value="false"/>
+              <text value="ONEFIN"/>
+            </properties>
+          </component>
+          <component id="4b871" class="javax.swing.JRadioButton" binding="vinatti">
+            <constraints>
+              <grid row="0" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <font name="Cambria" size="16" style="1"/>
+              <foreground color="-7399141"/>
+              <text value="VINATTI"/>
+            </properties>
+          </component>
+          <component id="c26e9" class="javax.swing.JRadioButton" binding="appota">
+            <constraints>
+              <grid row="0" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <font name="Cambria" size="16" style="1"/>
+              <foreground color="-7399141"/>
+              <text value="APPOTA"/>
+            </properties>
+          </component>
+          <hspacer id="c86b9">
+            <constraints>
+              <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+            </constraints>
+          </hspacer>
+          <component id="53a0c" class="javax.swing.JLabel">
+            <constraints>
+              <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <font name="Cambria" size="18" style="1"/>
+              <foreground color="-16750453"/>
+              <text value="Trung gian thanh toán:"/>
+            </properties>
+          </component>
+        </children>
+      </grid>
     </children>
   </grid>
   <buttonGroups>
@@ -2550,6 +2546,9 @@
       <member id="30485"/>
       <member id="66f15"/>
       <member id="a31b5"/>
+      <member id="f65a8"/>
+      <member id="4b871"/>
+      <member id="c26e9"/>
     </group>
   </buttonGroups>
 </form>

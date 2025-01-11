@@ -17,13 +17,12 @@ import static utilities.StringConverter.removeDiacritics;
 public class WordActions {
 
     @SafeVarargs
-    public static void exportDocx(String fileName, JComboBox<String> filePrefixField,
-                                  HashMap<String, String> replaceTexts, List<List<String>>... tidInfoLists) {
+    public static void exportDocx(String fileName, String filePrefix, HashMap<String, String> replaceTexts,
+                                  List<List<String>>... tidInfoLists) {
         String srcDocx = System.getProperty("user.dir") + File.separator + "sourceDocs" + File.separator
                 + fileName + ".docx";
         String dstDocx = System.getProperty("user.dir") + File.separator + "resultDocs" + File.separator
-                + removeDiacritics(filePrefixField.getSelectedItem().toString().trim()).replace(" ", "-")
-                + "_" + fileName + new SimpleDateFormat("_yyyy-MM-dd").format(new Date()) + ".docx";
+                + filePrefix + "_" + fileName + new SimpleDateFormat("_yyyy-MM-dd").format(new Date()) + ".docx";
 
         try (FileInputStream fis = new FileInputStream(srcDocx);
              XWPFDocument document = new XWPFDocument(fis);
