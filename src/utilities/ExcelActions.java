@@ -3,7 +3,6 @@ package utilities;
 import org.apache.poi.ss.usermodel.*;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
-import javax.swing.*;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -116,11 +115,11 @@ public class ExcelActions {
         }
     }
 
-    public static void exportXlsx_APPOTA(JComboBox<String> filePrefixField, List<List<String>> tidInfoList) {
+    public static void exportXlsx_APPOTA(String filePrefix, List<List<String>> tidInfoList) {
         String srcFile = System.getProperty("user.dir") + File.separator + "sourceDocs" + File.separator
                 + "UY-QUYEN-APPOTA.xlsx";
         String dstFile = System.getProperty("user.dir") + File.separator + "resultDocs" + File.separator
-                + removeDiacritics(filePrefixField.getSelectedItem().toString().trim()).replace(" ", "-")
+                + removeDiacritics(filePrefix).replace(" ", "-")
                 + "_UY-QUYEN-APPOTA" + new SimpleDateFormat("_yyyy-MM-dd").format(new Date()) + ".xlsx";
 
         try (FileInputStream fis = new FileInputStream(srcFile);
@@ -134,11 +133,10 @@ public class ExcelActions {
                     if (row == null) row = sheet.createRow(i + 2);
 
                     List<String> tidInfo = tidInfoList.get(i);
-                    String[] cellValues = {
-                            String.valueOf(i + 1), tidInfo.get(3), tidInfo.get(19), tidInfo.get(0),
-                            tidInfo.get(1), tidInfo.get(2), tidInfo.get(6), tidInfo.get(5),
-                            tidInfo.get(7), tidInfo.get(9), tidInfo.get(8), tidInfo.get(10)
-                    };
+                    String[] cellValues = {String.valueOf(i + 1), tidInfo.get(3), tidInfo.get(12),
+                            tidInfo.get(0), tidInfo.get(1), tidInfo.get(2),
+                            tidInfo.get(5), tidInfo.get(4), tidInfo.get(6),
+                            tidInfo.get(8), tidInfo.get(7), tidInfo.get(9)};
 
                     for (int j = 0; j < cellValues.length; j++) {
                         Cell cell = row.getCell(j);

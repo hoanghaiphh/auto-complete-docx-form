@@ -18,11 +18,11 @@ public class InputForm {
     private JTabbedPane mainTabbedPane;
     private JButton exportButton;
     private JComboBox<String> exportSelect;
-    private JCheckBox to_trinh_thue, to_trinh_ban, hop_dong_thue, hop_dong_ban, bb_giao_nhan,
-            uy_quyen, hd_giao_khoan, bao_mat, cam_ket;
+    private JCheckBox to_trinh_thue, to_trinh_ban, hop_dong_thue, hop_dong_ban, hd_giao_khoan, tt_bao_mat, bb_giao_nhan,
+            uy_quyen_ONEFIN, uy_quyen_APPOTA, uy_quyen_VINATTI, phu_luc_VINATTI, cam_ket;
 
-    private JComboBox<String> authorizedName, authorizedId, deviceName1, deviceName2, deviceName3, handoverName;
-    private JTextField authorizedIdDate, authorizedIdPlace, authorizedBirthday, authorizedAddress,
+    private JComboBox<String> authorizedName, deviceName1, deviceName2, deviceName3, handoverName;
+    private JTextField authorizedId, authorizedIdDate, authorizedIdPlace, authorizedBirthday, authorizedAddress,
             authorizedAcc, authorizedBank, authorizedTel, authorizedEmail,
             quantity1, quantity2, quantity3, unitPrice1, unitPrice2, unitPrice3, fee1, fee2, fee3, monthFee2, monthFee3,
             monthFee, totalFee, totalFeeAsText, handoverId, handoverIdDate, handoverIdPlace;
@@ -148,6 +148,14 @@ public class InputForm {
                                 NEW_ACC_NAME_LIST.get(i), NEW_ACC_NO_LIST.get(i), NEW_ACC_BANK_LIST.get(i));
                     }
                 }
+
+                int selectedIndex = exportSelect.getSelectedIndex();
+                if (selectedIndex == 1 || selectedIndex == 3) {
+                    deselectAllAuthorizeCheckBoxes();
+                    uy_quyen_ONEFIN.setSelected(true);
+                } else if (selectedIndex == 2) {
+                    deselectAllAuthorizeCheckBoxes();
+                }
             }
         });
 
@@ -176,8 +184,15 @@ public class InputForm {
                                 NEW_ACC_NAME_LIST.get(i), NEW_ACC_NO_LIST.get(i), NEW_ACC_BANK_LIST.get(i));
                     }
                 }
-
                 addDefaultTidAccountWhenSwitchRadio();
+
+                int selectedIndex = exportSelect.getSelectedIndex();
+                if (selectedIndex == 1 || selectedIndex == 3) {
+                    deselectAllAuthorizeCheckBoxes();
+                    uy_quyen_APPOTA.setSelected(true);
+                } else if (selectedIndex == 2) {
+                    deselectAllAuthorizeCheckBoxes();
+                }
             }
         });
 
@@ -206,8 +221,16 @@ public class InputForm {
                                 NEW_ACC_NAME_LIST.get(i), NEW_ACC_NO_LIST.get(i), NEW_ACC_BANK_LIST.get(i));
                     }
                 }
-
                 addDefaultTidAccountWhenSwitchRadio();
+
+                int selectedIndex = exportSelect.getSelectedIndex();
+                if (selectedIndex == 1 || selectedIndex == 3) {
+                    deselectAllAuthorizeCheckBoxes();
+                    uy_quyen_VINATTI.setSelected(true);
+                    phu_luc_VINATTI.setSelected(true);
+                } else if (selectedIndex == 2) {
+                    deselectAllAuthorizeCheckBoxes();
+                }
             }
         });
 
@@ -216,44 +239,31 @@ public class InputForm {
     private void configCustomerComponents() {
         addSuggestionForComboBox(authorizedName, "KHACH_HANG");
         authorizedName.addActionListener(e -> {
-            String authorizedNameValue = getComboBoxValue(authorizedName).toUpperCase();
+            String authorizedNameValue = getComboBoxValue(authorizedName);
             if (!authorizedNameValue.isEmpty()) {
-                List<Row> rows = getListRowByColumnValue("KHACH_HANG", 1, authorizedNameValue);
-                List<String> uniqueList = rows.stream()
-                        .map(row -> getFormattedCellValue(row, 5))
-                        .distinct().toList();
-
-                if (!uniqueList.isEmpty()) {
-                    authorizedId.removeAllItems();
-                    authorizedId.addItem("");
-                    uniqueList.forEach(authorizedId::addItem);
-
-                    if (uniqueList.size() == 1) {
-                        authorizedId.setSelectedIndex(1);
-                    } else {
-                        authorizedId.setSelectedItem("< chọn căn cước >");
-                        authorizedTel.setText("");
-                        authorizedEmail.setText("");
-                        authorizedIdDate.setText("");
-                        authorizedIdPlace.setText("Cục cảnh sát QLHC về TTXH");
-                        authorizedIdPlace.setCaretPosition(0);
-                        authorizedAddress.setText("");
-                        authorizedAcc.setText("");
-                        authorizedBank.setText("");
-                        authorizedBirthday.setText("");
-                    }
+                Row row = getRowByColumnValue("KHACH_HANG", 1, authorizedNameValue);
+                if (row != null) {
+                    authorizedBirthday.setText(getFormattedCellValue(row, 2));
+                    authorizedTel.setText(getFormattedCellValue(row, 3));
+                    authorizedEmail.setText(getFormattedCellValue(row, 4));
+                    authorizedId.setText(getFormattedCellValue(row, 5));
+                    authorizedIdDate.setText(getFormattedCellValue(row, 6));
+                    authorizedIdPlace.setText(getFormattedCellValue(row, 7));
+                    authorizedAddress.setText(getFormattedCellValue(row, 8));
+                    authorizedAcc.setText(getFormattedCellValue(row, 9));
+                    authorizedBank.setText(getFormattedCellValue(row, 10));
                 }
             } else {
-                authorizedId.setSelectedItem("");
+                authorizedBirthday.setText("");
                 authorizedTel.setText("");
                 authorizedEmail.setText("");
+                authorizedId.setText("");
                 authorizedIdDate.setText("");
                 authorizedIdPlace.setText("Cục cảnh sát QLHC về TTXH");
                 authorizedIdPlace.setCaretPosition(0);
                 authorizedAddress.setText("");
                 authorizedAcc.setText("");
                 authorizedBank.setText("");
-                authorizedBirthday.setText("");
             }
 
             for (JComboBox<String> newAccName : NEW_ACC_NAME_LIST) {
@@ -261,36 +271,6 @@ public class InputForm {
                     setComboBoxValue(newAccName, authorizedNameValue);
                 }
             }
-        });
-
-        authorizedId.addActionListener(e -> {
-            if (authorizedId.getSelectedIndex() > 0) {
-                String authorizedIdValue = getComboBoxValue(authorizedId);
-                List<Row> rows = getListRowByColumnValue("KHACH_HANG", 5, authorizedIdValue);
-                Row row = rows.get(rows.size() - 1);
-                authorizedBirthday.setText(getFormattedCellValue(row, 2));
-                authorizedTel.setText(getFormattedCellValue(row, 3));
-                authorizedEmail.setText(getFormattedCellValue(row, 4));
-                authorizedIdDate.setText(getFormattedCellValue(row, 6));
-                authorizedIdPlace.setText(getFormattedCellValue(row, 7));
-                authorizedAddress.setText(getFormattedCellValue(row, 8));
-                authorizedAcc.setText(getFormattedCellValue(row, 9));
-                authorizedBank.setText(getFormattedCellValue(row, 10));
-
-            } else if (authorizedId.getSelectedIndex() == 0) {
-                authorizedBirthday.setText("");
-                authorizedTel.setText("");
-                authorizedEmail.setText("");
-                authorizedIdDate.setText("");
-                authorizedIdPlace.setText("Cục cảnh sát QLHC về TTXH");
-                authorizedIdPlace.setCaretPosition(0);
-                authorizedAddress.setText("");
-                authorizedAcc.setText("");
-                authorizedBank.setText("");
-            }
-
-            updateTextFieldsValue(NEW_ACC_NO_LIST, authorizedAcc);
-            updateTextFieldsValue(NEW_ACC_BANK_LIST, authorizedBank);
         });
 
         authorizedAcc.addFocusListener(new FocusAdapter() {
@@ -559,9 +539,8 @@ public class InputForm {
             accName.addActionListener(e -> {
                 String accNameValue = getComboBoxValue(accName);
                 if (!accNameValue.isEmpty()) {
-                    List<Row> rows = getListRowByColumnValue("KHACH_HANG", 1, accNameValue);
-                    if (!rows.isEmpty()) {
-                        Row row = rows.get(rows.size() - 1);
+                    Row row = getRowByColumnValue("KHACH_HANG", 1, accNameValue);
+                    if (row != null) {
                         accNo.setText(getFormattedCellValue(row, 9));
                         accBank.setText(getFormattedCellValue(row, 10));
                     } else if (accNameValue.equalsIgnoreCase(getComboBoxValue(authorizedName))) {
@@ -585,54 +564,67 @@ public class InputForm {
                 hop_dong_thue.setSelected(true);
                 hop_dong_ban.setSelected(false);
                 hd_giao_khoan.setSelected(true);
-                uy_quyen.setSelected(true);
-                bao_mat.setSelected(false);
+                tt_bao_mat.setSelected(false);
                 bb_giao_nhan.setSelected(true);
+
+                deselectAllAuthorizeCheckBoxes();
+                selectAuthorizeCheckBoxes();
+
             } else if (exportSelect.getSelectedIndex() == 2) {
                 to_trinh_thue.setSelected(false);
                 to_trinh_ban.setSelected(true);
                 hop_dong_thue.setSelected(false);
                 hop_dong_ban.setSelected(true);
                 hd_giao_khoan.setSelected(false);
-                uy_quyen.setSelected(false);
-                bao_mat.setSelected(true);
+                tt_bao_mat.setSelected(true);
                 bb_giao_nhan.setSelected(true);
+
+                deselectAllAuthorizeCheckBoxes();
+
             } else if (exportSelect.getSelectedIndex() == 3) {
                 to_trinh_thue.setSelected(false);
                 to_trinh_ban.setSelected(true);
                 hop_dong_thue.setSelected(false);
                 hop_dong_ban.setSelected(true);
                 hd_giao_khoan.setSelected(true);
-                uy_quyen.setSelected(true);
-                bao_mat.setSelected(true);
+                tt_bao_mat.setSelected(true);
                 bb_giao_nhan.setSelected(true);
+
+                deselectAllAuthorizeCheckBoxes();
+                selectAuthorizeCheckBoxes();
+
             } else {
                 to_trinh_thue.setSelected(false);
                 to_trinh_ban.setSelected(false);
                 hop_dong_thue.setSelected(false);
                 hop_dong_ban.setSelected(false);
                 hd_giao_khoan.setSelected(false);
-                uy_quyen.setSelected(false);
-                bao_mat.setSelected(false);
+                tt_bao_mat.setSelected(false);
                 bb_giao_nhan.setSelected(false);
 
                 cam_ket.setSelected(false);
+
+                deselectAllAuthorizeCheckBoxes();
             }
         });
 
         exportButton.addActionListener(e -> {
-            String filePrefix = removeDiacritics(getComboBoxValue(authorizedName)).replace(" ", "-");
+            saveInfo("KHACH_HANG", authorizedName, getCustomerInfo());
+            saveInfo("UY_QUYEN", authorizerComName, getAuthorizerInfo());
+            saveInfo("NHAN_VIEN", handoverName, getStaffInfo());
+
             StringBuilder msg = new StringBuilder();
 
-            //  Export Files
             if (!to_trinh_thue.isSelected() && !to_trinh_ban.isSelected() && !hop_dong_thue.isSelected()
-                    && !hop_dong_ban.isSelected() && !hd_giao_khoan.isSelected() && !uy_quyen.isSelected()
-                    && !bao_mat.isSelected() && !bb_giao_nhan.isSelected() && !cam_ket.isSelected()) {
+                    && !hop_dong_ban.isSelected() && !hd_giao_khoan.isSelected() && !tt_bao_mat.isSelected()
+                    && !uy_quyen_ONEFIN.isSelected() && !uy_quyen_APPOTA.isSelected() && !uy_quyen_VINATTI.isSelected()
+                    && !phu_luc_VINATTI.isSelected() && !bb_giao_nhan.isSelected() && !cam_ket.isSelected()) {
                 msg.append("Không có File nào được xuất ra!\n");
-                msg.append("\n");
+
             } else {
-                msg.append("Hồ sơ xuất ra gồm có:\n");
+                String filePrefix = getComboBoxValue(authorizedName);
                 HashMap<String, String> replaceTexts = getInputData();
+                msg.append("Hồ sơ xuất ra gồm có:\n");
 
                 if (to_trinh_thue.isSelected()) {
                     exportDocx("TO-TRINH-CHO-THUE", filePrefix, replaceTexts);
@@ -652,34 +644,35 @@ public class InputForm {
                     exportDocx("HOP-DONG-BAN", filePrefix, getInputData());
                     msg.append("- Hợp đồng mua bán\n");
                 }
+
+                if (uy_quyen_ONEFIN.isSelected() || uy_quyen_APPOTA.isSelected() || uy_quyen_VINATTI.isSelected()
+                        || phu_luc_VINATTI.isSelected()) {
+                    List<List<String>> tidInfoList = getTidInfoList();
+
+                    if (uy_quyen_ONEFIN.isSelected()) {
+                        exportDocx("UY-QUYEN-ONEFIN", filePrefix, replaceTexts, tidInfoList);
+                        msg.append("- Ủy quyền ONEFIN\n");
+                    }
+                    if (uy_quyen_APPOTA.isSelected()) {
+                        exportDocx("UY-QUYEN-APPOTA", filePrefix, replaceTexts, tidInfoList);
+                        exportXlsx_APPOTA(filePrefix, tidInfoList);
+                        msg.append("- Ủy quyền APPOTA\n");
+                    }
+                    if (uy_quyen_VINATTI.isSelected()) {
+                        exportDocx("UY-QUYEN-VINATTI", filePrefix, replaceTexts, tidInfoList);
+                        msg.append("- Ủy quyền VINATTI\n");
+                    }
+                    if (phu_luc_VINATTI.isSelected()) {
+                        exportDocx("PHU-LUC-VINATTI", filePrefix, replaceTexts, tidInfoList);
+                        msg.append("- Phụ lục VINATTI\n");
+                    }
+                }
+
                 if (hd_giao_khoan.isSelected()) {
                     exportDocx("HOP-DONG-GIAO-KHOAN", filePrefix, replaceTexts);
                     msg.append("- Hợp đồng giao khoán\n");
                 }
-                if (uy_quyen.isSelected()) {
-                    List<List<String>> tidInfoList = getTidInfoList();
-                    if (onefin.isSelected()) {
-                        exportDocx("UY-QUYEN-ONEFIN", filePrefix, replaceTexts, tidInfoList);
-                        msg.append("- Ủy quyền ONEFIN\n");
-                    } else if (appota.isSelected()) {
-                        exportDocx("UY-QUYEN-APPOTA", filePrefix, replaceTexts, tidInfoList);
-                        exportXlsx_APPOTA(authorizedName, tidInfoList);
-                        msg.append("- Ủy quyền APPOTA (02 Files: Word & Excel)\n");
-                    } else if (vinatti.isSelected()) {
-                        if (filePrefix.isEmpty()) {
-                            exportDocx("PHU-LUC-VINATTI", "(merged)", replaceTexts, tidInfoList);
-                            msg.append("- Phụ lục VINATTI\n");
-                        } else {
-                            exportDocx("UY-QUYEN-VINATTI", filePrefix, replaceTexts, tidInfoList);
-                            exportDocx("PHU-LUC-VINATTI", filePrefix, replaceTexts, tidInfoList);
-                            msg.append("- Ủy quyền VINATTI (02 Files: Ủy quyền + Phụ lục)\n");
-                        }
-                    } else {
-                        JOptionPane.showMessageDialog(mainPanel, "Vui lòng chọn TRUNG GIAN THANH TOÁN !!!");
-                        return;
-                    }
-                }
-                if (bao_mat.isSelected()) {
+                if (tt_bao_mat.isSelected()) {
                     exportDocx("THOA-THUAN-BAO-MAT", filePrefix, replaceTexts);
                     msg.append("- Thỏa thuận bảo mật\n");
                 }
@@ -690,63 +683,6 @@ public class InputForm {
                 if (cam_ket.isSelected()) {
                     exportDocx("CAM-KET", filePrefix, replaceTexts);
                     msg.append("- Giấy cam kết\n");
-                }
-                msg.append("\n");
-            }
-
-            //  Save Customer Info
-            if (!getComboBoxValue(authorizedName).isEmpty() && !getComboBoxValue(authorizedId).isEmpty()) {
-                if (deviceName1.getSelectedIndex() != 0 || deviceName2.getSelectedIndex() != 0
-                        || deviceName3.getSelectedIndex() != 0) {
-
-                    for (int i = 0; i < DEVICE_NAME_LIST.size(); i++) {
-                        JComboBox<String> deviceName = DEVICE_NAME_LIST.get(i);
-                        JTextField quantity = QUANTITY_LIST.get(i);
-
-                        if (deviceName.getSelectedIndex() != 0) {
-                            List<String> customerInfo = getCustomerInfo();
-                            customerInfo.add(getComboBoxValue(deviceName));
-                            customerInfo.add(quantity.getText().trim());
-                            addNewRecord("KHACH_HANG", customerInfo);
-                        }
-                    }
-                } else {
-                    addNewRecord("KHACH_HANG", getCustomerInfo());
-                }
-
-                msg.append("Thông tin KHÁCH HÀNG đã được lưu lại!\n");
-                msg.append("\n");
-            }
-
-            //  Save/Update Authorizer Info
-            List<String> authorizerComNameList = getListValueOfColumn("UY_QUYEN", 1);
-            String authorizerComNameValue = getComboBoxValue(authorizerComName).toUpperCase();
-            if (!authorizerComNameValue.isEmpty()) {
-                int index = authorizerComNameList.indexOf(authorizerComNameValue);
-
-                if (index != -1) {
-                    updateRecord("UY_QUYEN", index + 1, getAuthorizerInfo());
-                } else {
-                    addNewRecord("UY_QUYEN", getAuthorizerInfo());
-
-                    msg.append("Thông tin ỦY QUYỀN đã được lưu lại!\n");
-                    msg.append("\n");
-                }
-            }
-
-            //  Save/Update Staff Info
-            List<String> handoverNameList = getListValueOfColumn("NHAN_VIEN", 1);
-            String handoverNameValue = getComboBoxValue(handoverName).toUpperCase();
-            if (!handoverNameValue.isEmpty()) {
-                int index = handoverNameList.indexOf(handoverNameValue);
-
-                if (index != -1) {
-                    updateRecord("NHAN_VIEN", index + 1, getStaffInfo());
-                } else {
-                    addNewRecord("NHAN_VIEN", getStaffInfo());
-
-                    msg.append("Thông tin NHÂN VIÊN đã được lưu lại!\n");
-                    msg.append("\n");
                 }
             }
 
@@ -761,7 +697,7 @@ public class InputForm {
 
         replaceTexts.put("{authorizedName}", getComboBoxValue(authorizedName).toUpperCase());
         replaceTexts.put("{authorizedNameRD}", removeDiacritics(getComboBoxValue(authorizedName)));
-        replaceTexts.put("{authorizedId}", getComboBoxValue(authorizedId));
+        replaceTexts.put("{authorizedId}", authorizedId.getText().trim());
         replaceTexts.put("{authorizedIdDate}", authorizedIdDate.getText().trim());
         replaceTexts.put("{authorizedIdPlace}", authorizedIdPlace.getText().trim());
         replaceTexts.put("{authorizedBirthday}", authorizedBirthday.getText().trim());
@@ -830,65 +766,33 @@ public class InputForm {
                 List<String> tidInfo = new ArrayList<>();
 
                 // 0
-                tidInfo.add(MID_LIST.get(i).getText().trim().isEmpty() ? "" :
-                        MID_LIST.get(i).getText().trim());
+                tidInfo.add(MID_LIST.get(i).getText().trim());
                 // 1
                 tidInfo.add(tidValue);
                 // 2
-                tidInfo.add(SERIE_LIST.get(i).getText().trim().isEmpty() ? "" :
-                        SERIE_LIST.get(i).getText().trim());
+                tidInfo.add(SERIE_LIST.get(i).getText().trim());
                 // 3
-                tidInfo.add(POS_NAME_LIST.get(i).getText().trim().isEmpty() ? "" :
-                        removeDiacritics(POS_NAME_LIST.get(i).getText().trim()));
+                tidInfo.add(removeDiacritics(POS_NAME_LIST.get(i).getText().trim()).toUpperCase());
                 // 4
-                tidInfo.add(shopName.getText().trim().isEmpty() ? "" :
-                        shopName.getText().trim().toUpperCase());
+                tidInfo.add(getComboBoxValue(OLD_ACC_NAME_LIST.get(i)).toUpperCase());
                 // 5
-                tidInfo.add(OLD_ACC_NAME_LIST.get(i).getSelectedItem() == null ? "" :
-                        removeDiacritics(getComboBoxValue(OLD_ACC_NAME_LIST.get(i))));
+                tidInfo.add(OLD_ACC_NO_LIST.get(i).getText().trim());
                 // 6
-                tidInfo.add(OLD_ACC_NO_LIST.get(i).getText().trim().isEmpty() ? "" :
-                        OLD_ACC_NO_LIST.get(i).getText().trim());
+                tidInfo.add(OLD_ACC_BANK_LIST.get(i).getText().trim());
                 // 7
-                tidInfo.add(OLD_ACC_BANK_LIST.get(i).getText().trim().isEmpty() ? "" :
-                        OLD_ACC_BANK_LIST.get(i).getText().trim());
+                tidInfo.add(getComboBoxValue(NEW_ACC_NAME_LIST.get(i)).toUpperCase());
                 // 8
-                tidInfo.add(NEW_ACC_NAME_LIST.get(i).getSelectedItem() == null ? "" :
-                        removeDiacritics(getComboBoxValue(NEW_ACC_NAME_LIST.get(i))));
+                tidInfo.add(NEW_ACC_NO_LIST.get(i).getText().trim());
                 // 9
-                tidInfo.add(NEW_ACC_NO_LIST.get(i).getText().trim().isEmpty() ? "" :
-                        NEW_ACC_NO_LIST.get(i).getText().trim());
-                // 10
-                tidInfo.add(NEW_ACC_BANK_LIST.get(i).getText().trim().isEmpty() ? "" :
-                        NEW_ACC_BANK_LIST.get(i).getText().trim());
+                tidInfo.add(NEW_ACC_BANK_LIST.get(i).getText().trim());
                 // ----------
-                // 11
+                // 10
                 tidInfo.add(MID_LIST.get(i).getText().trim().isEmpty() ? "" :
                         ("MID " + (i + 1) + ": " + MID_LIST.get(i).getText().trim()));
-                // 12
+                // 11
                 tidInfo.add("TID " + (i + 1) + ": " + tidValue);
-                // 13
-                tidInfo.add(OLD_ACC_NAME_LIST.get(i).getSelectedItem() == null ? "" :
-                        ("Chủ TK: " + removeDiacritics(getComboBoxValue(OLD_ACC_NAME_LIST.get(i)))));
-                // 14
-                tidInfo.add(OLD_ACC_NO_LIST.get(i).getText().trim().isEmpty() ? "" :
-                        ("STK: " + OLD_ACC_NO_LIST.get(i).getText().trim()));
-                // 15
-                tidInfo.add(OLD_ACC_BANK_LIST.get(i).getText().trim().isEmpty() ? "" :
-                        ("Mở tại: " + OLD_ACC_BANK_LIST.get(i).getText().trim()));
-                // 16
-                tidInfo.add(NEW_ACC_NAME_LIST.get(i).getSelectedItem() == null ? "" :
-                        ("Chủ TK: " + removeDiacritics(getComboBoxValue(NEW_ACC_NAME_LIST.get(i)))));
-                // 17
-                tidInfo.add(NEW_ACC_NO_LIST.get(i).getText().trim().isEmpty() ? "" :
-                        ("STK: " + NEW_ACC_NO_LIST.get(i).getText().trim()));
-                // 18
-                tidInfo.add(NEW_ACC_BANK_LIST.get(i).getText().trim().isEmpty() ? "" :
-                        ("Mở tại: " + NEW_ACC_BANK_LIST.get(i).getText().trim()));
-                // ----------
-                // 19
-                tidInfo.add(authorizerComAddress.getText().trim().isEmpty() ? "" :
-                        authorizerComAddress.getText().trim());
+                // 12
+                tidInfo.add(authorizerComAddress.getText().trim());
 
                 tidInfoList.add(tidInfo);
             }
@@ -903,13 +807,12 @@ public class InputForm {
         authorizedInfo.add(authorizedBirthday.getText().trim());
         authorizedInfo.add(authorizedTel.getText().trim());
         authorizedInfo.add(authorizedEmail.getText().trim());
-        authorizedInfo.add(getComboBoxValue(authorizedId));
+        authorizedInfo.add(authorizedId.getText().trim());
         authorizedInfo.add(authorizedIdDate.getText().trim());
         authorizedInfo.add(authorizedIdPlace.getText().trim());
         authorizedInfo.add(authorizedAddress.getText().trim());
         authorizedInfo.add(authorizedAcc.getText().trim());
         authorizedInfo.add(authorizedBank.getText().trim());
-        authorizedInfo.add("");
         return authorizedInfo;
     }
 
@@ -1153,6 +1056,37 @@ public class InputForm {
         newAccNo.setEditable(true);
         newAccBank.setEnabled(true);
         newAccBank.setEditable(true);
+    }
+
+    private void deselectAllAuthorizeCheckBoxes() {
+        uy_quyen_ONEFIN.setSelected(false);
+        uy_quyen_APPOTA.setSelected(false);
+        uy_quyen_VINATTI.setSelected(false);
+        phu_luc_VINATTI.setSelected(false);
+    }
+
+    private void selectAuthorizeCheckBoxes() {
+        if (onefin.isSelected()) {
+            uy_quyen_ONEFIN.setSelected(true);
+        } else if (appota.isSelected()) {
+            uy_quyen_APPOTA.setSelected(true);
+        } else if (vinatti.isSelected()) {
+            uy_quyen_VINATTI.setSelected(true);
+            phu_luc_VINATTI.setSelected(true);
+        }
+    }
+
+    private void saveInfo(String sheetName, JComboBox<String> comboBox, List<String> info) {
+        List<String> valueList = getListValueOfColumn(sheetName, 1);
+        String value = getComboBoxValue(comboBox).toUpperCase();
+        if (!value.isEmpty()) {
+            int index = valueList.indexOf(value);
+            if (index != -1) {
+                updateRecord(sheetName, index + 1, info);
+            } else {
+                addNewRecord(sheetName, info);
+            }
+        }
     }
 
 }
