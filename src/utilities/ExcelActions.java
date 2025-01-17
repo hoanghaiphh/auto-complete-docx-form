@@ -135,8 +135,8 @@ public class ExcelActions {
                     List<String> tidInfo = tidInfoList.get(i);
                     String[] cellValues = {String.valueOf(i + 1), tidInfo.get(3), tidInfo.get(12),
                             tidInfo.get(0), tidInfo.get(1), tidInfo.get(2),
-                            tidInfo.get(5), tidInfo.get(4), tidInfo.get(6),
-                            tidInfo.get(8), tidInfo.get(7), tidInfo.get(9)};
+                            tidInfo.get(5), removeDiacritics(tidInfo.get(4)), tidInfo.get(6),
+                            tidInfo.get(8), removeDiacritics(tidInfo.get(7)), tidInfo.get(9)};
 
                     for (int j = 0; j < cellValues.length; j++) {
                         Cell cell = row.getCell(j);

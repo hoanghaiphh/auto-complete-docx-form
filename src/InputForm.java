@@ -77,13 +77,19 @@ public class InputForm {
         static String serviceType = "";
     }
 
-
     public static void main(String[] args) {
-        JFrame mainFrame = new JFrame("POS INFORMATION - VERSION 6.0 - ©COPYRIGHT BY HAIPH");
-        mainFrame.setContentPane(new InputForm().mainPanel);
+        JFrame mainFrame = new JFrame("POS INFORMATION - VERSION 6.1 - ©COPYRIGHT BY HAIPH");
+
+        InputForm inputForm = new InputForm();
+        JScrollPane scrollPane = new JScrollPane(inputForm.mainPanel);
+        scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
+        scrollPane.getVerticalScrollBar().setUnitIncrement(20);
+        scrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
+        scrollPane.getHorizontalScrollBar().setUnitIncrement(20);
+
+        mainFrame.setContentPane(scrollPane);
         mainFrame.pack();
         mainFrame.setLocationRelativeTo(null);
-        mainFrame.setResizable(false);
         mainFrame.setVisible(true);
         mainFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
@@ -315,11 +321,11 @@ public class InputForm {
 
             deviceName.addActionListener(e -> {
                 int select = deviceName.getSelectedIndex();
-                if (select == 1 || select == 3 || select == 4) {
+                if (select == 1 || select == 2 || select == 3) {
                     unitPrice.setText("10.000.000");
                     mFee.setText("350.000");
                     setCalculationRule(unitPrice, quantity, fee);
-                } else if (select == 2) {
+                } else if (select == 4 || select == 5) {
                     unitPrice.setText("5.000.000");
                     mFee.setText("250.000");
                     setCalculationRule(unitPrice, quantity, fee);
@@ -690,7 +696,6 @@ public class InputForm {
         });
 
     }
-
 
     private HashMap<String, String> getInputData() {
         HashMap<String, String> replaceTexts = new HashMap<>();
